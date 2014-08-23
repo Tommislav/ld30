@@ -1,6 +1,7 @@
 package se.salomonsson.ld30.entities;
 
 import com.haxepunk.Entity;
+import com.haxepunk.HXP;
 import com.haxepunk.utils.Input;
 import flash.geom.Point;
 import se.salomonsson.ld30.behaviours.IBehaviour;
@@ -29,6 +30,7 @@ class Player extends Entity
 	private var _behaviours:Array<IBehaviour>;
 	
 	private var _isJumping:Bool;
+	private var _onGround:Bool;
 	
 	public function new(x:Float, y:Float) 
 	{
@@ -54,6 +56,8 @@ class Player extends Entity
 		updateFromInput();
 		updateBehaviours();
 		
+		
+		HXP.camera.setTo(this.x - HXP.halfWidth, this.y - HXP.halfHeight);
 	}
 	
 	
@@ -78,13 +82,13 @@ class Player extends Entity
 			}
 		}
 		
-		if (_isJumping) {
-			
-			var leftFootStanding:Bool = collideTypes(["solid", "cloud"], this.x + 1, this.y + 1) != null;
-			var rightFootStanding:Bool = (collideTypes(["solid", "cloud"], this.x - 1 + this.width, this.y + 1)) != null;
-			if (leftFootStanding || rightFootStanding) {
-				_isJumping = false;
-			}
+		_onGround = collideTypes(["solid", "cloud"], this.x, this.y + 1) != null;
+		if (_isJumping && _onGround) {
+			_isJumping = false;
+		}
+		
+		if (_onGround) {
+			_velocity.y = 0;
 		}
 		
 		if (Input.check(CTRL_JUMP)) {
@@ -93,6 +97,12 @@ class Player extends Entity
 				_isJumping = true;
 			}
 		}
+		
+		
+		
+		
+		
+		
 		
 		
 	}
