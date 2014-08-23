@@ -44,6 +44,8 @@ class Player extends Entity
 	private var _lastAttackTime:Int;
 	private var _lastDashTime:Int;
 	
+	private var _leftDownTime:Int;
+	private var _rightDownTime:Int;
 	
 	
 	public function new(x:Float, y:Float) 
@@ -129,14 +131,20 @@ class Player extends Entity
 		var isMoving:Bool = false;
 		var gd:GameData = GameData.instance;
 		
+		_onGround = collideTypes(["solid", "cloud"], this.x, this.y + 1) != null;
 		var staggering:Bool = (Lib.getTimer() - _lastAttackTime < gd.moveStaggering);
 		
-		if (Input.check(CTRL_LEFT) && !staggering) {
+		
+		
+		if (Input.check(CTRL_LEFT)) {
+			if (_velocity.x > 0) { _velocity.x *= 0.9; }
 			isMoving = true;
 			_velocity.x -= gd.moveSpeed;
 			_dir.x = -1;
 		}
-		if (Input.check(CTRL_RIGHT) && !staggering) {
+		if (Input.check(CTRL_RIGHT)) {
+			
+			if (_velocity.x < 0) { _velocity.x *= 0.9; }
 			isMoving = true;
 			_velocity.x += gd.moveSpeed;
 			_dir.x = 1;
@@ -156,7 +164,7 @@ class Player extends Entity
 		}
 		
 		
-		_onGround = collideTypes(["solid", "cloud"], this.x, this.y + 1) != null;
+		
 		if (_isJumping && _onGround) {
 			_isJumping = false;
 		}
@@ -173,20 +181,39 @@ class Player extends Entity
 		}
 		
 		
-		if (Input.check(CTRL_DASH_LEFT)) {
-			if (canDash()) {
-				dash( -1);
+		if (Input.pressed(CTRL_LEFT)) {
+			if (checkDashDoubleClick(-1)) {
+				if (canDash()) {
+					dash( -1);
+				}
 			}
 		}
-		if (Input.check(CTRL_DASH_RIGHT)) {
-			if (canDash()) {
-				dash(1);
-			}
+		if (Input.pressed(CTRL_RIGHT)) {
+			if (checkDashDoubleClick(1)) {
+				if (canDash()) {
+					dash(1);
+				}
+			}			
 		}
 		
 		
 		
 		
+	}
+	
+	
+	
+	function checkDashDoubleClick(dir:Int):Bool {
+		var now:Int = Lib.getTimer();
+		var doubleClick:Int = now - ((dir < 0) ? _leftDownTime : _rightDownTime);
+		
+		if (dir < 0) {_leftDownTime = now;}
+		else {_rightDownTime = now;}
+			
+		if (doubleClick < 300) {
+			return true;
+		}
+		return false;
 	}
 	
 	
@@ -220,7 +247,7 @@ class Player extends Entity
 	}
 	
 	private function canDash():Bool {
-		return (Lib.getTimer() - _lastDashTime > GameData.instance.dashRecovery);// DASH RECOVER TIME
+		return (Lib.getTimer() - _lastDashTime > GameData.instance.dashRecoveryTime);// DASH RECOVER TIME
 	}
 	
 	private function dash(dir:Int) {

@@ -20,6 +20,8 @@ class EnemyBase extends Entity
 	private var _killBonus:Int;
 	
 	
+	
+	
 	public function new(x:Float, y:Float, gfx:Graphic, w:Int=32, h:Int=32, type:String="enemy") 
 	{
 		super(x, y, gfx);
@@ -80,11 +82,17 @@ class EnemyBase extends Entity
 	}
 	
 	function checkAttacked() {
-		var e:Entity = collide("atk", this.x, this.y);
-		if (e != null) {
-			trace("enemy attacked");
-			onAttacked(e);
+		if (_dmgCounter <= 0) {
+			var e:Entity = collide("atk", this.x, this.y);
+			if (e != null) {
+				_dmgCounter = 30;
+				onAttacked(e);
+			}
+		} else {
+			_dmgCounter--;
 		}
+		
+		
 	}
 	
 	function postUpdate() 

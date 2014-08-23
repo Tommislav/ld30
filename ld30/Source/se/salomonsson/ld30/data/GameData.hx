@@ -17,20 +17,24 @@ class GameData
 	
 	public var maxSpeed:Float = 6;
 	public var maxFall:Float = 14;
-	public var moveSpeed:Float = 1;
+	public var moveSpeed:Float = 0.12;
 	public var moveStaggering:Int = 400;
 	public var gravity:Float = 1;
 	public var moveFriction:Float = 0.8;
 	public var jumpStr:Float = 60;
 	
 	public var dashSpeed:Float = 40;
-	public var dashRecovery:Int = 2000;
+	public var dashRecoveryTime:Int = 800;
 	
 	public var swordStr:Int = 1;
-	public var swordLength:Int = 40;
+	public var swordLength:Int = 65;
 	public var swordRecovery:Int = 500;
 	
 	public var health:Int = 100;
 	public var maxHealth:Int = 100;
+	
+	
+	
+	//public var 
 	
 }

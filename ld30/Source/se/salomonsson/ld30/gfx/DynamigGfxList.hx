@@ -36,12 +36,24 @@ class DynamigGfxList extends Graphiclist
 			var c = children;
 			var img:Image;
 			for (i in 0...c.length) {
-				trace("flipp " + i + " ->> " + _flippable[i]);
+				
 				if (_flippable[i]) {
 					img = cast(c[i], Image);
 					img.flipped = f;
 				}
 			}
 		}
+	}
+	public function setGroupVisible(name:String, val:Bool) {
+		var c = children;
+		
+		var img:Image;
+			for (i in 0...c.length) {
+				
+				if (_group[i] == name) {
+					img = cast(c[i], Image);
+					img.visible = val;
+				}
+			}
 	}
 }
