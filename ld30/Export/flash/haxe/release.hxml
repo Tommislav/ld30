@@ -1,0 +1,12 @@
+-main ApplicationMain 
+-lib openfl
+-cp Source
+-cp ../haxepunk-fork
+-D tools=1.2.8
+-D fdb
+-D web
+-swf-version 11.2
+-swf Export/flash/bin/Ld30.swf
+-swf-header 800:600:30:FFFFFF
+-cp Export/flash/haxe
+#--remap nme:flash
