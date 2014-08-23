@@ -8,6 +8,7 @@
 	<source path="../haxepunk-fork" />
 	
 	<haxelib name="openfl" />
+	<haxelib name="dconsole" />
 	
 	
 	<assets path="Assets" rename="assets" exclude="openfl.svg" />
