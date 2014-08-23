@@ -37,8 +37,8 @@ class Main extends Engine {
 		Input.define(Player.CTRL_UP, [Keyboard.UP]);
 		Input.define(Player.CTRL_DOWN, [Keyboard.DOWN]);
 		Input.define(Player.CTRL_ATK, [Keyboard.X]);
-		Input.define(Player.CTRL_DASH_LEFT, [Keyboard.Z]);
-		Input.define(Player.CTRL_DASH_RIGHT, [Keyboard.C]);
+		//Input.define(Player.CTRL_DASH_LEFT, [Keyboard.Z]);
+		//Input.define(Player.CTRL_DASH_RIGHT, [Keyboard.C]);
 		Input.define(Player.CTRL_JUMP, [Keyboard.SPACE]);
 		
 		GraphicsFactory.init();

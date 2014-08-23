@@ -1,7 +1,9 @@
 package se.salomonsson.ld30.entities;
 
 import com.haxepunk.Entity;
+import com.haxepunk.graphics.Emitter;
 import com.haxepunk.HXP;
+import com.haxepunk.utils.Ease;
 import com.haxepunk.utils.Input;
 import flash.geom.Point;
 import flash.Lib;
@@ -24,9 +26,9 @@ class Player extends Entity
 	public static var CTRL_UP:String = "up";
 	public static var CTRL_DOWN:String = "down";
 	public static var CTRL_ATK:String = "attack";
-	public static var CTRL_DASH_LEFT:String = "dashLeft";
-	public static var CTRL_DASH_RIGHT:String = "dashRight";
 	public static var CTRL_JUMP:String = "jump";
+	
+	private var _emitter:EmitEntity;
 	
 	private var _gfx:DynamigGfxList;
 	
@@ -46,6 +48,8 @@ class Player extends Entity
 	
 	private var _leftDownTime:Int;
 	private var _rightDownTime:Int;
+	
+	private var _dmgCoutnDown:Int;
 	
 	
 	public function new(x:Float, y:Float) 
@@ -67,6 +71,16 @@ class Player extends Entity
 		
 		_behaviours = new Array<IBehaviour>();
 		//_behaviours.push(new UpdatePosBehaviour(_velocity, _maxVelocity));
+		
+		
+		
+		
+	}
+	
+	override public function added():Void 
+	{
+		super.added();
+		_emitter = cast(HXP.scene.getInstance("emitter"), EmitEntity);
 		
 		_sword = new Sword(GameData.instance.swordLength);
 		_sword.layer = HXP.BASELAYER - 1;
@@ -97,6 +111,7 @@ class Player extends Entity
 		updateDash();
 		updatePosition();
 		updateBehaviours();
+		updateGfx();
 		
 		
 		if (_dir.x < 0) {
@@ -109,6 +124,15 @@ class Player extends Entity
 		HXP.camera.setTo(this.x - HXP.halfWidth, this.y - HXP.halfHeight);
 		_sword.x = this.x;
 		_sword.y = this.y;
+	}
+	
+	function updateGfx() {
+		if (_dmgCoutnDown == 1) {
+			_gfx.setGroupVisible("normal", true);
+			_gfx.setGroupVisible("dmg", false);
+		}
+		
+		if (_dmgCoutnDown > 0) { _dmgCoutnDown--; }
 	}
 	
 	function updatePosition() {
@@ -243,6 +267,13 @@ class Player extends Entity
 			if (_dashVelocity.x < 0.1 && _dashVelocity.x > -0.1) {
 				_dashVelocity.x = 0;
 			}
+			
+			
+			if (_dashVelocity.x > 5 || _dashVelocity.x < -5) {
+				var name:String = _dashVelocity.x < 0 ? "dashL" : "dashR";
+				_emitter.emit(name, 1, centerX, centerY, 16, 16);
+			}
+			
 		}
 	}
 	
@@ -252,46 +283,40 @@ class Player extends Entity
 	
 	private function dash(dir:Int) {
 		_lastDashTime = Lib.getTimer();
-		_dashVelocity.x += dir * GameData.instance.dashSpeed; // DASH LENGTH	
+		_dashVelocity.x += dir * GameData.instance.dashSpeed; // DASH LENGTH
+		
+		var name:String = (dir < 0) ? "dashL" : "dashR";
+		_emitter.emit(name, 10, centerX, centerY, 16, 16);
 	}
 	
-	private function updateDashEffects() {
-		if (_dashVelocity.x != 0) {
-			var dir = _dashVelocity.x > 0 ? 1 : -1;
-			if (_dashVelocity.x < 0.01 && _dashVelocity.x > -0.01) {
-				_dashVelocity.x = 0;
-			}
-			
-			var name:String = "right";
-			if (dir == -1) {
-				name = "left";
-			}
-			//_emitter.emit(name, this.x, this.y);
-			//_emitter.emit(name, 100, 100);
-			//_emitter.emit(name, this.x, this.y);
-		}
-		
-		//_emitter.emit("left");
-	}
+	
 	
 	
 	
 	
 	
 	public function collideWithEnemy(e:EnemyBase):Bool {
+		
 		if (e.centerX > this.centerX) {
 			_velocity.x -= 30;
 		} else {
 			_velocity.x += 30;
 		}
 		
+		if (_dmgCoutnDown > 0) {
+			_velocity.y -= 30;
+			return false;
+		}
 		
+		_gfx.setGroupVisible("normal", false);
+		_gfx.setGroupVisible("dmg", true);
 		
 		GameData.instance.health -= e.getDamage();
 		if (GameData.instance.health <= 0) {
 			// DEAD!
 			
 		} else {
+			_dmgCoutnDown = 30;
 			_velocity.y -= 30;
 		}
 		

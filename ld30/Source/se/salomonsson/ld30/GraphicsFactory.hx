@@ -58,7 +58,7 @@ class GraphicsFactory
 			img = new Image(bd, _rect.get(name), name);
 		#else
 			var atlas:AtlasData = AtlasData.getAtlasDataByName("assets/gameobject_assets.png", false);
-			img = new Image(atlas.createRegion(_rect.get(name), name));
+			img = new Image(atlas.createRegion(_rect.get(name), new Point()), null, name);
 		#end
 		return img;
 	}
@@ -76,7 +76,8 @@ class GraphicsFactory
 		registerImgPart32("eye-close", 6, 0);
 		registerImgPart32("shade", 1, 0);
 		registerImgPart32("ninja", 2, 0);
-		registerImgPart32("ninja-eyes", 3, 0);
+		registerImgPart32("ninja-eyes1", 3, 0);
+		registerImgPart32("ninja-eyes2", 4, 0);
 		
 		registerImgPart32("square1", 0, 1);
 		registerImgPart32("square2", 1, 1);
@@ -94,7 +95,10 @@ class GraphicsFactory
 		g.add2(instance.getImgPart("square1"), 		false, "");
 		g.add2(instance.getImgPart("shade"), 		false, "");
 		g.add2(instance.getImgPart("ninja"), 		true, "");
-		g.add2(instance.getImgPart("ninja-eyes"), 	true, "");
+		g.add2(instance.getImgPart("ninja-eyes1"), 	true, "normal");
+		g.add2(instance.getImgPart("ninja-eyes2"), 	true, "dmg");
+		g.setGroupVisible("dmg", false);
+		
 		return g;
 	}
 	
@@ -103,10 +107,14 @@ class GraphicsFactory
 		g.add2(instance.getImgPart("square2"), 		false, "");
 		g.add2(instance.getImgPart("shade"), 		false, "");
 		g.add2(instance.getImgPart("eye"), 			false, "eye");
-		g.add2(instance.getImgPart("eye-close"),		false, "dmg");
+		g.add2(instance.getImgPart("eye-close"),	false, "dmg");
 		g.setGroupVisible("dmg", true);
 		g.setGroupVisible("eye", false);
 		return g;
 	}
+	
+	
+	
+	
 	
 }

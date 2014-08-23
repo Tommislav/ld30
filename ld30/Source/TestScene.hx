@@ -1,9 +1,11 @@
 package ;
 
+import com.haxepunk.graphics.Emitter;
 import com.haxepunk.Scene;
 import com.haxepunk.Sfx;
 import com.haxepunk.tmx.TmxEntity;
 import com.haxepunk.tmx.TmxMap;
+import se.salomonsson.ld30.entities.EmitEntity;
 import se.salomonsson.ld30.entities.EnemyBase;
 import se.salomonsson.ld30.entities.EyeEnemy;
 import se.salomonsson.ld30.entities.Player;
@@ -33,9 +35,8 @@ class TestScene extends GameBaseScene
 		
 		SoundFactory.getSound("8BitDreams").loop();
 		
-		var pl:Player = new Player(10, 10);
-		add(pl);
-		
+		add(new EmitEntity());
+		add(new Player(10,10));
 		add(new EyeEnemy(100, 10, GraphicsFactory.getGenericEnemyGraphic()));
 		add(new EyeEnemy(200, 10, GraphicsFactory.getGenericEnemyGraphic()));
 	}

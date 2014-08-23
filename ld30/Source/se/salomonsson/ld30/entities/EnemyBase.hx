@@ -13,6 +13,8 @@ import se.salomonsson.ld30.EntityType;
  */
 class EnemyBase extends Entity
 {
+	private var _emitter:EmitEntity;
+	
 	private var _velocity:Point;
 	private var _maxVelocity:Point;
 	private var _hp:Int;
@@ -28,6 +30,11 @@ class EnemyBase extends Entity
 		this.type = type;
 		setHitbox(w, h);
 		_hp = 3;
+	}
+	
+	override public function added():Void {
+		super.added();
+		_emitter = cast(HXP.scene.getInstance("emitter"), EmitEntity);
 	}
 	
 	
@@ -86,7 +93,12 @@ class EnemyBase extends Entity
 			var e:Entity = collide("atk", this.x, this.y);
 			if (e != null) {
 				_dmgCounter = 30;
-				onAttacked(e);
+				_hp -= GameData.instance.swordStr;
+				if (_hp <= 0) {
+					onKilled();
+				} else {
+					onAttacked(e);
+				}
 			}
 		} else {
 			_dmgCounter--;
@@ -110,10 +122,7 @@ class EnemyBase extends Entity
 	}
 	
 	function onAttacked(e:Entity) {
-		_hp -= GameData.instance.swordStr;
-		if (_hp <= 0) {
-			onKilled();
-		}
+		
 	}
 	
 	function onKilled() {
