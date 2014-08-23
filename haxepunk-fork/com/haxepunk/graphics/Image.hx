@@ -4,6 +4,7 @@ import com.haxepunk.graphics.atlas.Atlas;
 import com.haxepunk.graphics.atlas.TextureAtlas;
 import com.haxepunk.graphics.atlas.AtlasRegion;
 import com.haxepunk.Graphic;
+import com.haxepunk.graphics.prototype.Rect;
 import com.haxepunk.HXP;
 import com.haxepunk.RenderMode;
 
@@ -119,7 +120,9 @@ class Image extends Graphic
 			{
 				_region = _region.clip(clipRect); // create a new clipped region
 			}
-			_sourceRect = clipRect;
+			_sourceRectNonFlipped =  new Rectangle(clipRect.x, clipRect.y, clipRect.width, clipRect.height);
+			_sourceRectFlipped = new Rectangle(_source.width - clipRect.x - clipRect.width, clipRect.y, clipRect.width, clipRect.height);
+			_sourceRect = _sourceRectNonFlipped;
 		}
 
 		if (_blit)
@@ -132,6 +135,8 @@ class Image extends Graphic
 		}
 	}
 
+	
+	
 	private inline function setAtlasRegion(region:AtlasRegion)
 	{
 		_blit = false;
@@ -412,6 +417,10 @@ class Image extends Graphic
 		_flipped = value;
 		if (_blit)
 		{
+			if (_sourceRect != null) {
+				_sourceRect = (value) ? _sourceRectFlipped : _sourceRectNonFlipped;
+			}
+			
 			var temp:BitmapData = _source;
 			if (!value || _flip != null)
 			{
@@ -514,6 +523,10 @@ class Image extends Graphic
 	// Source and buffer information.
 	private var _source:BitmapData;
 	private var _sourceRect:Rectangle;
+	
+	private var _sourceRectNonFlipped:Rectangle;
+	private var _sourceRectFlipped:Rectangle;
+	
 	private var _buffer:BitmapData;
 	private var _bufferRect:Rectangle;
 	private var _bitmap:Bitmap;

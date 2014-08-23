@@ -29,7 +29,7 @@
     <option directives="openfl=2.0.1&#xA;dconsole=4.2.0&#xA;hscript=2.0.1&#xA;tools=1.5.7&#xA;openfl-flash&#xA;display&#xA;web" />
     <option flashStrict="False" />
     <option mainClass="ApplicationMain" />
-    <option enabledebug="True" />
+    <option enabledebug="False" />
     <option additional="--no-output&#xA;-swf-version 11.2" />
   </build>
   <!-- haxelib libraries -->
@@ -42,7 +42,7 @@
   </compileTargets>
   <!-- Assets to embed into the output SWF -->
   <library>
-    <!-- example: <asset path="..." id="..." update="..." glyphs="..." mode="..." place="..." sharepoint="..." /> -->
+    <asset path="Assets\gameobject_assets.png" bitmap="False" />
   </library>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>

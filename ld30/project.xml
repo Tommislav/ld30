@@ -2,7 +2,7 @@
 <project>
 	
 	<meta title="Ld30" package="se.salomonsson.ld30" version="1.0.0" company="Salomonsson.se" />
-	<app main="Main" path="Export" file="Ld30" />
+	<app main="Main" path="Export" file="Ld30" width="800" height="600" />
 	
 	<source path="Source" />
 	<source path="../haxepunk-fork" />

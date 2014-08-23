@@ -38,6 +38,7 @@ class TestScene extends GameBaseScene
 		add(pl);
 		
 		add(new EnemyBase(100, 10, GraphicsFactory.getGenericEnemyGraphic()));
+		add(new EnemyBase(200, 10, GraphicsFactory.getGenericEnemyGraphic()));
 	}
 	
 }

@@ -4,11 +4,12 @@ import com.haxepunk.Entity;
 import com.haxepunk.HXP;
 import com.haxepunk.utils.Input;
 import flash.geom.Point;
-import openfl.Lib;
+import flash.Lib;
 import se.salomonsson.ld30.behaviours.IBehaviour;
 import se.salomonsson.ld30.behaviours.UpdatePosBehaviour;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.EntityType;
+import se.salomonsson.ld30.gfx.DynamigGfxList;
 import se.salomonsson.ld30.gfx.SwordGfx;
 import se.salomonsson.ld30.GraphicsFactory;
 
@@ -27,6 +28,7 @@ class Player extends Entity
 	public static var CTRL_DASH_RIGHT:String = "dashRight";
 	public static var CTRL_JUMP:String = "jump";
 	
+	private var _gfx:DynamigGfxList;
 	
 	private var _velocity:Point;
 	private var _maxVelocity:Point;
@@ -50,7 +52,8 @@ class Player extends Entity
 		
 		this.type = EntityType.PLAYER;
 		
-		this.graphic = GraphicsFactory.getPlayerGraphic();
+		_gfx = GraphicsFactory.getPlayerGraphic();
+		this.graphic = _gfx;
 		this.setHitbox(32, 32);
 		
 		_velocity = new Point();
@@ -94,6 +97,13 @@ class Player extends Entity
 		updateBehaviours();
 		
 		
+		if (_dir.x < 0) {
+			_gfx.setFlipped(true);
+		} else {
+			_gfx.setFlipped(false);
+		}
+		
+		
 		HXP.camera.setTo(this.x - HXP.halfWidth, this.y - HXP.halfHeight);
 		_sword.x = this.x;
 		_sword.y = this.y;
@@ -119,12 +129,14 @@ class Player extends Entity
 		var isMoving:Bool = false;
 		var gd:GameData = GameData.instance;
 		
-		if (Input.check(CTRL_LEFT)) {
+		var staggering:Bool = (Lib.getTimer() - _lastAttackTime < gd.moveStaggering);
+		
+		if (Input.check(CTRL_LEFT) && !staggering) {
 			isMoving = true;
 			_velocity.x -= gd.moveSpeed;
 			_dir.x = -1;
 		}
-		if (Input.check(CTRL_RIGHT)) {
+		if (Input.check(CTRL_RIGHT) && !staggering) {
 			isMoving = true;
 			_velocity.x += gd.moveSpeed;
 			_dir.x = 1;

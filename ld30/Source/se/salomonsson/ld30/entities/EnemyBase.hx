@@ -109,6 +109,7 @@ class EnemyBase extends Entity
 	}
 	
 	function onKilled() {
+		this.graphic = null;
 		HXP.scene.remove(this);
 	}
 	

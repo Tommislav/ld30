@@ -8,6 +8,7 @@ import flash.ui.Keyboard;
 import pgr.dconsole.DC;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.Player;
+import se.salomonsson.ld30.GraphicsFactory;
 
 
 class Main extends Engine {
@@ -40,11 +41,11 @@ class Main extends Engine {
 		Input.define(Player.CTRL_DASH_RIGHT, [Keyboard.C]);
 		Input.define(Player.CTRL_JUMP, [Keyboard.SPACE]);
 		
-		
+		GraphicsFactory.init();
 		GameData.resetGameData();
 		
 		
-		HXP.screen.color = 0xcccccc;
+		//HXP.screen.color = 0xcccccc;
 		HXP.scene = new TestScene();
 	}
 	

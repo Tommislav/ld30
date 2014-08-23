@@ -15,15 +15,15 @@
  </tileset>
  <layer name="main" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJztmGsOwiAQhGvU81RPpZ5Hb6XeSRJrQlDqlB0KgfmSSfqDLss+um2HQQgh2uS6Ke1BOr7vN/I5tk47pz3JzpzOkWvG/qfJ5oVkx9fjj/y11v3vk82n0U54DsSv8B5mflJhnMPPlTWuqfyqK6RfWHUVY2n/f+ozVbniz+r/0iD9z3pmh4xuthwiOmaYnz3lTAgLI9iH6LqcPoj6yDUz1qaWmWHthaUzQ733RnFog7XzqLoRtaBaxFGsvlFMxNy/GlTot6TVbsyO6lcILqVmQ+8zqffzt4xyi2N9J6lFL4X2UrU=
+   eJztmFsOwiAQRTHqeqqrUteju9LuST5sQjDAXJ4Tek8ySZMC8+6QGkMIIXPyPIy2IB/X9lcnP45WTlbO4PqY3APPiB6U20/XA1zvyich7lqpHpRSPyT7/D0t8jPCDzdXK2hvSkdJXUn6RVtdvY2sF0Lva8XfB/VDcl6rmC/2G34JiCROyLcZ8SNm17XB3EFy1jIfpWw9IaltzX4g0I++LIk+3GqwZb+mbCB6Qe/zWqk953Mp7QVkZtTQNwuMwxz0ziPrhmiBtSiHsfqHMSGxfzVSSdVPrg7/3NA5rF9C6jJqNux9Ju3d/5lhbuWU3km0yBfMYlws
   </data>
  </layer>
  <layer name="collision" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJztmEEKwCAMBLX/f3QPpZcWa8RNI3EGAl6MbuKKWAoAQE5q9AYmqI2xKvcdqjytKI2xev3ZPNHzV9Dx3EuUf9Chmf+Vd6QuFp9b7gE10f1VYdHhpfXohJqdegYwg9WHnn71zA2+ZLmjVtEx64VRHXjvgjrk4O8+cm5gFTiLdqjVG2oCvb8aa3itYc0DADqivLW7p3fXnxl6a0f1LomOE335AXQ=
+   eJzt2MEOhCAMRVHw/z/ahWGjQVvhFQL3JE1cTKgP7MzElABgTXn0DTTIlWt1z1Lez9cqVa49fbz+5GjtpxCd496zVy5y/O+noJhzy/dAb6rzVTheypLDk9WT4+2+DuMaHqoc0VbJ4UGOWF9zWHIo51W5NrTUv79RZsnROgveHMzehX1YQ/Q58txgFjyLduzVE3uCr3c11lL1sK4DoJ9Rs7X7TO+ef2WcrV2v/yWj6wQcQQGW
   </data>
  </layer>
- <layer name="fg" width="50" height="50">
+ <layer name="fg" width="50" height="50" visible="0">
   <properties>
    <property name="scrollx" value="1.5"/>
    <property name="scrolly" value="1.5"/>
