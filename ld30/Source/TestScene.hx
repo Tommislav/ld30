@@ -4,7 +4,10 @@ import com.haxepunk.Scene;
 import com.haxepunk.Sfx;
 import com.haxepunk.tmx.TmxEntity;
 import com.haxepunk.tmx.TmxMap;
+import se.salomonsson.ld30.entities.EnemyBase;
 import se.salomonsson.ld30.entities.Player;
+import se.salomonsson.ld30.EntityType;
+import se.salomonsson.ld30.GraphicsFactory;
 import se.salomonsson.ld30.scene.GameBaseScene;
 import se.salomonsson.ld30.SoundFactory;
 	
@@ -33,6 +36,8 @@ class TestScene extends GameBaseScene
 		
 		var pl:Player = new Player(10, 10);
 		add(pl);
+		
+		add(new EnemyBase(100, 10, GraphicsFactory.getGenericEnemyGraphic()));
 	}
 	
 }

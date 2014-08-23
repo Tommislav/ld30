@@ -23,4 +23,8 @@ class GraphicsFactory
 		return getColoredRectangle(32, 32, 0xcc0000);
 	}
 	
+	public static function getGenericEnemyGraphic() {
+		return getColoredRectangle(32, 32, 0xce7c07);
+	}
+	
 }

@@ -22,4 +22,14 @@ class GameData
 	public var moveFriction:Float = 0.9;
 	public var jumpStr:Float = 60;
 	
+	public var dashSpeed:Float = 40;
+	public var dashRecovery:Int = 2000;
+	
+	public var swordStr:Int = 1;
+	public var swordLength:Int = 60;
+	public var swordRecovery:Int = 500;
+	
+	public var health:Int = 100;
+	public var maxHealth:Int = 100;
+	
 }
