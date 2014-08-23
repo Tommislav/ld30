@@ -1,14 +1,19 @@
 package ;
 
 import com.haxepunk.Scene;
+import com.haxepunk.Sfx;
 import com.haxepunk.tmx.TmxEntity;
 import com.haxepunk.tmx.TmxMap;
+import se.salomonsson.ld30.entities.Player;
+import se.salomonsson.ld30.scene.GameBaseScene;
+import se.salomonsson.ld30.SoundFactory;
+	
 
 /**
  * ...
  * @author Tommislav
  */
-class TestScene extends Scene
+class TestScene extends GameBaseScene
 {
 
 	public function new() 
@@ -20,22 +25,13 @@ class TestScene extends Scene
 	override public function begin() 
 	{
 		super.begin();
-		
-		var mapData:TmxMap = TmxMap.loadFromFile("assets/test_level.tmx");
-		var _map = new TmxEntity(mapData);
-		
-		var levelGfxArray = ["main"];
-		#if debug
-			levelGfxArray.push("collision");
-		#end
+		loadTileMap("assets/test_level.tmx", ["main"], ["fg"]);
 		
 		
-		_map.loadGraphic("assets/level_tilesheet.png", levelGfxArray);
-		_map.loadMask("collision");
+		SoundFactory.getSound("8BitDreams").loop();
 		
-		
-		add(new TestEntity());
-		add(_map);
+		var pl:Player = new Player(10, 10);
+		add(pl);
 	}
 	
 }

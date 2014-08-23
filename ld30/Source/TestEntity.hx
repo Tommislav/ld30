@@ -2,6 +2,7 @@ package ;
 
 import com.haxepunk.Entity;
 import com.haxepunk.graphics.Image;
+import com.haxepunk.HXP;
 
 /**
  * ...
@@ -12,10 +13,10 @@ class TestEntity extends Entity
 	public function new() {
 		super();
 		
-		var gfx = Image.createRect(32, 32, 0xff0000);
+		var gfx = Image.createRect(32, 32, 0x00ff00);
 		this.graphic = gfx;
-		this.x = 10;
-		this.y = 20;
+		this.x = 80;
+		this.y = 110;
 	}
 	
 	override public function update():Void 

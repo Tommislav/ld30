@@ -2,6 +2,16 @@
 <map version="1.0" orientation="orthogonal" width="50" height="50" tilewidth="16" tileheight="16">
  <tileset firstgid="1" name="level_tilesheet" tilewidth="16" tileheight="16">
   <image source="level_tilesheet.png" width="1600" height="320"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="type" value="cloud"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="main" width="50" height="50">
   <data encoding="base64" compression="zlib">
@@ -11,6 +21,11 @@
  <layer name="collision" width="50" height="50">
   <data encoding="base64" compression="zlib">
    eJzt1NEGQCEMANDt/3/6PkUvMUq7cg4xo2xmRQC8KbsL2JCL+E+ycGIRz7luu3W80sd4o3s++jhz/5TKnlf+AQAAAAAAAIBbPg1aADI=
+  </data>
+ </layer>
+ <layer name="fg" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztz8ENACAMxLCy/x8YlyWQuCJ7gqSKDuZ4XXDH8hHFRxYfWXxk8ZHFRxYfWfYnHwAAAAAAAF0d3s0JgQ==
   </data>
  </layer>
 </map>

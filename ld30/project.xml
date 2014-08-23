@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
-	<meta title="Ld30" package="com.example.ld30" version="1.0.0" company="Company Name" />
+	<meta title="Ld30" package="se.salomonsson.ld30" version="1.0.0" company="Salomonsson.se" />
 	<app main="Main" path="Export" file="Ld30" />
 	
 	<source path="Source" />
 	<source path="../haxepunk-fork" />
 	
-	<haxelib name="openfl" />
+	<haxelib name="openfl" version="1.2.1" />
+	
 	
 	<assets path="Assets" rename="assets" exclude="openfl.svg" />
+	<assets path="Assets/audio" rename="audio" type="audio" include="*" />
+	
+	<assets path="../haxepunk-fork/assets/graphics" rename="gfx" include="*.png" embed="true" />
+	<assets path="../haxepunk-fork/assets/font" rename="font" include="*.ttf" embed="true" />
 	<icon path="Assets/openfl.svg" />
 	
 </project>
