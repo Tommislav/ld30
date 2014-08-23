@@ -20,6 +20,7 @@ class SoundFactory
 		#end
 		
 		var sfx:Sfx = new Sfx(url);
+		
 		return sfx;
 	}
 	

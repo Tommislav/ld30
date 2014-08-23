@@ -28,7 +28,8 @@ class TestScene extends GameBaseScene
 		loadTileMap("assets/test_level.tmx", ["main"], ["fg"]);
 		
 		
-		SoundFactory.getSound("8BitDreams").loop();
+		//SoundFactory.getSound("8BitDreams").loop();
+		SoundFactory.getSound("LDBossSong").loop();
 		
 		var pl:Player = new Player(10, 10);
 		add(pl);

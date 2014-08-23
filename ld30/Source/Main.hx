@@ -23,7 +23,7 @@ class Main extends Engine {
 			HXP.console.enable();
 			HXP.console.show();
 			HXP.console.toggleKey = Keyboard.NUMBER_0;
-			
+			HXP.volume = 0;
 		#end
 		
 		// DEFINE INPUT
@@ -34,11 +34,13 @@ class Main extends Engine {
 		Input.define(Player.CTRL_ATK, [Keyboard.X]);
 		Input.define(Player.CTRL_DASH_LEFT, [Keyboard.Z]);
 		Input.define(Player.CTRL_DASH_RIGHT, [Keyboard.C]);
+		Input.define(Player.CTRL_JUMP, [Keyboard.SPACE]);
 		
 		
 		GameData.resetGameData();
 		
-		HXP.volume = 0;
+		
+		HXP.screen.color = 0xcccccc;
 		HXP.scene = new TestScene();
 	}
 	

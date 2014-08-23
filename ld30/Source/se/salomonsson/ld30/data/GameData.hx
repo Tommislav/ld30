@@ -20,5 +20,6 @@ class GameData
 	public var moveSpeed:Float = 1;
 	public var gravity:Float = 1;
 	public var moveFriction:Float = 0.9;
+	public var jumpStr:Float = 60;
 	
 }

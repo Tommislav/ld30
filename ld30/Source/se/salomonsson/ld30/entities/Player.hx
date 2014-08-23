@@ -21,11 +21,14 @@ class Player extends Entity
 	public static var CTRL_ATK:String = "attack";
 	public static var CTRL_DASH_LEFT:String = "dashLeft";
 	public static var CTRL_DASH_RIGHT:String = "dashRight";
+	public static var CTRL_JUMP:String = "jump";
 	
 	
 	private var _velocity:Point;
 	private var _maxVelocity:Point;
 	private var _behaviours:Array<IBehaviour>;
+	
+	private var _isJumping:Bool;
 	
 	public function new(x:Float, y:Float) 
 	{
@@ -51,8 +54,6 @@ class Player extends Entity
 		updateFromInput();
 		updateBehaviours();
 		
-		
-		
 	}
 	
 	
@@ -76,7 +77,26 @@ class Player extends Entity
 				_velocity.x = 0;
 			}
 		}
+		
+		if (_isJumping) {
+			
+			var leftFootStanding:Bool = collideTypes(["solid", "cloud"], this.x + 1, this.y + 1) != null;
+			var rightFootStanding:Bool = (collideTypes(["solid", "cloud"], this.x - 1 + this.width, this.y + 1)) != null;
+			if (leftFootStanding || rightFootStanding) {
+				_isJumping = false;
+			}
+		}
+		
+		if (Input.check(CTRL_JUMP)) {
+			if (!_isJumping) {
+				_velocity.y -= gd.jumpStr;
+				_isJumping = true;
+			}
+		}
+		
+		
 	}
+	
 	
 	function updateBehaviours() {
 		for (b in _behaviours) {

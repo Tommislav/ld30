@@ -30,6 +30,8 @@ class UpdatePosBehaviour implements IBehaviour
 		var shoudSweep = (_velocityRef.x < -16 || _velocityRef.x > 16 || _velocityRef.y < -16 || _velocityRef.y > 16);
 		
 		e.moveBy(_velocityRef.x, _velocityRef.y, ["solid", "cloud"], shoudSweep);
+		
+		
 	}
 	
 }

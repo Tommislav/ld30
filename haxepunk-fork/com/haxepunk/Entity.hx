@@ -40,6 +40,8 @@ typedef CollisionInfo = {
  */
 class Entity extends Tweener
 {
+	public var onGround:Bool;
+	
 	/**
 	 * If the Entity should render.
 	 */
