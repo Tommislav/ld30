@@ -110,9 +110,6 @@ class MooseBoss extends EnemyBase
 	}
 	
 	private function updateJump() {
-		if (_velocity.y >= 0) {
-			trace("jumping");
-		}
 		if (collide("solid", this.x, this.y + 1) != null) {
 			setIdleState();
 		}
