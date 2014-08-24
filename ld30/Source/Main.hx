@@ -32,6 +32,7 @@ class Main extends Engine {
 			
 			DC.init(60);
 			DC.log("LUDUM DARE 30! CONNECTED WORLDS!!!");
+			
 		#end
 		
 		// DEFINE INPUT
@@ -50,7 +51,13 @@ class Main extends Engine {
 		
 		
 		//HXP.screen.color = 0xcccccc;
-		HXP.scene = new StartScenee();
+		HXP.scene = new HubScene();
+	}
+	
+	public function changeLevel(name:String) 
+	{
+		GameData.instance.gotoWorld(name);
+		
 	}
 	
 }

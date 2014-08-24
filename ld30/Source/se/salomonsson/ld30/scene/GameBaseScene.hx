@@ -89,11 +89,19 @@ class GameBaseScene extends Scene
 	}
 	
 	function addPlayerAtPosition(e:Entity, from:String = "") {
+		
+		
+		var p:Point;
+		
 		if (_playerEntryPoints.exists(from)) {
-			var p:Point = _playerEntryPoints.get(from);
-			e.x = p.x;
-			e.y = p.y;
+			p = _playerEntryPoints.get(from);
+		} else {
+			p = _playerEntryPoints.iterator().next();
 		}
+		
+		e.x = p.x;
+		e.y = p.y;
+		
 		add(e);
 	}
 	

@@ -22,7 +22,7 @@ class GameData
 	
 	public function new() {	
 		lock = new Map();
-		currentWorld = "";
+		currentWorld = "0";
 		lastWorld = "";
 	}
 	
