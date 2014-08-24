@@ -28,4 +28,20 @@ class SoundFactory
 		return sfx;
 	}
 	
+	private static var _bgLoop:Sfx;
+	
+	public static function playBgLoop(soundName:String):Sfx {
+		stopBgLoop();
+		_bgLoop = getSound(soundName);
+		_bgLoop.loop();
+		return _bgLoop;
+	}
+	
+	public static function stopBgLoop() {
+		if (_bgLoop != null) {
+			_bgLoop.stop();
+			_bgLoop = null;
+		}
+	}
+	
 }

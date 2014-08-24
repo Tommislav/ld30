@@ -55,7 +55,7 @@ class EnemyBase extends Entity
 	}
 	
 	public function getDamage():Int {
-		return 10;
+		return 1;
 	}
 	
 	
@@ -96,12 +96,22 @@ class EnemyBase extends Entity
 	function checkCollisionWithPlayer() {
 		var e:Entity = collide(EntityType.PLAYER, this.x, this.y);
 		if (e != null) {
+			
+			if (!isCollidableWithPlayer()) {
+				return;
+			}
+			
 			var pl:Player = cast(e, Player);
 			
 			if (pl.collideWithEnemy(this)) {
 				onCollisionWithPlayer(pl);
 			}
 		}
+	}
+	
+	function isCollidableWithPlayer() 
+	{
+		return true;
 	}
 	
 	function canBeAttacked(e:Entity):Bool {

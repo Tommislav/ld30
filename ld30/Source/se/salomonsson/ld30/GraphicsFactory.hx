@@ -82,6 +82,10 @@ class GraphicsFactory
 		// Free form images registration
 		_rect.set("shade32x96", new Rectangle(13 * 32, 0, 32, 96));
 		_rect.set("shield96", new Rectangle(14 * 32, 0, 32, 96));
+		
+		_rect.set("shade64x256", new Rectangle(0, 2*32, 64, 256));
+		_rect.set("moose-eyes1", new Rectangle(2*32, 2*32, 256, 5*32));
+		_rect.set("moose-eyes2", new Rectangle(2*32, 7*32, 256, 5*32));
 	}
 	
 	
@@ -122,6 +126,16 @@ class GraphicsFactory
 		g.add2(instance.getImgPart("coin2"), false, "");
 		g.add2(instance.getImgPart("coin3"), false, "");
 		g.add2(instance.getImgPart("coin4"), false, "");
+		return g;
+	}
+	
+	static public function getMooseGraphics() 
+	{
+		var g:DynamigGfxList = new DynamigGfxList();
+		g.add2(getColoredRectangle(256, 256, 0x4b2d16), false, "");
+		g.add2(instance.getImgPart("shade64x256"), false, "");
+		g.add2(instance.getImgPart("moose-eyes1"), true, "eyesOpen");
+		g.add2(instance.getImgPart("moose-eyes2"), true, "eyesClosed");
 		return g;
 	}
 	

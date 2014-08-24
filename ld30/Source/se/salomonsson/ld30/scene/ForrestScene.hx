@@ -1,17 +1,42 @@
 package se.salomonsson.ld30.scene;
 
+import com.haxepunk.HXP;
 import com.haxepunk.Scene;
+import se.salomonsson.ld30.data.GameData;
+import se.salomonsson.ld30.entities.EmitEntity;
+import se.salomonsson.ld30.entities.MooseBoss;
+import se.salomonsson.ld30.entities.Player;
 
 /**
  * ...
  * @author Tommislav
  */
-class ForrestScene extends Scene
+class ForrestScene extends GameBaseScene
 {
 
 	public function new() 
 	{
 		super();
+	}
+	
+	override public function begin() 
+	{
+		super.begin();
+		loadTileMap("assets/forest_level.tmx", ["moon","bg2", "bg", "main", "main_fg"]);
+		
+		
+		add(new EmitEntity());
+		
+		var lastWorld:String = GameData.instance.lastWorld;
+		addPlayerAtPosition(new Player(), lastWorld);
+		HXP.screen.color = 0x18238b;
+		
+		if (!GameData.instance.mooseBossKilled) {
+			playBgLoop("LDBossSong");
+		} else {
+			playBgLoop("8BitDreams");
+		}
+		
 	}
 	
 }

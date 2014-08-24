@@ -10,6 +10,7 @@ import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.Player;
 import se.salomonsson.ld30.GraphicsFactory;
 import se.salomonsson.ld30.scene.FireScene;
+import se.salomonsson.ld30.scene.ForrestScene;
 import se.salomonsson.ld30.scene.HubScene;
 import se.salomonsson.ld30.scene.StartScenee;
 
@@ -51,7 +52,7 @@ class Main extends Engine {
 		
 		
 		//HXP.screen.color = 0xcccccc;
-		HXP.scene = new HubScene();
+		HXP.scene = new ForrestScene();
 	}
 	
 	public function changeLevel(name:String) 

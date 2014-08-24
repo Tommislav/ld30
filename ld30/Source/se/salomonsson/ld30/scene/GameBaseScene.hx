@@ -9,10 +9,12 @@ import com.haxepunk.tmx.TmxMap;
 import com.haxepunk.tmx.TmxObject;
 import com.haxepunk.tmx.TmxObjectGroup;
 import flash.geom.Point;
+import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.CoinEntity;
 import se.salomonsson.ld30.entities.EyeEnemy;
 import se.salomonsson.ld30.entities.InfoEntity;
 import se.salomonsson.ld30.entities.LargeShieldEntity;
+import se.salomonsson.ld30.entities.MooseBoss;
 import se.salomonsson.ld30.entities.PortalEntity;
 import se.salomonsson.ld30.SoundFactory;
 
@@ -110,14 +112,17 @@ class GameBaseScene extends Scene
 			case "eye":
 				add(new EyeEnemy(x, y, maxMoney));
 			case "shield":
-				add(new LargeShieldEntity(x,y));
+				add(new LargeShieldEntity(x, y));
+			case "moose":
+				if (!GameData.instance.mooseBossKilled) {
+					add(new MooseBoss(x,y));
+				}
 				
 		}
 	}
 	
 	public function playBgLoop(name:String) {
-		_bgLoop = SoundFactory.getSound(name);
-		_bgLoop.loop();
+		_bgLoop = SoundFactory.playBgLoop(name);
 	}
 	
 	
@@ -125,9 +130,7 @@ class GameBaseScene extends Scene
 	override public function end() 
 	{
 		super.end();
-		if (_bgLoop != null) {
-			_bgLoop.stop();
-		}
+		SoundFactory.stopBgLoop();
 	}
 	
 }

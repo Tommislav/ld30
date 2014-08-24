@@ -41,7 +41,7 @@ class GameData
 	public var swordLength:Int = 65;
 	public var swordRecovery:Int = 500;
 	
-	public var health:Int = 100;
+	public var health:Int = 14;
 	public var maxHealth:Int = 100;
 	
 	public var money:Int = 0;
@@ -49,6 +49,8 @@ class GameData
 	public var lock:Map<String, Bool>;
 	
 	
+	
+	public var mooseBossKilled:Bool;
 	
 	
 	public var currentWorld:String;
