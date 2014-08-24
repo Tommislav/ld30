@@ -15,10 +15,10 @@
  </tileset>
  <layer name="main" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJztmEsOAiEMhtHRg/jYjx7Hx149iI+9XsfHXr2TXTgJmQRoYYCK/ZI/MZGhLW2nZJQSBEEok3Mvtwf+6L5fEsVRgQagIXG9TVvDb4odKpuvrR1xva6XQ/parB0qoXFgnms/EyM/OeLQc/Um+uuyEVJXmH7hVldPhesF0/9dnX8bahyY/WKdeQ3v8JlBmHOivJspcdj8mkeYO5ScxcxHKE1PYGqbcxwUJI601I4+bGowZr+6fBD4Qr3Pc6XrOe9LaC9QZkYX9kpBzqEMUudR6kYIZdFXaglagdZ9/31y1+IVfL+B7qBHQBwpsJ3VCC41Y9AENK3S+9YV1Dhy14+JUvKxB98PoCPoxDQO27carFz142ujva9pH271Kwi/Tq7ZwHUmpeLf4y8ZyS2e0DsJF30AI5xkiA==
+   eJztmEkOwjAMRQOFgzDsC8dh2AMHYdjDdRj2wJ3wgkpRpSR2nEmtn/QlJJLYju0kqlKCIAjd5DrI7YE/uu+3RHFUoBFoTBxv097wm2KHyu5v60Acr+vjkD4Wa4cKNw7MvPacGPnJEYeeqy/RX5cNTl1h+qW0unorXC+Y/g+1/22ocWDWi7XnNZzhC4Mw+0Q5mylx2PxaRrh3KDmLmQ8uTU9garvkOChIHGmpHX3Y1GDMfnX5IJQL9T1fKqHveV+4vUC5M0LY6wqyD90gdR6lbgQuq6FSa9AGtB36rxOiFjm+3GH8A/QEvRhxhMDli22vJvComYJmoHkV31cbHF+oc2OeZSnjiAnHlyOMP4HOoEvmOEy+2L7VYOWqH18b7XVN68hdLAhhyfXO7fv7uu/xdxnJLR7um6QU/QDoLGzk
   </data>
  </layer>
- <layer name="collision" width="50" height="50">
+ <layer name="collision" width="50" height="50" visible="0">
   <data encoding="base64" compression="zlib">
    eJzt2MEOhCAMRVHw/z/ahWGjQVvhFQL3JE1cTKgP7MzElABgTXn0DTTIlWt1z1Lez9cqVa49fbz+5GjtpxCd496zVy5y/O+noJhzy/dAb6rzVTheypLDk9WT4+2+DuMaHqoc0VbJ4UGOWF9zWHIo51W5NrTUv79RZsnROgveHMzehX1YQ/Q58txgFjyLduzVE3uCr3c11lL1sK4DoJ9Rs7X7TO+ef2WcrV2v/yWj6wQcQQGW
   </data>
@@ -30,6 +30,25 @@
   </properties>
   <data encoding="base64" compression="zlib">
    eJztmE0KQjEMhJ8b9T7eSj2Peir1SEbEhWJjS/4mJQPZPSb5KBnatyylDDqtoifQ0bk4oFQcn1pTbai2OnbD0uLYUx2ojjp2w9LiuFLdqO46dsPS3I/IXSsOW6/I3i0vjyzz4PDIMg8Ojyzz2g/r3ZmF4zIJh5cycXD5momDy9dMHFy+ZuJ4qjXvTBw7YSFwoPp69ysOrH7FgdUPiUPyLozgaOW/5F2IdB6SdyESB6Kvdz9vDukdqnWfynbPfOt77ggOLl97sxeBg8vX3uxF4ODytTd7ETj+9e2ZqTh0VRy/vymOlyz+b0RwWJxncdj2tPCcneMBy3Zg4w==
+  </data>
+ </layer>
+ <objectgroup name="obj" width="50" height="50">
+  <object type="info" x="144" y="512" width="64" height="96">
+   <properties>
+    <property name="info" value="CONNECTION TO FIRE WORLD"/>
+    <property name="level" value="1"/>
+   </properties>
+  </object>
+  <object type="info" x="704" y="512" width="64" height="96">
+   <properties>
+    <property name="info" value="CONNECTION TO HUB WORLD"/>
+    <property name="level" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="main_fg" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1EEKACAIAEH7/4O7Ri+QupQ1Ax6FBcEIgDf1drpgX4X22ZhNtsNd3Af+sfq/AQAAAAAAoIoB1g8aKQ==
   </data>
  </layer>
 </map>

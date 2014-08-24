@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="70" height="70" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="level_tilesheet" tilewidth="16" tileheight="16">
+  <image source="level_tilesheet.png" width="1600" height="320"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="type" value="cloud"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="main" width="70" height="70">
+  <data encoding="base64" compression="zlib">
+   eJzt2ulNw0AQhuGJ/Q+qIJwNALVw0wBQBXcqoBduGgAaYiSEBGi9cZSZrMd5H+n7mbXzZX2sHREAAMrbHIhsjcmCjE/u89uD7nw3y3050Zxmcma3KTd3Dr/Nu+Yjk0/7TZrz6KVpbM9tWZv3XnLnS6/zXIReUrz3k17aje+xvYNK5FBzpDmubMbsQy/P2sWL5lXzZtBL0/nG8lwzi15Wa5E1zbpmo7YbN/r16Fq7uNHcakYFe2lzj9/1LDr0kru/j5LUOmTatVHp7+TVy3+TzpfcuqcrKdFLBNOu50usDWbB6zlH9DlEL2nWvfTluPJ4LhZ9rnihl/4cN16YI2n08o3jZzLMmzR6+cv7vWxkzJW0SL3sVCK7mj3NvtG7kSaRernXLh40j5onw16iX6eXapGhZlmzYvgO4EekOfLbuXZxobnUXAXtpc3/q6IkwrEEAAAAAAAAAAAAAMA8+gL/S7o/
+  </data>
+ </layer>
+ <layer name="collision" width="70" height="70" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJzt2lEOwBAMAFDb/Q+9C8j2oSvqvaS/QqNFojUAmO9OihlWmguwvxX7HFCTXkOGq0hE+2PMbL01jPaUqnmJGHOH+FrDiUbzUvVtYL/0yUtfdF6q1NWM+wvnqlI3MIP6gXjqCYjinGZVWf+rKv/jAgAAAAAAAADePVaXAaE=
+  </data>
+ </layer>
+ <objectgroup name="obj" width="70" height="70">
+  <object type="info" x="576" y="208" width="64" height="64">
+   <properties>
+    <property name="" value=""/>
+    <property name="info" value="PRESS &lt;UP&gt; TO ENTER MY SHOP"/>
+   </properties>
+  </object>
+  <object type="info" x="528" y="576" width="64" height="64">
+   <properties>
+    <property name="info" value="CONNECTION TO FIRE WORLD"/>
+    <property name="level" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="main_fg" width="70" height="70">
+  <data encoding="base64" compression="zlib">
+   eJzt2VsKgCAQBVDb/5qLPoPAYaTwxTnQApy8V8RSAGC88+jzzbQ2Hpd5dPeeuX+wjhl7blb2NXyja2I65h+97gE73jNWZH45+oUs3dRGtsiQqzoZokZuYrJDRH7ayBMZ8lQnQ9DGOR3TKeOMfg/xvgIAAAAAAAAA+7sBhf7TYw==
+  </data>
+ </layer>
+</map>

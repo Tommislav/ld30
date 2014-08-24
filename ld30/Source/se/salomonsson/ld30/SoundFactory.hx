@@ -14,13 +14,17 @@ class SoundFactory
 		var url:String = "audio/" + soundName;
 		
 		#if flash
-			url += ".mp3";
+			if (url.indexOf(".") == -1) {
+				url += ".mp3";
+			}
 		#else 
-			url += ".ogg";
+			if ( url.indexOf(".") == -1) {
+				url += ".ogg";
+			}
+			
 		#end
 		
 		var sfx:Sfx = new Sfx(url);
-		
 		return sfx;
 	}
 	

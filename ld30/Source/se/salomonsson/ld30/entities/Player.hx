@@ -14,6 +14,7 @@ import se.salomonsson.ld30.EntityType;
 import se.salomonsson.ld30.gfx.DynamigGfxList;
 import se.salomonsson.ld30.gfx.SwordGfx;
 import se.salomonsson.ld30.GraphicsFactory;
+import se.salomonsson.ld30.SoundFactory;
 
 /**
  * ...
@@ -197,7 +198,7 @@ class Player extends Entity
 			_velocity.y = 0;
 		}
 		
-		if (Input.check(CTRL_JUMP)) {
+		if (Input.pressed(CTRL_JUMP)) {
 			if (_onGround) {
 				_velocity.y -= gd.jumpStr;
 				_isJumping = true;
@@ -227,19 +228,6 @@ class Player extends Entity
 	
 	
 	
-	function checkDashDoubleClick(dir:Int):Bool {
-		var now:Int = Lib.getTimer();
-		var doubleClick:Int = now - ((dir < 0) ? _leftDownTime : _rightDownTime);
-		
-		if (dir < 0) {_leftDownTime = now;}
-		else {_rightDownTime = now;}
-			
-		if (doubleClick < 300) {
-			return true;
-		}
-		return false;
-	}
-	
 	
 	// ATTACK
 	
@@ -254,11 +242,25 @@ class Player extends Entity
 	private function attack() {
 		_lastAttackTime = Lib.getTimer();
 		_sword.attack(_dir.x);
+		SoundFactory.getSound("Swing.wav").play();
 	}
 	
 	
 	
 	// DASH
+	
+	function checkDashDoubleClick(dir:Int):Bool {
+		var now:Int = Lib.getTimer();
+		var doubleClick:Int = now - ((dir < 0) ? _leftDownTime : _rightDownTime);
+		
+		if (dir < 0) {_leftDownTime = now;}
+		else {_rightDownTime = now;}
+			
+		if (doubleClick < 200) {
+			return true;
+		}
+		return false;
+	}
 	
 	private function updateDash() {
 		if (_dashVelocity.x != 0) {

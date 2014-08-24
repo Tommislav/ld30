@@ -8,6 +8,7 @@ import com.haxepunk.tmx.TmxMap;
 import se.salomonsson.ld30.entities.EmitEntity;
 import se.salomonsson.ld30.entities.EnemyBase;
 import se.salomonsson.ld30.entities.EyeEnemy;
+import se.salomonsson.ld30.entities.PortalEntity;
 import se.salomonsson.ld30.entities.Player;
 import se.salomonsson.ld30.EntityType;
 import se.salomonsson.ld30.GraphicsFactory;
@@ -31,14 +32,15 @@ class TestScene extends GameBaseScene
 	override public function begin() 
 	{
 		super.begin();
-		loadTileMap("assets/test_level.tmx", ["main"], ["fg"]);
+		loadTileMap("assets/test_level.tmx", ["main", "main_fg"], ["fg"]);
 		
-		SoundFactory.getSound("8BitDreams").loop();
+		playBgLoop("8BitDreams");
 		
 		add(new EmitEntity());
 		add(new Player(10,10));
 		add(new EyeEnemy(100, 10, GraphicsFactory.getGenericEnemyGraphic()));
 		add(new EyeEnemy(200, 10, GraphicsFactory.getGenericEnemyGraphic()));
+		
 	}
 	
 }

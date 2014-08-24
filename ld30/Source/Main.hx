@@ -9,6 +9,7 @@ import pgr.dconsole.DC;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.Player;
 import se.salomonsson.ld30.GraphicsFactory;
+import se.salomonsson.ld30.scene.HubScene;
 
 
 class Main extends Engine {
@@ -46,7 +47,7 @@ class Main extends Engine {
 		
 		
 		//HXP.screen.color = 0xcccccc;
-		HXP.scene = new TestScene();
+		HXP.scene = new HubScene();
 	}
 	
 }

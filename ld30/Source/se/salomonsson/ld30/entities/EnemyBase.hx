@@ -6,6 +6,7 @@ import com.haxepunk.HXP;
 import flash.geom.Point;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.EntityType;
+import se.salomonsson.ld30.SoundFactory;
 
 /**
  * ...
@@ -122,10 +123,11 @@ class EnemyBase extends Entity
 	}
 	
 	function onAttacked(e:Entity) {
-		
+		SoundFactory.getSound("Punch2.wav").play();
 	}
 	
 	function onKilled() {
+		SoundFactory.getSound("Death.wav").play();
 		this.graphic = null;
 		HXP.scene.remove(this);
 	}
