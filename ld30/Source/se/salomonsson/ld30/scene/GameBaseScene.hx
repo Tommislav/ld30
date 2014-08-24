@@ -1,5 +1,6 @@
 package se.salomonsson.ld30.scene;
 
+import com.haxepunk.Entity;
 import com.haxepunk.HXP;
 import com.haxepunk.Scene;
 import com.haxepunk.Sfx;
@@ -7,6 +8,7 @@ import com.haxepunk.tmx.TmxEntity;
 import com.haxepunk.tmx.TmxMap;
 import com.haxepunk.tmx.TmxObject;
 import com.haxepunk.tmx.TmxObjectGroup;
+import flash.geom.Point;
 import se.salomonsson.ld30.entities.CoinEntity;
 import se.salomonsson.ld30.entities.EyeEnemy;
 import se.salomonsson.ld30.entities.InfoEntity;
@@ -27,9 +29,11 @@ class GameBaseScene extends Scene
 	private var _fgLayer:TmxEntity;
 	
 	private var _bgLoop:Sfx;
+	private var _playerEntryPoints:Map<String,Point>;
 	
 	public function new() {
 		super();
+		_playerEntryPoints = new Map();
 	}
 	
 	public function loadTileMap(tiledFile:String, bgLayers:Array<String>, fgLayers:Array<String>=null) {
@@ -49,6 +53,11 @@ class GameBaseScene extends Scene
 		
 		var obj:TmxObjectGroup = _mapData.getObjectGroup("obj");
 		for (o in obj.objects) {
+			if (o.type == "start") {
+				var key:String = o.custom.has("from") ? o.custom.resolve("from") : "";
+				_playerEntryPoints.set(key, new Point(o.x, o.y));
+			}
+			
 			if (o.type == "portal") {
 				var nextLevel:String = o.custom.has("level") ? o.custom.resolve("level") : "";
 				var lockId:String = o.custom.has("locked") ? o.custom.resolve("locked") : "";
@@ -77,7 +86,15 @@ class GameBaseScene extends Scene
 			_fgLayer.layer = HXP.BASELAYER - 4;
 			add(_fgLayer);
 		}
-		
+	}
+	
+	function addPlayerAtPosition(e:Entity, from:String = "") {
+		if (_playerEntryPoints.exists(from)) {
+			var p:Point = _playerEntryPoints.get(from);
+			e.x = p.x;
+			e.y = p.y;
+		}
+		add(e);
 	}
 	
 	function spawnEnemy(enemyType:String, x:Float, y:Float, maxMoney:Int, obj:TmxObject) {

@@ -21,7 +21,7 @@ class HubScene extends GameBaseScene
 		playBgLoop("8BitDreams");
 		
 		add(new EmitEntity());
-		add(new Player(10,10));
+		add(new Player());
 	}
 	
 }

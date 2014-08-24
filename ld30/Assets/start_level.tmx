@@ -29,7 +29,11 @@
   </data>
  </layer>
  <objectgroup name="obj" width="130" height="60">
-  <object type="start" x="416" y="160" width="32" height="32"/>
+  <object type="start" x="416" y="160" width="32" height="32">
+   <properties>
+    <property name="from" value="start"/>
+   </properties>
+  </object>
   <object type="portal" x="336" y="736" width="64" height="80">
    <properties>
     <property name="info" value="&lt;PRESS DOWN TO ENTER CONNECTION&gt;"/>

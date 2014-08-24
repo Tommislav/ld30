@@ -54,9 +54,9 @@ class Player extends Entity
 	private var _dmgCoutnDown:Int;
 	
 	
-	public function new(x:Float, y:Float) 
+	public function new() 
 	{
-		super(x, y);
+		super(100,100);
 		
 		this.type = EntityType.PLAYER;
 		this.name = EntityType.PLAYER;

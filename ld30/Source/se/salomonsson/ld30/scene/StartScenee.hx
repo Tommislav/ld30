@@ -20,7 +20,7 @@ class StartScenee extends GameBaseScene
 		playBgLoop("8BitDreams");
 		
 		add(new EmitEntity());
-		add(new Player( 26*16, 10*16 ));
+		addPlayerAtPosition(new Player(), "start");
 	}
 	
 }

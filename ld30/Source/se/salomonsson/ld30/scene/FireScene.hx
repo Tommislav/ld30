@@ -24,7 +24,7 @@ class FireScene extends GameBaseScene
 		playBgLoop("8BitDreams");
 		
 		add(new EmitEntity());
-		add(new Player(10,10));
+		add(new Player());
 		add(new EyeEnemy(100, 10, 1));
 		add(new EyeEnemy(200, 10, 1));
 		
