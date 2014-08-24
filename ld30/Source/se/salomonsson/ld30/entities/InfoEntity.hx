@@ -24,6 +24,9 @@ class InfoEntity extends Entity
 	private var _halfW:Float;
 	private var _isVisible:Bool;
 	
+	private var _lockText:Text;
+	var _showLockText:Bool;
+	
 	public function new(x:Float, y:Float, w:Int, h:Int, str:String) 
 	{
 		_str = str;
@@ -32,13 +35,25 @@ class InfoEntity extends Entity
 		_txt.autoHeight = true;
 		_txt.autoWidth = true;
 		
+		_lockText = new Text("LOCKED", 0, 0, 0, 0, { color:0xcc0000 } );
+		_lockText.autoHeight = true;
+		_lockText.autoWidth = true;
+		
 		_bg = Image.createRect(_txt.width, _txt.height, 0xeeeeee);
 		_halfW = _txt.width / 2;
 		
-		super(x, y, new Graphiclist([_bg, _txt]));
+		super(x, y, new Graphiclist([_bg, _txt, _lockText]));
 		setHitbox(w, h);
 		
 		_isVisible = true;
+	}
+	
+	private function showLockText(f:Bool) {
+		_showLockText = f;
+		if (_isVisible) {
+			hideInfo();
+			showInfo(this);
+		}
 	}
 	
 	override public function update():Void 
@@ -56,7 +71,9 @@ class InfoEntity extends Entity
 	
 	function showInfo(e:Entity) {
 		if (!_isVisible) {
-			_txt.visible = _bg.visible = true;
+			_bg.visible = true;
+			var t:Text = _showLockText ? _lockText : _txt;
+			t.visible = true;
 			_isVisible = true;
 		}
 		
@@ -66,7 +83,7 @@ class InfoEntity extends Entity
 	
 	function hideInfo() {
 		if (_isVisible) {
-			_txt.visible = _bg.visible = false;
+			_txt.visible = _bg.visible = _lockText.visible = false;
 			_isVisible = false;
 		}
 	}

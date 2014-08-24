@@ -3,6 +3,7 @@ import com.haxepunk.Entity;
 import com.haxepunk.HXP;
 import flash.geom.Point;
 import flash.geom.Rectangle;
+import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.EntityType;
 import se.salomonsson.ld30.gfx.DynamigGfxList;
 import se.salomonsson.ld30.GraphicsFactory;
@@ -97,6 +98,7 @@ class MooseBoss extends EnemyBase
 	override private function onKilled() 
 	{
 		super.onKilled();
+		GameData.instance.mooseBossKilled = true;
 		SoundFactory.playBgLoop("8BitDreams");
 	}
 	

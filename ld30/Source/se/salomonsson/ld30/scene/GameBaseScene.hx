@@ -61,8 +61,10 @@ class GameBaseScene extends Scene
 			}
 			
 			if (o.type == "portal") {
-				var nextLevel:String = o.custom.has("level") ? o.custom.resolve("level") : "";
-				var lockId:String = o.custom.has("locked") ? o.custom.resolve("locked") : "";
+				var nextLevel:String 	= o.custom.has("level") 	? o.custom.resolve("level") 	: "";
+				var lockId:String 		= o.custom.has("locked") 	? o.custom.resolve("locked") 	: "";
+				trace("nextLevel: " + nextLevel);
+				trace("lockId: " + lockId);
 				add(new PortalEntity(o.x, o.y, o.width, o.height, o.custom.resolve("info"), nextLevel, lockId));
 			}
 			

@@ -35,11 +35,13 @@ class PortalEntity extends InfoEntity
 		if (_nextLevel != "") {
 			
 			var unlocked:Bool = true;
+			
 			if (_lockId != "") {
 				unlocked = GameData.instance.isUnlocked(_lockId);
+				showLockText(!unlocked);
 			}
 			
-			if (Input.pressed(Player.CTRL_ENTER_PORTAL)) {
+			if (Input.pressed(Player.CTRL_ENTER_PORTAL) && unlocked) {
 				SoundFactory.getSound("Portal.wav").play();
 				GameData.instance.gotoWorld(_nextLevel);
 				
