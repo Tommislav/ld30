@@ -7,6 +7,7 @@ import com.haxepunk.graphics.Text;
 import com.haxepunk.HXP;
 import com.haxepunk.Scene;
 import com.haxepunk.utils.Input;
+import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.EntityType;
 import se.salomonsson.ld30.scene.HubScene;
 import se.salomonsson.ld30.SoundFactory;
@@ -15,62 +16,43 @@ import se.salomonsson.ld30.SoundFactory;
  * ...
  * @author Tommislav
  */
-class PortalEntity extends Entity
+class PortalEntity extends InfoEntity
 {
-	
-	private var _txt:Text;
-	private var _bg:Image;
-	private var _str:String;
-	private var _halfW:Float;
 	private var _nextLevel:String;
+	var _lockId:String;
 	
-	public function new(x:Float, y:Float, w:Int, h:Int, str:String, nextLevel:String) 
+	public function new(x:Float, y:Float, w:Int, h:Int, str:String, nextLevel:String="", lockId:String="") 
 	{
-		_str = str;
+		super(x, y, w, h, str);
+		
 		_nextLevel = nextLevel;
-		
-		_txt = new Text(str, 0, 0, 0, 0, {color:0x000000});
-		_txt.autoHeight = true;
-		_txt.autoWidth = true;
-		
-		_bg = Image.createRect(_txt.width, _txt.height, 0xeeeeee);
-		_halfW = _txt.width / 2;
-		
-		super(x, y, new Graphiclist([_bg, _txt]));
-		setHitbox(w, h);
+		_lockId = lockId;
 	}
 	
-	override public function update():Void 
+	
+	override private function onPlayerTouching(player:Entity) 
 	{
-		super.update();
-		
-		var e:Entity = collide(EntityType.PLAYER, this.x, this.y);
-		if (e != null) {
-			_txt.visible = _bg.visible = true;
+		if (_nextLevel != "") {
 			
-			this.graphic.x = e.centerX - this.x - _halfW;
-			this.graphic.y = e.y - this.y - 60;
-			
-			if (_nextLevel != "") {
-				if (Input.pressed(Player.CTRL_UP)) {
-					
-					if (_nextLevel == "1") {
-						gotoWorld(new TestScene());
-					} else if (_nextLevel == "0") {
-						gotoWorld(new HubScene());
-					}
-					
-					
-					
-				}
+			var unlocked:Bool = true;
+			if (_lockId != "") {
+				unlocked = GameData.instance.isUnlocked(_lockId);
 			}
 			
-			
-			
-		} else {
-			_txt.visible = _bg.visible = false;
+			if (Input.pressed(Player.CTRL_ENTER_PORTAL)) {
+				
+				
+				
+				if (_nextLevel == "1") {
+					gotoWorld(new TestScene());
+				} else if (_nextLevel == "0") {
+					gotoWorld(new HubScene());
+				}
+				
+			}
 		}
 	}
+	
 	
 	private function gotoWorld(scene:Scene) {
 		SoundFactory.getSound("Portal.wav").play();

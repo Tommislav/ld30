@@ -28,6 +28,7 @@ class Player extends Entity
 	public static var CTRL_DOWN:String = "down";
 	public static var CTRL_ATK:String = "attack";
 	public static var CTRL_JUMP:String = "jump";
+	public static var CTRL_ENTER_PORTAL:String = "portal";
 	
 	private var _emitter:EmitEntity;
 	

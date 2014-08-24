@@ -1,4 +1,12 @@
 package se.salomonsson.ld30.data;
+import com.haxepunk.HXP;
+import com.haxepunk.Scene;
+import se.salomonsson.ld30.scene.FireScene;
+import se.salomonsson.ld30.scene.ForrestScene;
+import se.salomonsson.ld30.scene.HubScene;
+import se.salomonsson.ld30.scene.IronScene;
+import se.salomonsson.ld30.scene.ShopScene;
+import se.salomonsson.ld30.scene.StartScenee;
 
 /**
  * Class that keeps all the game related data between levels.
@@ -13,6 +21,9 @@ class GameData
 	}
 	
 	public function new() {	
+		lock = new Map();
+		currentWorld = "";
+		lastWorld = "";
 	}
 	
 	public var maxSpeed:Float = 6;
@@ -33,8 +44,46 @@ class GameData
 	public var health:Int = 100;
 	public var maxHealth:Int = 100;
 	
+	public var lock:Map<String, Bool>;
 	
 	
-	//public var 
+	
+	
+	public var currentWorld:String;
+	public var lastWorld:String;
+	
+	
+	public function unlock(key:String) {
+		
+	}
+	
+	public function isUnlocked(key:String):Bool {
+		return true;
+	}
+	
+	public function gotoWorld(id:String) {
+		lastWorld = currentWorld;
+		currentWorld = id;
+	
+		HXP.scene = getWorldFromId(id);
+	}
+	
+	private function getWorldFromId(id:String):Scene {
+		switch(id) {
+			case "0":
+				return new StartScenee();
+			case "1":
+				return new HubScene();
+			case "2":
+				return new ShopScene();
+			case "3":
+				return new FireScene();
+			case "4":
+				return new ForrestScene();
+			case "5":
+				return new IronScene();
+		}
+		return new StartScenee();
+	}
 	
 }

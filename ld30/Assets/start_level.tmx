@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="130" height="60" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="level_tilesheet" tilewidth="16" tileheight="16">
+  <image source="level_tilesheet.png" width="1600" height="320"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="type" value="cloud"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="main" width="130" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztndlRwzAQhhXyBFTB0UKgFo4WgEkRHDVALRwtAA0hDaOxJ5bk1Wp1WPm/mX1hCFrsj9VKVoJSQJI7HffC8cAYm/oakAd4AAzwYMqhjqPIOK6SqRzwYIrN64cYreXPAR5MMXnF5GO/f0uMFoEHU7geUIAH4bHhQV3gwZTaHmxWSl044nIVkVQk8GBKbg9ieoZS9aMHD8w6z/X3w43S9aCFvrIHD16F62UND2oDD6bYvOb2iux+U0z+8CA8dksefKthfyj0e433m36JPxsehMduyQOL9cG3Z+ibD1L6lVr70/CAhuue+zx4S8gn5bUpwAMapjbs1v7YfrJl4AEfeAAPDFwPqP1DyV4BHvDheuDqAVxrhpK9AjzgIzkv1F47wgM+8AAeGOABPDCYtWRuD3w9pXQPCQ/SkBrb58G4V9x6vi4BPEhD6n5Q5oWcc8d4D10qqM9cevBACu4Z1xpnl6SBBwMSf+u1e00u8GAAHsADA/Uect5r5Qrqc3DX/MLNwbfGgQcDVA8k+vrUtS43B9+48GBgzoPxGTh44KYXD0Ihub6319q11qCsM+BBeSTrwNy1zj03wQM+Jff54EF7+OpAjn2+3flhbm6AB+VwXeucZ+Bi9h7gQX5C/QA8CNOTB6FrnMODTeRaYS5HeJAGZV2Qqx7E7kfDg3xQri08CLNkD2L2B3J7QF03wAN5Yq5piXpAqQ2temDO0kh+DkbJiF37186Xk/Pc+aSan4tjx+7lfWlLBh4Ag7kXsWcaJcfe9eDqQKlrHTc6bg8KJ7TH1OzvXB6863v/oeNTxxc8KEZrHpyslTrVcabjfF0psT0EHgBDax486nv/pONZxws8KEYLHpjo/X8rtE4rHtTaxwP/LMUDWzNQF/KwJA9QF/KxNA9QF/KwRA9QF+Sp6UHq+/1rP/PrKUo/UwAA9MkfYWnzJA==
+  </data>
+ </layer>
+ <layer name="collision" width="130" height="60" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztmduOwyAMBdv+/0ev8lCp2s2mgG18HM9IPMYXGBFCHg/w5JkYMyI3rIEHcIAHf3kujsrgwTl4sC+m8tzN1IYHtpjKc4cH+2Iqzx0e7IupPHeZHrwuRhR4cA77wb6YXrlXv/O8zv94YIvp6YE3eLAvproH3/YI7g98Yip7MJIHD3xi3sWD31yd90dGBniwnucO+8AbPBjPgQcxMSt58F9ePLDH7OqB4lkBD2x52Q/sMfFABzyw5cUDe0w80AEPbHmjc+86Q+JB3dye4EHd3J5k/ru/gwfZKNw9WMEDOMADOMCDebze25a7be/zAh7M49GrNcbq83hgZ/YM/i1WxvN4YMezx3es1W8MPNiP5z7wGTPjeTxYJ/Oez/t5PJjnbB+IuuebfTfgwT7OelLpEw/iuToPqPSJB/Fc9RLRJ98LWox8F6j0iQdxjPSg0ice+DNzPxDd5+g7Ag/8maldpU9lDyqPLn1Ge2BBoYbuKKyBQg3dUVgDhRq6o7AGCjV0R2ENFGrojsIaKNTQHYU1UKihOwpr4P2ND/NUmd8qdValyvyyL8RSbV6r1VuFavPKvhBD1fmsWrcqVecz+5/dHQcAgJUfbBIC6w==
+  </data>
+ </layer>
+ <layer name="main_fg" width="130" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt28sKgCAUBUDr/385ChdCiD0wSswZcNNKCDrHi4UAAN9YproFkMxz6x0A8Ee6KLnVu29D1wMKrvJZZlNrKuRO6Rn9q51L+74AwLh0BY6YGwIAd+mQ5HRJ4IzcICc3gBpm2wAde+nemhygxHmDyH3ZsckGEplAJBPGJg9IZAKQc24Y274j9p4RT/8tbbUAAAAAAAAAAGhrAwRwmPQ=
+  </data>
+ </layer>
+ <objectgroup name="obj" width="130" height="60">
+  <object type="start" x="432" y="176"/>
+  <object type="portal" x="336" y="736" width="64" height="80">
+   <properties>
+    <property name="info" value="&lt;PRESS DOWN TO ENTER CONNECTION&gt;"/>
+    <property name="level" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
