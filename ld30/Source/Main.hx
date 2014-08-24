@@ -53,7 +53,7 @@ class Main extends Engine {
 		
 		
 		//HXP.screen.color = 0xcccccc;
-		HXP.scene = new IronScene();
+		HXP.scene = new StartScenee();
 	}
 	
 	public function changeLevel(name:String) 
