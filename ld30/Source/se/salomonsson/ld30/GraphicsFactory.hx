@@ -84,8 +84,13 @@ class GraphicsFactory
 		_rect.set("shield96", new Rectangle(14 * 32, 0, 32, 96));
 		
 		_rect.set("shade64x256", new Rectangle(0, 2*32, 64, 256));
+		_rect.set("shade64x128", new Rectangle(0, 2*32, 64, 128));
+		_rect.set("shade64x32", new Rectangle(0, 10*32, 32, 64));
 		_rect.set("moose-eyes1", new Rectangle(2*32, 2*32, 256, 5*32));
-		_rect.set("moose-eyes2", new Rectangle(2*32, 7*32, 256, 5*32));
+		_rect.set("moose-eyes2", new Rectangle(2 * 32, 7 * 32, 256, 5 * 32));
+		
+		_rect.set("iron-eyes-big", new Rectangle(16*32,3*32,128,128));
+		_rect.set("iron-eyes-small", new Rectangle(16*32,0,64,64));
 	}
 	
 	
@@ -148,6 +153,36 @@ class GraphicsFactory
 		var shield:Image = instance.getImgPart("shield96");
 		shield.x = 10;
 		g.add2(shield, false, "");
+		return g;
+	}
+	
+	public function getIronBouncerLarge()  {
+		var g:DynamigGfxList = new DynamigGfxList();
+		g.add2(getColoredRectangle(256, 256, 0x000794), false, "");
+		g.add2(getImgPart("shade64x256"), false, "");
+		
+		var bigEyes = getImgPart("iron-eyes-big");
+		bigEyes.x = 64;
+		bigEyes.y = 64;
+		
+		g.add2(bigEyes, false, "");
+		
+		return g;
+	}
+	
+	public function getIronBouncerMedium()  {
+		var g:DynamigGfxList = new DynamigGfxList();
+		g.add2(getColoredRectangle(128, 128, 0x000794), false, "");
+		g.add2(getImgPart("shade64x128"), false, "");
+		g.add2(getImgPart("iron-eyes-big"), false, "");
+		return g;
+	}
+	
+	public function getIronBouncerSmall()  {
+		var g:DynamigGfxList = new DynamigGfxList();
+		g.add2(getColoredRectangle(64, 64, 0x000794), false, "");
+		g.add2(getImgPart("shade64x32"), false, "");
+		g.add2(getImgPart("iron-eyes-small"), false, "");
 		return g;
 	}
 	

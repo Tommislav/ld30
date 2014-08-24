@@ -10,9 +10,11 @@ import com.haxepunk.tmx.TmxObject;
 import com.haxepunk.tmx.TmxObjectGroup;
 import flash.geom.Point;
 import se.salomonsson.ld30.data.GameData;
+import se.salomonsson.ld30.entities.BounceEntity;
 import se.salomonsson.ld30.entities.CoinEntity;
 import se.salomonsson.ld30.entities.EyeEnemy;
 import se.salomonsson.ld30.entities.InfoEntity;
+import se.salomonsson.ld30.entities.IronBoss;
 import se.salomonsson.ld30.entities.LargeShieldEntity;
 import se.salomonsson.ld30.entities.MooseBoss;
 import se.salomonsson.ld30.entities.PortalEntity;
@@ -63,8 +65,6 @@ class GameBaseScene extends Scene
 			if (o.type == "portal") {
 				var nextLevel:String 	= o.custom.has("level") 	? o.custom.resolve("level") 	: "";
 				var lockId:String 		= o.custom.has("locked") 	? o.custom.resolve("locked") 	: "";
-				trace("nextLevel: " + nextLevel);
-				trace("lockId: " + lockId);
 				add(new PortalEntity(o.x, o.y, o.width, o.height, o.custom.resolve("info"), nextLevel, lockId));
 			}
 			
@@ -74,6 +74,10 @@ class GameBaseScene extends Scene
 			
 			if (o.type == "coin") {
 				add(new CoinEntity(o.x, o.y, 1, false));
+			}
+			
+			if (o.type == "bouncer") {
+				add(new BounceEntity(o.x, o.y, o.width, o.height));
 			}
 			
 			if (o.type == "enemy") {
@@ -119,7 +123,8 @@ class GameBaseScene extends Scene
 				if (!GameData.instance.mooseBossKilled) {
 					add(new MooseBoss(x,y));
 				}
-				
+			case "ironboss":
+				add(new IronBoss(x, y, 0, 6));
 		}
 	}
 	

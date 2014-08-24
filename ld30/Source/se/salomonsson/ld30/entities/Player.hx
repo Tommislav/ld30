@@ -284,7 +284,14 @@ class Player extends Entity
 				var name:String = _dashVelocity.x < 0 ? "dashL" : "dashR";
 				_emitter.emit(name, 1, centerX, centerY, 16, 16);
 			}
+		}
+		
+		if (_dashVelocity.y != 0) {
+			_dashVelocity.y *= 0.92;
 			
+			if (_dashVelocity.y < 0.1 && _dashVelocity.y > -0.1) {
+				_dashVelocity.y = 0;
+			}
 		}
 	}
 	
@@ -302,7 +309,9 @@ class Player extends Entity
 	
 	
 	
-	
+	public function setBounce(y:Float) {
+		_dashVelocity.y = y;
+	}
 	
 	
 	

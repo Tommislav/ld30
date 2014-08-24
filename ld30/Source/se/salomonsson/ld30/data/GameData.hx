@@ -41,7 +41,7 @@ class GameData
 	public var swordLength:Int = 65;
 	public var swordRecovery:Int = 500;
 	
-	public var health:Int = 200;
+	public var health:Int = 16;
 	public var maxHealth:Int = 100;
 	
 	public var money:Int = 0;
@@ -51,6 +51,8 @@ class GameData
 	
 	
 	public var mooseBossKilled:Bool;
+	public var ironBossKilled:Bool;
+	public var ironSpawnsKilled:Int;
 	
 	
 	public var currentWorld:String;
@@ -63,7 +65,7 @@ class GameData
 	
 	public function isUnlocked(key:String):Bool {
 		if (key == "moose") { return mooseBossKilled; }
-		
+		if (key == "iron") { return ironBossKilled; }
 		return true;
 	}
 	
