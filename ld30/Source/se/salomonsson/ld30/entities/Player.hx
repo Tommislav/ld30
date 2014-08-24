@@ -59,6 +59,7 @@ class Player extends Entity
 		super(x, y);
 		
 		this.type = EntityType.PLAYER;
+		this.name = EntityType.PLAYER;
 		
 		_gfx = GraphicsFactory.getPlayerGraphic();
 		this.graphic = _gfx;
@@ -306,6 +307,10 @@ class Player extends Entity
 	
 	
 	public function collideWithEnemy(e:EnemyBase):Bool {
+		
+		if (isDashing()) {
+			return false;
+		}
 		
 		if (e.centerX > this.centerX) {
 			_velocity.x -= 30;

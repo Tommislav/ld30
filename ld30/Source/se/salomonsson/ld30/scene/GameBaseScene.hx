@@ -10,6 +10,7 @@ import com.haxepunk.tmx.TmxObjectGroup;
 import se.salomonsson.ld30.entities.CoinEntity;
 import se.salomonsson.ld30.entities.EyeEnemy;
 import se.salomonsson.ld30.entities.InfoEntity;
+import se.salomonsson.ld30.entities.LargeShieldEntity;
 import se.salomonsson.ld30.entities.PortalEntity;
 import se.salomonsson.ld30.SoundFactory;
 
@@ -63,7 +64,7 @@ class GameBaseScene extends Scene
 			}
 			
 			if (o.type == "enemy") {
-				var enemyType:String = o.custom.resolve("enemy");
+				var enemyType:String = o.custom.resolve("id");
 				var maxMoney:Int = (o.custom.has("money")) ? Std.parseInt(o.custom.resolve("money")) : 0;
 				spawnEnemy(enemyType, o.x, o.y, maxMoney, o);
 			}
@@ -80,7 +81,13 @@ class GameBaseScene extends Scene
 	}
 	
 	function spawnEnemy(enemyType:String, x:Float, y:Float, maxMoney:Int, obj:TmxObject) {
-		add(new EyeEnemy(x, y, maxMoney));
+		switch(enemyType) {
+			case "eye":
+				add(new EyeEnemy(x, y, maxMoney));
+			case "shield":
+				add(new LargeShieldEntity(x,y));
+				
+		}
 	}
 	
 	public function playBgLoop(name:String) {

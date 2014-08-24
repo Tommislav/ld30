@@ -104,6 +104,10 @@ class EnemyBase extends Entity
 		}
 	}
 	
+	function canBeAttacked(e:Entity):Bool {
+		return true;
+	}
+	
 	function checkAttacked() {
 		if (!isAttackableByPlayer) {
 			return;
@@ -112,6 +116,14 @@ class EnemyBase extends Entity
 		if (_dmgCounter <= 0) {
 			var e:Entity = collide("atk", this.x, this.y);
 			if (e != null) {
+				if (!canBeAttacked(e)) {
+					
+					// play deflect sound
+					onDeflectAttack();
+					return;
+				}
+				
+				
 				_dmgCounter = 30;
 				_hp -= GameData.instance.swordStr;
 				if (_hp <= 0) {
@@ -125,6 +137,10 @@ class EnemyBase extends Entity
 			_dmgCounter--;
 		}
 		
+		
+	}
+	
+	function onDeflectAttack() {
 		
 	}
 	

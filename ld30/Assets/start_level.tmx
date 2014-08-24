@@ -15,17 +15,17 @@
  </tileset>
  <layer name="main" width="130" height="60">
   <data encoding="base64" compression="zlib">
-   eJztndlRwzAQhhXyBFTB0QJQC8crj8CkCI4aoBaOFoCGkIbR2BPrWK1Xh5X/m9kXhkSL/EVayXJQCkhyp+NeOB4YbVNfA/IAD4ABHkzZ13GQGIdVMpUDHkyxef0Qo7X8OcCDKSavlHzs72+I0SLwYArXAwrwINw2PKgLPJhS24OzlVLnjrhYJSSVCDyYktuDlJqh1PjRgwdmnef6/HCj9HjQQl3ZgwevwuNlDQ9qAw+m2Lxie0V2vyklf3gQbrslD77VsD8U+rvG+02/xPeGB+G2W/LAYn3w7Rn65oM59Uqt/Wl4QMN1zX0evM3IZ85r5wAPaJixYXvsT60nWwYe8IEH8MDA9YBaP5SsFeABH64HrhrAtWYoWSvAAz6S80LttSM84AMP4IEBHsADg1lL5vbAV1NK15DwYB5Sbfs8GNeKG8/PJYAH85C6HpR5Iefc4bunEovQ+V3qPZcePJCCe8ZV+uzS+J5KLKjXOQY8GJD4rKe8x61Ae1LAg4HSHrQEPBigXkPOs1auoN4Hd80v3Bx8axx4MED1QKKun7vW5ebgaxceDMQ8GJ+BgwduevEgFJLre9vXrrUGZZ0BD8ojOQ7E+jr33AQP+JTc54MH7eEbB6h7PCn7P9vzQ2xugAflcPV1zjNwKXsP8CA/oXoAHoTpyYNQH+fw4MwzH4T2neFBPijrglzjQep+NDzIB6Vv4UGYUh5I3aMbv0/K/kCsj7j5WQ+o64Zd9yAHKX1aYjygjA2temDOTkh+D0bJSF37186Xk3Ps3ErN78WxbffyXNqSgQfAYK6F9Fm3lLa3PbjcU+pKx7WOm73CCe0wNes7lwfv+tp/6PjU8QUPitGaB0drpY51nOg4XVdKbAeBB8DQmgeP+to/6XjW8QIPitGCByZ6/98KrdOKB7X28cA/S/HAjhkYF/KwJA9840JLz4fVhtsXS/MA40IelugB6gV5anqQ8nx3q/f9eonS9xQAAH3yB0z5+w8=
+   eJztndlRwzAQhhXyBFTB0QJQC8crj8CkCI4aoBaOFoCGkIbR2BPrWK1Xh5X/m9kXhliL9UVayUpQCkhyp+NeOB4YbVNfA/IAD4ABHkzZ13GQGIdVMpUDHkyxef0Qo7X8OcCDKSavlHzs72+I0SLwYArXAwrwINw2PKgLPJhS24OzlVLnjrhYJSSVCDyYktuDlJqh1PjRgwdmned6/3Cj9HjQQl3ZgwevwuNlDQ9qAw+m2Lxie0V2vyklf3gQbrslD77VsD8U+rvG+02/xGvDg3DbLXlgsT749gx988GceqXW/jQ8oOHqc58HbzPymfPaOcADGmZs2B77U+vJloEHfOABPDBwPaDWDyVrBXjAh+uBqwZwrRlK1grwgI/kvFB77QgP+MADeGCAB/DAYNaSuT3w1ZTSNSQ8mIdU2z4PxrXixvNzCeDBPKT6gzIv5Jw7fM9UYhE6v0t95tKDB1Jwz7hKn10aP1OJBbWfY8CDAYn3eso1bgXakwIeDJT2oCXgwQC1DzmftXJFbE87NK9wc/CtceDBANUDibp+7lqXm4OvXXgwEPNgfAYOHrjpxYNQSK7v7b12rTUo6wx4UB7JcSB2r3PPTfCAT8l9PnjQHr5xgLrHk7L/sz0/xOYGeFAO173OeQYuZe8BHuQnVA/AgzA9eRC6xzk8OPPMB6F9Z3iQD8q6INd4kLofDQ/yQbm38CBMKQ+kntGNr5OyPxC7R9z8rAfUdcOue5CDlHtaYjygjA2temDOTkh+D0bJSF37186Xk3Ps3ErN78WxbffyubQlAw+AwfSF9Fm3lLa3PbjcU+pKx7WOm73CCe0wNes7lwfvuu8/dHzq+IIHxWjNg6O1Usc6TnScrisltoPAA2BozYNH3fdPOp51vMCDYrTggYne/7dC67TiQa19PPDPUjywYwbGhTwsyQPfuJDz82G5rt3adZfmAcaFPCzRA9QL8tT0IOXz3a0+9+slSj9TAAD0yR+eeftr
   </data>
  </layer>
  <layer name="collision" width="130" height="60">
   <data encoding="base64" compression="zlib">
-   eJztmUuShCAQBbvn/ofucOFm2nGAegWvJDOCpfWBDAR9vUDJe2HMjNwwBh7AAR588x4clcGDa/BgXkznueupDQ9iMZ3nDg/mxXSeOzyYF9N57lZ68HMzssCDa9gP5sVU5R6956nO/3gQi6n0QA0ezIvp7sF/ewTfDzQxnT1oyYMHmphP8eA3d+f9lrECPBjP84R94AQP2nPgQU7MSh78lRcP4jF39cDxrIAHsbzsB/GYeOADHsTy4kE8Jh74gAexvNm5Z50h8aBubiV4UDe3kpX/7p/gwWrU742MdW7J6RQH1oAHcIAH/aje25Fv2+rzAh70o+g1GmP0eTyIozyb4UFdlD2esUbvGHgwH/Ud7Yy54nk8GGfldz7183jQz9U+kPWdr/fdgAfzuOrJpU88yOfuPODSJx7kc9dLRp/cF7xouRe49IkHebT04NInHujp+T6Q3WfrOwIP9PTU7tKnsweVxy59ZnsQwaGG3XFYA4cadsdhDRxq2B2HNXCoYXcc1sChht1xWAOHGnbHYQ0catgdhzVQ3/GhnyrzW6XOqlSZX/aFXKrNa7V6q1BtXtkXcqg6n1XrdqXqfK7+Z/fEAQAQ5QOX1wL3
+   eJztmUuSwyAMBZO5/6FTWXgzcRxAT/BkuqtYWh/owmA/HqDkuTBmRm4YAw/gDR588hwclcGDc/BgXkznueupDQ9iMZ3nDg/mxXSeOzyYF9N57lZ68HcxssCDc9gP5sVU5R6956nO/3gQi6n0QA0ezIvp7sGvPYLvB5qYzh605MEDTcy7ePCfq/N+y1gBHoznucM+cIAH7TnwICdmJQ++5cWDeMxdPXA8K+BBLC/7QTwmHviAB7G8eBCPiQc+4EEsb3buWWdIPKibWwke1M2tZOW/+zt4sBr1eyNjnVtyOsWBNeABvMGDflTv7cg3bfV5AQ/6UfQajTH6PB7EUZ7N8KAuyh6PWKN3DDyYj/qOdsRc8TwejLPyO5/6eTzo52wfyPrO1/tuwIN5nPXk0ice5HN1HnDpEw/yueolo0/uC1603Atc+sSDPFp6cOkTD/T0fB/I7rPn/8IIePCdntpd+nT2oPLYpc9sDyI41LA7DmvgUMPuOKyBQw2747AGDjXsjsMaONSwOw5r4FDD7jisgUMNu+OwBuo7PvRTZX6r1FmVKvPLvpBLtXmtVm8Vqs0r+0IOVeezat2uVJ3P1f/s7jgAAKK8AKGAAvM=
   </data>
  </layer>
  <layer name="main_fg" width="130" height="60">
   <data encoding="base64" compression="zlib">
-   eJzt28sKgCAUBFDr/385ChdCiD0wSsxzwL0QOOPFQgCAbyxT3QJIprn1DgD4I12U3Orbt6HrAQVX+SyzqVWaMZg7/FPtXNr5AgDj0hU4Ym4IANylQ5LTJYEzcoOc3ABqmG0DdOyld2tygBL3DSLvZccmG0hkApFMGJs8IJEJQM69YWz7jth7Rjz9t7TVAgAAAAAAAACgrQ2VPZjz
+   eJzt28sKgCAUBFDr/385ChdCiD0wSsxzwL0QOOPFQgCAbyxT3QJIprn1DgD4I12U3Orbt6HrAQVX+SyzqVWaMZg7/FPtXNr5AgDj0hU4Ym4IANylQ5LTJYEzcoOc3ABqmGkDdOyld2vygBL3DSLvZccmG0hkApFMGJs8IJEJQM69YWz7jth7Rjz9t7TVAgAAAAAAAACgrQ1gYZb3
   </data>
  </layer>
  <objectgroup name="obj" width="130" height="60">
@@ -58,7 +58,7 @@
   </object>
   <object type="info" x="528" y="848" width="48" height="48">
    <properties>
-    <property name="info" value="ENTER CONNECTING WORLDS WITH &lt;DOWN&gt; OR &lt;S&gt;"/>
+    <property name="info" value="ENTER PORTALS WITH &lt;DOWN&gt;"/>
    </properties>
   </object>
   <object type="info" x="1088" y="640" width="48" height="48">
@@ -72,35 +72,48 @@
     <property name="info" value="ATTACK WITH &lt;SPACE&gt;"/>
    </properties>
   </object>
+  <object type="enemy" x="1504" y="848" width="32" height="32">
+   <properties>
+    <property name="id" value="eye"/>
+    <property name="money" value="2"/>
+   </properties>
+  </object>
   <object type="enemy" x="1456" y="848" width="32" height="32">
    <properties>
     <property name="id" value="eye"/>
     <property name="money" value="2"/>
    </properties>
   </object>
-  <object type="enemy" x="1376" y="800" width="32" height="32">
+  <object type="enemy" x="560" y="816" width="32" height="96">
    <properties>
-    <property name="id" value="eye"/>
-    <property name="money" value="2"/>
-   </properties>
-  </object>
-  <object type="enemy" x="1264" y="848" width="32" height="32">
-   <properties>
-    <property name="id" value="eye"/>
-    <property name="money" value="2"/>
-   </properties>
-  </object>
-  <object type="enemy" x="1216" y="768" width="32" height="32">
-   <properties>
-    <property name="id" value="eye"/>
-    <property name="money" value="2"/>
-   </properties>
-  </object>
-  <object type="enemy" x="153" y="604" width="32" height="32">
-   <properties>
-    <property name="id" value="eye"/>
+    <property name="id" value="shield"/>
     <property name="money" value="5"/>
    </properties>
   </object>
+  <object type="enemy" x="1408" y="848" width="32" height="32">
+   <properties>
+    <property name="id" value="eye"/>
+    <property name="money" value="2"/>
+   </properties>
+  </object>
+  <object type="enemy" x="1360" y="848" width="32" height="32">
+   <properties>
+    <property name="id" value="eye"/>
+    <property name="money" value="2"/>
+   </properties>
+  </object>
+  <object type="info" x="1248" y="848" width="48" height="48">
+   <properties>
+    <property name="info" value="YOU DON'T TAKE DAMAGE WHILE DASHING"/>
+   </properties>
+  </object>
+  <object type="info" x="896" y="848" width="48" height="48">
+   <properties>
+    <property name="info" value="TRY DASHING THROUGH!"/>
+   </properties>
+  </object>
+  <object type="coin" x="912" y="96" width="32" height="32"/>
+  <object type="coin" x="944" y="96" width="32" height="32"/>
+  <object type="coin" x="880" y="96" width="32" height="32"/>
  </objectgroup>
 </map>

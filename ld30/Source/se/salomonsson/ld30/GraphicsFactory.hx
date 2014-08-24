@@ -37,18 +37,6 @@ class GraphicsFactory
 	
 	private function registerImgPart32(name:String, x:Int, y:Int) {
 		_rect.set(name, rect32(x, y));
-		
-		//var img:Image;
-		//#if flash
-			//var bd:BitmapData = HXP.getBitmap("assets/gameobject_assets.png");
-			//img = new Image(bd, rect32(x, y), name);
-		//#else
-			//var atlas:AtlasData = AtlasData.getAtlasDataByName("assets/gameobject_assets.png", false);
-			//img = new Image(atlas.createRegion(rect32(x, y)), name);
-		//#end
-		//
-		//_imgParts.set(name, img);
-		
 	}
 	
 	private function getImgPart(name:String):Image {
@@ -86,6 +74,14 @@ class GraphicsFactory
 		
 		registerImgPart32("square1", 0, 1);
 		registerImgPart32("square2", 1, 1);
+		
+		
+		registerImgPart32("large-eyes1", 11, 0);
+		registerImgPart32("large-eyes2	", 12, 0);
+		
+		// Free form images registration
+		_rect.set("shade32x96", new Rectangle(13 * 32, 0, 32, 96));
+		_rect.set("shield96", new Rectangle(14 * 32, 0, 32, 96));
 	}
 	
 	
@@ -118,6 +114,7 @@ class GraphicsFactory
 		return g;
 	}
 	
+	
 	static public function getCoinGraphic() 
 	{
 		var g:DynamigGfxList = new DynamigGfxList();
@@ -125,6 +122,18 @@ class GraphicsFactory
 		g.add2(instance.getImgPart("coin2"), false, "");
 		g.add2(instance.getImgPart("coin3"), false, "");
 		g.add2(instance.getImgPart("coin4"), false, "");
+		return g;
+	}
+	
+	public function getLargeShiledGfx() 
+	{
+		var g:DynamigGfxList = new DynamigGfxList();
+		g.add2(getColoredRectangle(32, 96, 0xfcd600), false, "");
+		g.add2(getImgPart("shade32x96"), false, "");
+		g.add2(instance.getImgPart("large-eyes1"), false, "");
+		var shield:Image = instance.getImgPart("shield96");
+		shield.x = 10;
+		g.add2(shield, false, "");
 		return g;
 	}
 	

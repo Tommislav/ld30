@@ -19,6 +19,7 @@ class CoinEntity extends EnemyBase
 	private var _frame:Int;
 	private var _gfx:DynamigGfxList;
 	private var _isMoving:Bool;
+	private var _life:Int;
 	
 	
 	private var _pickupCounter:Int = 0;
@@ -33,11 +34,14 @@ class CoinEntity extends EnemyBase
 		setHitbox(24,32, 4, 0);
 		_value = value;
 		
+		this.isAttackableByPlayer = false;
+		
 		if (startMoving) {
 			_isMoving = true;
 			_velocity.x = Math.random() * 12 - 6;
 			_velocity.y = Math.random() * -4 - 3;
-			_pickupCounter = 60;
+			_pickupCounter = 30;
+			_life = 400 + Std.int(Math.random() * 60);
 		}
 	}
 	
@@ -65,7 +69,14 @@ class CoinEntity extends EnemyBase
 		var f:Int = (++_frame % frames.length);
 		setFrame(frames[f]);
 		
-		
+		if (_isMoving) {
+			if (--_life < 100) {
+				this.visible = (_life % 10 <= 5);
+			}
+			if (_life <= 0) {
+				HXP.scene.remove(this);
+			}
+		}
 	}
 	
 	function setFrame(f:Int) 
@@ -87,8 +98,8 @@ class CoinEntity extends EnemyBase
 			}
 			
 			moveBy(_velocity.x, _velocity.y, ["solid", "cloud"], true);
-			_velocity.x *= 0.999;
-			_velocity.y *= 0.999;
+			_velocity.x *= 0.99;
+			_velocity.y *= 0.99;
 			
 			// Bounce up if on floor
 			if (collideTypes(["solid", "cloud"], this.x, this.y + 1) != null) {
