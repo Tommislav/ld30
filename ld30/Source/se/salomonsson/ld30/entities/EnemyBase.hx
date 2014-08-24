@@ -4,6 +4,7 @@ import com.haxepunk.Entity;
 import com.haxepunk.Graphic;
 import com.haxepunk.HXP;
 import flash.geom.Point;
+import flash.geom.Rectangle;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.EntityType;
 import se.salomonsson.ld30.SoundFactory;
@@ -21,23 +22,37 @@ class EnemyBase extends Entity
 	private var _hp:Int;
 	private var _dmgCounter:Int;
 	private var _killBonus:Int;
+	private var _money:Int;
+	
+	public var isAttackableByPlayer:Bool = true;
 	
 	
-	
-	
-	public function new(x:Float, y:Float, gfx:Graphic, w:Int=32, h:Int=32, type:String="enemy") 
+	public function new(x:Float, y:Float, gfx:Graphic, w:Int=32, h:Int=32, maxMoney:Int=1, type:String="enemy") 
 	{
 		super(x, y, gfx);
 		this.type = type;
 		setHitbox(w, h);
 		_hp = 3;
+		_velocity = new Point();
+		_maxVelocity = new Point();
+		_money = GameData.instance.getSpawnMoney(maxMoney);
 	}
 	
-	override public function added():Void {
-		super.added();
-		_emitter = cast(HXP.scene.getInstance("emitter"), EmitEntity);
+	override public function wantsToRender(cameraBounds:Rectangle):Bool {
+		return isWithinBounds(cameraBounds, 0);
 	}
 	
+	override public function wantsToUpdate(cameraBounds:Rectangle):Bool {
+		return isWithinBounds(cameraBounds, 50);
+	}
+	
+	
+	private function emit(name:String, num:Int, x:Float, y:Float, rX:Float=0, rY:Float=0) {
+		if (_emitter == null) {
+			_emitter = cast(HXP.scene.getInstance("emitter"), EmitEntity);
+		}
+		_emitter.emit(name, num, x, y, rX, rY);
+	}
 	
 	public function getDamage():Int {
 		return 10;
@@ -90,12 +105,17 @@ class EnemyBase extends Entity
 	}
 	
 	function checkAttacked() {
+		if (!isAttackableByPlayer) {
+			return;
+		}
+		
 		if (_dmgCounter <= 0) {
 			var e:Entity = collide("atk", this.x, this.y);
 			if (e != null) {
 				_dmgCounter = 30;
 				_hp -= GameData.instance.swordStr;
 				if (_hp <= 0) {
+					spawnCoins();
 					onKilled();
 				} else {
 					onAttacked(e);
@@ -106,6 +126,17 @@ class EnemyBase extends Entity
 		}
 		
 		
+	}
+	
+	function spawnCoins() 
+	{
+		if (_money > 0) {
+			for (i in 0..._money) {
+				var rx:Float = centerX + Math.random() * 32 - 16;
+				var ry:Float = centerY + Math.random() * 32 - 16;
+				HXP.scene.add(new CoinEntity(rx, ry, 1, true));
+			}
+		}
 	}
 	
 	function postUpdate() 

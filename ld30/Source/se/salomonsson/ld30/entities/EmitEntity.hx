@@ -38,6 +38,11 @@ class EmitEntity extends Entity
 		emitter.newType("dashR", [0]);
 		emitter.setMotion("dashR", 180-45, 20, 1, 90, 10, 0.1, Ease.sineOut);
 		emitter.setAlpha("dashR", 1, 0, Ease.sineIn);
+		
+		emitter.newType("coin", [1]);
+		emitter.setMotion("coin", 90-45, 64, 1, 90, 64, 1, Ease.circOut);
+		emitter.setAlpha("coin", 1, 0);
+		emitter.setGravity("coin", 1, 1);
 	}
 	
 	public function emit(name:String, num:Int, x:Float, y:Float, rX:Float=0, rY:Float=0) {

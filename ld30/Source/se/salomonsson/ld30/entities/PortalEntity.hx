@@ -40,23 +40,12 @@ class PortalEntity extends InfoEntity
 			}
 			
 			if (Input.pressed(Player.CTRL_ENTER_PORTAL)) {
-				
-				
-				
-				if (_nextLevel == "1") {
-					gotoWorld(new TestScene());
-				} else if (_nextLevel == "0") {
-					gotoWorld(new HubScene());
-				}
+				SoundFactory.getSound("Portal.wav").play();
+				GameData.instance.gotoWorld(_nextLevel);
 				
 			}
 		}
 	}
 	
-	
-	private function gotoWorld(scene:Scene) {
-		SoundFactory.getSound("Portal.wav").play();
-		HXP.scene = scene;
-	}
 	
 }

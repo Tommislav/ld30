@@ -9,6 +9,7 @@ class EntityType
 	public static var PLAYER:String = "player";
 	public static var ENEMY:String = "enemy";
 	public static var ATK:String = "atk";
+	public static var COIN:String = "coin";
 	
 	
 	public function new() 

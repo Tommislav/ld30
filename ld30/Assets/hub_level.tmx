@@ -15,7 +15,7 @@
  </tileset>
  <layer name="main" width="70" height="70">
   <data encoding="base64" compression="zlib">
-   eJzt2ulNw0AQhuGJ/Q+qIJwNALVw0wBQBXcqoBduGgAaYiSEBGi9cZSZrMd5H+n7mbXzZX2sHREAAMrbHIhsjcmCjE/u89uD7nw3y3050Zxmcma3KTd3Dr/Nu+Yjk0/7TZrz6KVpbM9tWZv3XnLnS6/zXIReUrz3k17aje+xvYNK5FBzpDmubMbsQy/P2sWL5lXzZtBL0/nG8lwzi15Wa5E1zbpmo7YbN/r16Fq7uNHcakYFe2lzj9/1LDr0kru/j5LUOmTatVHp7+TVy3+TzpfcuqcrKdFLBNOu50usDWbB6zlH9DlEL2nWvfTluPJ4LhZ9rnihl/4cN16YI2n08o3jZzLMmzR6+cv7vWxkzJW0SL3sVCK7mj3NvtG7kSaRernXLh40j5onw16iX6eXapGhZlmzYvgO4EekOfLbuXZxobnUXAXtpc3/q6IkwrEEAAAAAAAAAAAAAMA8+gL/S7o/
+   eJzt2ulNw0AQhuGJ/Q+q4KYBoBZuGgCqAMJRAb1w0wDQECMhEKD1xlFmsh7nfaTvZ9bOl/WxdkQAAChvYyCyOSJzMjq5z28NuvPdLPflWHOSyandptzcOvw2b5r3TD7sN2nOo5emsT23ZW3We8mdL73OcxF6SfHeT3ppN77H9vYrkQPNoeaoshmzD708aRfPmhfNq0EvTecby3PNNHpZqUVWNWua9dpu3OjXo0vt4kpzrbkp2Eube/yuZ96hl9z9fZSk1iGTro1KfyevXv4bd77k1j1dSYleIph0PV9ibTANXs85os8hekmz7qUvx5XHc7Hoc8ULvfTnuPHCHEmjly8cP+Nh3qTRy1/e72UjizRXtiuRHc2uZs/oHUCTSL3caRf3mgfNI738WKhFFjVLmmXDZ93Rr9NevXyLNEd+O9MuzjUXmmHQXtr8vypKIhxLAAAAAAAAAAAAAADMok+0xbrV
   </data>
  </layer>
  <layer name="collision" width="70" height="70" visible="0">
@@ -30,10 +30,10 @@
     <property name="level" value=""/>
    </properties>
   </object>
-  <object type="info" x="528" y="576" width="64" height="64">
+  <object type="portal" x="528" y="560" width="64" height="80">
    <properties>
     <property name="info" value="CONNECTION TO FIRE WORLD"/>
-    <property name="level" value="1"/>
+    <property name="level" value="3"/>
    </properties>
   </object>
  </objectgroup>

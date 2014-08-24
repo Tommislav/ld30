@@ -79,6 +79,11 @@ class GraphicsFactory
 		registerImgPart32("ninja-eyes1", 3, 0);
 		registerImgPart32("ninja-eyes2", 4, 0);
 		
+		registerImgPart32("coin1", 7, 0);
+		registerImgPart32("coin2", 8, 0);
+		registerImgPart32("coin3", 9, 0);
+		registerImgPart32("coin4", 10, 0);
+		
 		registerImgPart32("square1", 0, 1);
 		registerImgPart32("square2", 1, 1);
 	}
@@ -110,6 +115,16 @@ class GraphicsFactory
 		g.add2(instance.getImgPart("eye-close"),	false, "dmg");
 		g.setGroupVisible("dmg", true);
 		g.setGroupVisible("eye", false);
+		return g;
+	}
+	
+	static public function getCoinGraphic() 
+	{
+		var g:DynamigGfxList = new DynamigGfxList();
+		g.add2(instance.getImgPart("coin1"), false, "");
+		g.add2(instance.getImgPart("coin2"), false, "");
+		g.add2(instance.getImgPart("coin3"), false, "");
+		g.add2(instance.getImgPart("coin4"), false, "");
 		return g;
 	}
 	

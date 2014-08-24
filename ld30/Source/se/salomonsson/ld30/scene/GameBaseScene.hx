@@ -5,7 +5,11 @@ import com.haxepunk.Scene;
 import com.haxepunk.Sfx;
 import com.haxepunk.tmx.TmxEntity;
 import com.haxepunk.tmx.TmxMap;
+import com.haxepunk.tmx.TmxObject;
 import com.haxepunk.tmx.TmxObjectGroup;
+import se.salomonsson.ld30.entities.CoinEntity;
+import se.salomonsson.ld30.entities.EyeEnemy;
+import se.salomonsson.ld30.entities.InfoEntity;
 import se.salomonsson.ld30.entities.PortalEntity;
 import se.salomonsson.ld30.SoundFactory;
 
@@ -44,9 +48,24 @@ class GameBaseScene extends Scene
 		
 		var obj:TmxObjectGroup = _mapData.getObjectGroup("obj");
 		for (o in obj.objects) {
-			if (o.type == "info") {
+			if (o.type == "portal") {
 				var nextLevel:String = o.custom.has("level") ? o.custom.resolve("level") : "";
-				add(new PortalEntity(o.x, o.y, o.width, o.height, o.custom.resolve("info"), nextLevel));
+				var lockId:String = o.custom.has("locked") ? o.custom.resolve("locked") : "";
+				add(new PortalEntity(o.x, o.y, o.width, o.height, o.custom.resolve("info"), nextLevel, lockId));
+			}
+			
+			if (o.type == "info") {
+				add(new InfoEntity(o.x, o.y, o.width, o.height, o.custom.resolve("info")));
+			}
+			
+			if (o.type == "coin") {
+				add(new CoinEntity(o.x, o.y, 1, false));
+			}
+			
+			if (o.type == "enemy") {
+				var enemyType:String = o.custom.resolve("enemy");
+				var maxMoney:Int = (o.custom.has("money")) ? Std.parseInt(o.custom.resolve("money")) : 0;
+				spawnEnemy(enemyType, o.x, o.y, maxMoney, o);
 			}
 		}
 		
@@ -58,6 +77,10 @@ class GameBaseScene extends Scene
 			add(_fgLayer);
 		}
 		
+	}
+	
+	function spawnEnemy(enemyType:String, x:Float, y:Float, maxMoney:Int, obj:TmxObject) {
+		add(new EyeEnemy(x, y, maxMoney));
 	}
 	
 	public function playBgLoop(name:String) {

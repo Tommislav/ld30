@@ -25,8 +25,8 @@ class FireScene extends GameBaseScene
 		
 		add(new EmitEntity());
 		add(new Player(10,10));
-		add(new EyeEnemy(100, 10, GraphicsFactory.getGenericEnemyGraphic()));
-		add(new EyeEnemy(200, 10, GraphicsFactory.getGenericEnemyGraphic()));
+		add(new EyeEnemy(100, 10, 1));
+		add(new EyeEnemy(200, 10, 1));
 		
 	}
 	

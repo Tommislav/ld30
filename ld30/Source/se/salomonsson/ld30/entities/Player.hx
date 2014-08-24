@@ -138,7 +138,10 @@ class Player extends Entity
 	}
 	
 	function updatePosition() {
-		_velocity.y += GameData.instance.gravity;
+		
+		if (!isDashing()) {
+			_velocity.y += GameData.instance.gravity;
+		}
 		
 		_velocity.x = HXP.clamp(_velocity.x, -_maxVelocity.x, _maxVelocity.x);
 		_velocity.y = HXP.clamp(_velocity.y, -_maxVelocity.y, _maxVelocity.y);
@@ -249,6 +252,10 @@ class Player extends Entity
 	
 	
 	// DASH
+	
+	function isDashing():Bool {
+		return (_dashVelocity.x > 0.5 || _dashVelocity.x < -0.5);
+	}
 	
 	function checkDashDoubleClick(dir:Int):Bool {
 		var now:Int = Lib.getTimer();

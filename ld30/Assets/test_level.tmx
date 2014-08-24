@@ -33,16 +33,16 @@
   </data>
  </layer>
  <objectgroup name="obj" width="50" height="50">
-  <object type="info" x="144" y="512" width="64" height="96">
+  <object type="portal" x="144" y="512" width="64" height="96">
    <properties>
     <property name="info" value="CONNECTION TO FIRE WORLD"/>
-    <property name="level" value="1"/>
+    <property name="level" value="3"/>
    </properties>
   </object>
-  <object type="info" x="704" y="512" width="64" height="96">
+  <object type="portal" x="704" y="512" width="64" height="96">
    <properties>
     <property name="info" value="CONNECTION TO HUB WORLD"/>
-    <property name="level" value="0"/>
+    <property name="level" value="1"/>
    </properties>
   </object>
  </objectgroup>

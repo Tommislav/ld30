@@ -9,6 +9,7 @@ import pgr.dconsole.DC;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.Player;
 import se.salomonsson.ld30.GraphicsFactory;
+import se.salomonsson.ld30.scene.FireScene;
 import se.salomonsson.ld30.scene.HubScene;
 import se.salomonsson.ld30.scene.StartScenee;
 

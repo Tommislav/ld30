@@ -21,8 +21,6 @@ class StartScenee extends GameBaseScene
 		
 		add(new EmitEntity());
 		add(new Player( 26*16, 10*16 ));
-		//add(new EyeEnemy(100, 10, GraphicsFactory.getGenericEnemyGraphic()));
-		//add(new EyeEnemy(200, 10, GraphicsFactory.getGenericEnemyGraphic()));
 	}
 	
 }

@@ -44,6 +44,8 @@ class GameData
 	public var health:Int = 100;
 	public var maxHealth:Int = 100;
 	
+	public var money:Int = 0;
+	
 	public var lock:Map<String, Bool>;
 	
 	
@@ -66,6 +68,11 @@ class GameData
 		currentWorld = id;
 	
 		HXP.scene = getWorldFromId(id);
+	}
+	
+	public function getSpawnMoney(maxMoney:Int) 
+	{
+		return maxMoney;
 	}
 	
 	private function getWorldFromId(id:String):Scene {
