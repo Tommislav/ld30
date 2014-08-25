@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="130" height="60" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="level_tilesheet" tilewidth="16" tileheight="16">
+  <image source="level_tilesheet.png" width="1600" height="320"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="type" value="cloud"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="main" width="130" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwZeeAAAQ==
+  </data>
+ </layer>
+ <layer name="collision" width="130" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt2tGKwyAQBdC2///Ry7AsZEtjNMYw1nPAhxQqJnMxxuTxACCL542NvO6qvxzkdmV9PvUlB3OQA4IcEOSAEPV5bdqZtX/pmUAO5vCpplf1tf1NDnKTA4IcEOSAIAcEOSDIAUEOCHJAkAOCHBBK7wqO3iXUfHMkB3MYXR85mIMcEORgLa+d1vP9qfUBteSAIAd1SnPqN5CDYzX3156+Rt/3W/4rB/tG7+VdpbT+6+mDX3JAkIN1te7dt/Q7ihxcb7tuOpoPMuWgd00rB/8dzQel46N+M8s+vjucrXvr81tm2cd3h71n6N7jUt/ZZB/fHVrmgyv3ejLJPr5Rauqz0rVZ4VzP7qeucG3+rHKu77Wvna977wUztW+34jkDAAAAAAAAAABk9APgrwG0
+  </data>
+ </layer>
+ <layer name="main_fg" width="130" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwZeeAAAQ==
+  </data>
+ </layer>
+ <objectgroup name="obj" width="130" height="60">
+  <object type="start" x="1808" y="288" width="32" height="32">
+   <properties>
+    <property name="from" value="start"/>
+   </properties>
+  </object>
+  <object type="coin" x="1632" y="80" width="32" height="32"/>
+  <object type="coin" x="1680" y="80" width="32" height="32"/>
+  <object type="coin" x="1728" y="80" width="32" height="32"/>
+  <object type="enemy" x="1728" y="496" width="32" height="32">
+   <properties>
+    <property name="dist" value="128"/>
+    <property name="id" value="eye2"/>
+    <property name="money" value="1"/>
+   </properties>
+  </object>
+  <object type="bouncer" x="1584" y="224" width="16" height="160"/>
+  <object type="enemy" x="1664" y="192" width="32" height="32">
+   <properties>
+    <property name="dist" value="128"/>
+    <property name="id" value="eye2"/>
+    <property name="money" value="1"/>
+   </properties>
+  </object>
+  <object type="enemy" x="1104" y="496" width="224" height="96">
+   <properties>
+    <property name="id" value="lava"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="fg" width="130" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt0kEJADAMBME4af2rLGch9BHCDKyDrQIAAAAAAAAAAAAAAAAAAAAmuc3Y5TRjFx8QPiB8QPgAAAAAAAAAAAAAAAD+ekopCjs=
+  </data>
+ </layer>
+</map>

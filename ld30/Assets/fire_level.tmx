@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="130" height="120" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="level_tilesheet" tilewidth="16" tileheight="16">
+  <image source="level_tilesheet.png" width="1600" height="320"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="type" value="cloud"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="bg2" width="130" height="120">
+  <properties>
+   <property name="scrollx" value="0.3"/>
+   <property name="scrolly" value="0.3"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt2EtSxCAQAFCqZtRTqWdVL2pYz8KMBOiG96qyTBWB/oVSAGJ4v5XycTyft9krYaav4/y/j+dHHGzt5V7K6/G83WevBNrobVR6G5XelkOkut26lkjfkk2kut26lmfe3yVmzn5npLrdupZn3o8U/z3t8p3/FSn+e9rlOwGIa8YMvsvcn8mM2dQ8HM+M2dQ8vAZ13R5UUev6yLOJugcjRa3rI88m6h7gbNibWYXKrJJHz5zVD/NYPWf1pnNWz9nV45xzVo9z2IXeTqW359Irb/X2XOQtlbwlo6v7WLZ5Ntt6e7m6j2Xri9nW28vVfSxbX8y2XgAAAPbg/oqq9/2VOMuh9/2Ve9LxIube7HvSiHvS24q513qOK+7JX3rn3ozcaj3H2fVoRTNyyznG40wA5tjxX4dHI+YxsRbfiHnsbKyJl7WdjbWo9zDic6yo/4pR45OxosZnBGollVpJpVYCAADAutwDUrkHpHIPCAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAFX4B+R9aAQ==
+  </data>
+ </layer>
+ <layer name="bg1" width="130" height="120">
+  <properties>
+   <property name="scrollx" value="0.6"/>
+   <property name="scrolly" value="0.6"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt2EtuAyEQBUAs+06Oz5r4rM70wruMlPmQ0E2VNLtZgIDHE6397H5t7WP5HteVH5jC57L+X8v3tA+m9or1v7V2uf33SADg72XqxZnGmk2mXpxprL2dfSYy9eJMY+3NmajjyJl2JupwpgmVz7ROT5B1hMpZB8BYtnRQfbWuLR1UX61rSwfVV4HZ9OhBulU+PXqQbpVPjx6kW/2O3CTITYLcBIDcdPuczl63Ebv9THtz71zPXrcRu/2Ie7OXvXMdcd3ONsMc3yrMdab8Zt1M+c26CpkGwBx0WEKFDmsvH1ehw1bYyxxXYS/DTNzhBHc4YcQ7PDJKThEZJaeIjBoxpwAAANjPuw/Buw/Buw8A5KXXE/R6gl4PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUNM3MJxRAQ==
+  </data>
+ </layer>
+ <layer name="main" width="130" height="120">
+  <data encoding="base64" compression="zlib">
+   eJztnEly1TAQQA1hOgWE4QTALuEgDHumXIPhBpyGYR8IORJSEVc6jmxLdkuy2u9VdRUJ9dtq+dlS/CV3HcB+uOPirmLcK9t8UOKDi4+KcaLYNm1HcXecLXvg2/ZXKT6O/E67za2yZQ++3cibq6/digf+/rn03oYHNjzwDvTnYIkLeGDDA3kel9Sj4YEcb/GgDrU9OBnk0vbgyMXxRTyLDMnTi9+F2oUH4c9v0QPP/cHPa3JJ8CD8+dRxwMf5IBce1KG0B1PHwIN64EFaLgkehD+PB+1SY34w9pw+19+NeDDPWg/OOr1n+MN541rwIJ61HmwZPIgHD9JySfCgDfAgHjxIyyXBgzYYeuDntHPfJYxFaP6KB20w9EAbPGgDPIgHD5aDB9tCrjGQEbveICaeM0+EEfAAPHgQR7+PxOo+DzyYR66D9rHGhZz7kkLtij2epftoLg+G30evya29Nn6uXZprKloBD9KON9zThgfxeXN7MLcvUcuD4dpqPAhz4OKWi9td2AM57qbMF6Y8mGvznEN48B/Net66eOfifRf2YOmxcnrgY2z+hwfLOHXx28Wfri0Plswl8OAqciyQzwtiPIj9+23Og8OJwIM41tYTGguG57z/nVzTeh74/7G2zXnwYCK0PTjsrvuFB1fHgv48n3fh/l/6rCd1fE/5bGqE8u7VAzkWxI4LlsO6B2PnW44FseOC5bDuwdj5Pu0uxwL5bzkuaO9v2XJo7r2pxZQHY+cbrrL0+diWsDbvrYGFPrRQQ20s9KGFGmpjoQ8t1FAbC31ooYbaWOhDCzXE0K9tf6H4TsUeC31ooYbaWOhDCzVIjhZc80s+I7HQh63UsOU18K304RSt1LDlvQKt9OEUrdQgv7uQrL2na9BKH05hoYbaWOhDCzXUxkIfWqihNhb60EINtbHQh6VqyPk8Tx6jxpzRggfDNcSQjgUPhmtpjhOv2xLX+dax4MHWaxh6Jt+FlMu91HVmW+/DGCzUoE1qn1joQws1aIMH6ch9DbkpdSw8SEfua8hNqWPhQRr++nwnIud1WvJYeJBGf332kfM6LXmsvXvgI9f76VqK1L2LFj0g9unBnvaj5trDasGDGLTXBmrkkzlSru/Ud7Pu5XliDNprAzXyyRwpHuR4Vyoe1MuHB+XZkwf9vAAPrrMXD0LvxcODS/Agri14UD5frnFh+CwJDy7ZkwfME8fBg7i24EH5fHhQHjyIawselM+HB+XBg7i24EH5fJoe8H1jHJY90KgJD+rlw4PyWPfg5c2ue+XitYs3N5e3BQ/K59P04Ls79z9c/HTxCw9Gse7Bw4Oue+TisYsnB8vbggflwQPwaHrwyZ37zy6+uPiKB02xxoPUtapzwbtE6rHUg7Pu+j1BM7gflGWpB6GxAQ/aBQ/AgwfgWeNBzr18zBPLssYDrls74AF4pAfcv/fLFp91Q3nwADx4AB48AA8egAcPwIMH4MED8OABePAAAAAAAAAAAAAArPEPYOi/6g==
+  </data>
+ </layer>
+ <layer name="collision" width="130" height="120">
+  <data encoding="base64" compression="zlib">
+   eJzt3IFuwjAMRVHY/3/0ZE2TQheKYzeZ83qPVAERuMV9hALdHg8AQBXPhQvqWrX/yUFtV+6fXi21HKjObeTA7/nmugJy4EcO4rXIwR7s+Xw1S+TY/+wzATnYQ2+fXlWrHVPoGzmI1WrHFPpGDmK12jGFvpGDWK12TKFv5CBWqx1T6Bs5iNVqxxT6Rg5itdoxhb6Rg1itdkyhb+QgVqsdU+gbOYjVascU+kYOYrXaMYW+3S0H3t8SPt23ra/QtzvlYFZ9hb6Rg3x9hb6Rg3x9hb4p5ODrzeI938C7HJEDGHIAQw78td/NqQrIga/up/fXTK3Z7/sjjyUHvrrZ2jP7fHb8l6mxG3KQXx858NXN1iYH812Zg7P33czxAjmY7+oc/F5+mg8q5SB7TEsO/tY6mw/Obn+qW1n17fPI5iC630c/v1VWffs8rshB77HZ22e1q6m+fR4r54Mrv+uppPr2eURy4Nk/Cr3xUniuo5/12vuRgx8Kz/VsPuh9DszO76rL7iLzAV4p9CRyfIBXCn0jB3kKfSMHeQp9Iwd5Cn0jB3kKfbtLDtrz2a+m0Le75GAmhb6p5SDyms/OEwp92yUHlb/HqrhNo3bKQXtZScVtGrVTDnrzwaxjvxGV++a1Sw4qU+gbOchT6Bs5yFPoGznIU+jbqhzM/D7vuI7VyAGMQt+OORh93a54nVenmINqjjk7/g+kGUbPw6vYt1HVc/AfyAHMaE8U+pY9F3nl7z+r1nXXHPSujzyeHOwvk4OVf9uwel29657774oc9NfVu+65/656/WUZyxs5uMfi6SG0kQMYcgBDDmDIAQw5gCEHMOQAhhzAkAMYcgBDDmDIAQw5gCEH98DvzjBX7ENysD9yAEMOYMgBDDmAIQcw5ABm1bntAAAAAAAAAAAAAAAAAAAAAAAAAAAAq3wDXWoDpA==
+  </data>
+ </layer>
+ <layer name="main_fg" width="130" height="120" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJzt3EEKgCAQBVBzY/e/bFuXhRBaiKS9B+5m6QwyfAwBAAAAgBkc23kAAAAAAAAAAO5cMwbyBgAAAAAAsLYU6zV7Qw0AAAAAAPQmzw7/86bnzQmAdZjpAABzG7HP82aEvp72rb09I5T3zB9IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwXRn5YiL0
+  </data>
+ </layer>
+ <objectgroup name="obj" width="130" height="120" visible="0">
+  <object type="start" x="1808" y="288" width="32" height="32">
+   <properties>
+    <property name="from" value="start"/>
+   </properties>
+  </object>
+  <object type="coin" x="1632" y="80" width="32" height="32"/>
+  <object type="coin" x="1680" y="80" width="32" height="32"/>
+  <object type="coin" x="1728" y="80" width="32" height="32"/>
+  <object type="enemy" x="1728" y="496" width="32" height="32">
+   <properties>
+    <property name="dist" value="128"/>
+    <property name="id" value="eye2"/>
+    <property name="money" value="1"/>
+   </properties>
+  </object>
+  <object type="bouncer" x="1584" y="224" width="16" height="160"/>
+  <object type="enemy" x="1808" y="80" width="32" height="32">
+   <properties>
+    <property name="dist" value="128"/>
+    <property name="id" value="eye2"/>
+    <property name="money" value="1"/>
+   </properties>
+  </object>
+  <object type="enemy" x="1104" y="496" width="224" height="96">
+   <properties>
+    <property name="id" value="lava"/>
+   </properties>
+  </object>
+  <object type="enemy" x="736" y="976" width="1040" height="96">
+   <properties>
+    <property name="id" value="lava"/>
+   </properties>
+  </object>
+  <object type="enemy" x="896" y="800" width="32" height="32">
+   <properties>
+    <property name="dist" value="256"/>
+    <property name="id" value="eye2"/>
+    <property name="money" value="1"/>
+   </properties>
+  </object>
+  <object type="enemy" x="1120" y="992" width="32" height="32">
+   <properties>
+    <property name="dist" value="256"/>
+    <property name="id" value="eye2"/>
+    <property name="money" value="1"/>
+   </properties>
+  </object>
+  <object type="enemy" x="1248" y="928" width="32" height="32">
+   <properties>
+    <property name="dist" value="256"/>
+    <property name="id" value="eye2"/>
+    <property name="money" value="1"/>
+   </properties>
+  </object>
+  <object type="enemy" x="1296" y="688" width="32" height="32">
+   <properties>
+    <property name="dist" value="256"/>
+    <property name="id" value="eye2"/>
+    <property name="money" value="1"/>
+   </properties>
+  </object>
+  <object type="enemy" x="1680" y="848" width="32" height="32">
+   <properties>
+    <property name="dist" value="256"/>
+    <property name="id" value="eye2"/>
+    <property name="money" value="1"/>
+   </properties>
+  </object>
+  <object type="enemy" x="1572" y="718" width="32" height="32">
+   <properties>
+    <property name="dist" value="256"/>
+    <property name="id" value="eye2"/>
+    <property name="money" value="1"/>
+   </properties>
+  </object>
+  <object type="coin" x="1792" y="1424" width="32" height="32"/>
+  <object type="coin" x="1888" y="1424" width="32" height="32"/>
+  <object type="coin" x="1936" y="1328" width="32" height="32"/>
+  <object type="coin" x="1840" y="1424" width="32" height="32"/>
+  <object type="coin" x="1792" y="1376" width="32" height="32"/>
+  <object type="coin" x="1840" y="1376" width="32" height="32"/>
+  <object type="coin" x="1888" y="1376" width="32" height="32"/>
+  <object type="coin" x="1936" y="1376" width="32" height="32"/>
+  <object type="coin" x="1872" y="1184" width="32" height="32"/>
+  <object type="coin" x="1936" y="1424" width="32" height="32"/>
+  <object type="coin" x="1920" y="1280" width="32" height="32"/>
+  <object type="coin" x="1840" y="1328" width="32" height="32"/>
+  <object type="coin" x="1872" y="1280" width="32" height="32"/>
+  <object type="coin" x="1856" y="1232" width="32" height="32"/>
+  <object type="coin" x="1888" y="1328" width="32" height="32"/>
+  <object type="coin" x="1888" y="1136" width="32" height="32"/>
+  <object type="coin" x="1920" y="1088" width="32" height="32"/>
+  <object type="coin" x="1920" y="960" width="32" height="32"/>
+  <object type="coin" x="1939" y="1019" width="32" height="32"/>
+  <object type="coin" x="1888" y="912" width="32" height="32"/>
+  <object type="coin" x="1856" y="864" width="32" height="32"/>
+  <object type="portal" x="1712" y="1376" width="64" height="80">
+   <properties>
+    <property name="info" value="CONNECTION TO HUB"/>
+    <property name="level" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="fg" width="130" height="120" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJzt27ENADEIBEE6efdf5YvAqQMSEJqRtgIuJQIAAAAAAAAAAAAAAAAAAACY5BRjl68Yu9gByQ5IdkCyAwAAAAAAAAAAAAAAAK4jov5ztCn6bzAh+m8wIfpvMCH6bzAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg7QcyQDm2
+  </data>
+ </layer>
+</map>

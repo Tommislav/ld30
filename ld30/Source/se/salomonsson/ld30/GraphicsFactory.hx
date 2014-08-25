@@ -107,6 +107,10 @@ class GraphicsFactory
 		g.add2(instance.getImgPart("ninja"), 		true, "");
 		g.add2(instance.getImgPart("ninja-eyes1"), 	true, "normal");
 		g.add2(instance.getImgPart("ninja-eyes2"), 	true, "dmg");
+		
+		g.add2(Image.createRect(32, 32, 0xaa1919, 0.9), false, "lava");
+		
+		g.setGroupVisible("lava", false);
 		g.setGroupVisible("dmg", false);
 		
 		return g;

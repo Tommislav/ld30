@@ -1,4 +1,5 @@
 package se.salomonsson.ld30.scene;
+import com.haxepunk.HXP;
 import se.salomonsson.ld30.entities.EmitEntity;
 import se.salomonsson.ld30.entities.EyeEnemy;
 import se.salomonsson.ld30.entities.Player;
@@ -19,14 +20,13 @@ class FireScene extends GameBaseScene
 	override public function begin() 
 	{
 		super.begin();
-		loadTileMap("assets/test_level.tmx", ["main", "main_fg"], ["fg"]);
+		loadTileMap("assets/fire_level.tmx", ["bg2", "bg1", "main", "main_fg"], ["fg"]);
 		
 		playBgLoop("8BitDreams");
 		
 		add(new EmitEntity());
-		add(new Player());
-		add(new EyeEnemy(100, 10, 1));
-		add(new EyeEnemy(200, 10, 1));
+		addPlayerAtPosition(new Player());
+		HXP.screen.color = 0x343434;
 		
 	}
 	

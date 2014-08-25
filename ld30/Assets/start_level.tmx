@@ -40,22 +40,22 @@
     <property name="level" value="1"/>
    </properties>
   </object>
-  <object type="info" x="448" y="640" width="48" height="48">
+  <object type="info" x="432" y="640" width="80" height="48">
    <properties>
     <property name="info" value="MOVE WITH &lt;WASD&gt; OR &lt;ARROW&gt; KEYS"/>
    </properties>
   </object>
-  <object type="info" x="736" y="640" width="48" height="48">
+  <object type="info" x="720" y="640" width="80" height="48">
    <properties>
     <property name="info" value="&lt;UP&gt; TO JUMP"/>
    </properties>
   </object>
-  <object type="info" x="1264" y="416" width="48" height="48">
+  <object type="info" x="1248" y="416" width="80" height="48">
    <properties>
     <property name="info" value="DOUBLE TAP BACK OR FORWARD TO DASH"/>
    </properties>
   </object>
-  <object type="info" x="1392" y="592" width="48" height="48">
+  <object type="info" x="1376" y="592" width="80" height="48">
    <properties>
     <property name="info" value="TRY DASHING TO GET PAST THE GAP"/>
    </properties>
@@ -65,7 +65,7 @@
     <property name="info" value="ENTER PORTALS WITH &lt;DOWN&gt;"/>
    </properties>
   </object>
-  <object type="info" x="1088" y="640" width="48" height="48">
+  <object type="info" x="1072" y="640" width="80" height="48">
    <properties>
     <property name="info" value="COLLECT GOLD TO UPGRADE IN SHOP"/>
    </properties>
@@ -79,31 +79,31 @@
   <object type="enemy" x="1504" y="848" width="32" height="32">
    <properties>
     <property name="id" value="eye"/>
-    <property name="money" value="2"/>
+    <property name="money" value="1"/>
    </properties>
   </object>
   <object type="enemy" x="1456" y="848" width="32" height="32">
    <properties>
     <property name="id" value="eye"/>
-    <property name="money" value="2"/>
+    <property name="money" value="1"/>
    </properties>
   </object>
   <object type="enemy" x="560" y="816" width="32" height="96">
    <properties>
     <property name="id" value="shield"/>
-    <property name="money" value="5"/>
+    <property name="money" value="2"/>
    </properties>
   </object>
   <object type="enemy" x="1408" y="848" width="32" height="32">
    <properties>
     <property name="id" value="eye"/>
-    <property name="money" value="2"/>
+    <property name="money" value="1"/>
    </properties>
   </object>
   <object type="enemy" x="1360" y="848" width="32" height="32">
    <properties>
     <property name="id" value="eye"/>
-    <property name="money" value="2"/>
+    <property name="money" value="1"/>
    </properties>
   </object>
   <object type="info" x="1248" y="848" width="48" height="48">

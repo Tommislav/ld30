@@ -53,7 +53,7 @@ class Main extends Engine {
 		
 		HXP.screen.color = 0xffffff;
 		//HXP.scene = new SplashStartScene();
-		HXP.scene = new HubScene();
+		HXP.scene = new FireScene();
 	}
 	
 	public function changeLevel(name:String) 

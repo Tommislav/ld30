@@ -54,6 +54,8 @@ class Player extends Entity
 	private var _leftDownTime:Int;
 	private var _rightDownTime:Int;
 	
+	private var _resistance:Float;
+	
 	private var _dmgCoutnDown:Int;
 	var _gameOver:Bool;
 	
@@ -61,7 +63,8 @@ class Player extends Entity
 	
 	public function new() 
 	{
-		super(100,100);
+		super(100, 100);
+		_resistance = 1;
 		
 		this.type = EntityType.PLAYER;
 		this.name = EntityType.PLAYER;
@@ -82,9 +85,19 @@ class Player extends Entity
 		
 		
 		_hud = new Hud(10, 10, 160, "playerHud");
+		#if debug
+			_hud.y = 25;
+		#end
+		
 		HXP.scene.add(_hud);
 		
 		
+	}
+	
+	public function addExternalDamage(amount:Int) {
+		GameData.instance.health -= amount;
+		_dmgCoutnDown = 30;
+		_gfx.setGroupVisible("lava", true);
 	}
 	
 	override public function added():Void 
@@ -154,6 +167,7 @@ class Player extends Entity
 		if (_dmgCoutnDown == 1) {
 			_gfx.setGroupVisible("normal", true);
 			_gfx.setGroupVisible("dmg", false);
+			_gfx.setGroupVisible("lava", false);
 		}
 		
 		if (_dmgCoutnDown > 0) { _dmgCoutnDown--; }
@@ -171,11 +185,17 @@ class Player extends Entity
 		var mX = _velocity.x + _dashVelocity.x;
 		var mY = _velocity.y + _dashVelocity.y;
 		
+		mX *= _resistance;
+		mY *= _resistance;
+		
 		var shoudSweep = (mX < -16 || mX > 16 || mY < -16 || mY > 16);
 		
 		moveBy(mX, mY, ["solid", "cloud"], shoudSweep);
 	}
 	
+	public function setResistance(r:Float):Void {
+		_resistance = r;
+	}
 	
 	
 	function updateFromInput() {

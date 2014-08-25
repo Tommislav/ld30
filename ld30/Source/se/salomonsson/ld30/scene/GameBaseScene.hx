@@ -13,9 +13,11 @@ import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.BounceEntity;
 import se.salomonsson.ld30.entities.CoinEntity;
 import se.salomonsson.ld30.entities.EyeEnemy;
+import se.salomonsson.ld30.entities.EyeEnemy2;
 import se.salomonsson.ld30.entities.InfoEntity;
 import se.salomonsson.ld30.entities.IronBoss;
 import se.salomonsson.ld30.entities.LargeShieldEntity;
+import se.salomonsson.ld30.entities.Lava;
 import se.salomonsson.ld30.entities.MooseBoss;
 import se.salomonsson.ld30.entities.PortalEntity;
 import se.salomonsson.ld30.SoundFactory;
@@ -117,6 +119,8 @@ class GameBaseScene extends Scene
 		switch(enemyType) {
 			case "eye":
 				add(new EyeEnemy(x, y, maxMoney));
+			case "eye2":
+				add(new EyeEnemy2(x, y, Std.parseFloat(obj.custom.resolve("dist")), maxMoney));
 			case "shield":
 				add(new LargeShieldEntity(x, y));
 			case "moose":
@@ -125,6 +129,8 @@ class GameBaseScene extends Scene
 				}
 			case "ironboss":
 				add(new IronBoss(x, y, 0, 6));
+			case "lava":
+				add(new Lava(x,y,obj.width, obj.height));
 		}
 	}
 	
