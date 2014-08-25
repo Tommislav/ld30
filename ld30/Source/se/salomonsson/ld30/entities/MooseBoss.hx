@@ -32,7 +32,8 @@ class MooseBoss extends EnemyBase
 	private var _originalY:Float;
 	
 	private var _idleTime:Int;
-	
+	private var _hud:Hud;
+	private var _maxHp:Int;
 	
 	public function new(x:Float, y:Float) 
 	{
@@ -40,7 +41,10 @@ class MooseBoss extends EnemyBase
 		super(x, y, _gfx);
 		
 		setHitbox(256, 256);
-		_hp = 10;
+		
+		_maxHp = 10;
+		_hp = _maxHp;
+		
 		_money = 20;
 		
 		setOpenEyes(true);
@@ -49,10 +53,14 @@ class MooseBoss extends EnemyBase
 		_velocity = new Point();
 		_maxVelocity = new Point(32, 32);
 		
+		_hud = new Hud(7, 583, 786, "moose");
+		HXP.scene.add(_hud);
 	}
 	
 	override private function preUpdate() 
 	{
+		_hud.setValue(_hp / _maxHp);
+		
 		if (_closeEyesTimer > 0) {
 			_closeEyesTimer--;
 			if (_closeEyesTimer == 0) { setOpenEyes(true); };
@@ -100,6 +108,7 @@ class MooseBoss extends EnemyBase
 		super.onKilled();
 		GameData.instance.mooseBossKilled = true;
 		SoundFactory.playBgLoop("8BitDreams");
+		_hud.visible = false;
 	}
 	
 	
