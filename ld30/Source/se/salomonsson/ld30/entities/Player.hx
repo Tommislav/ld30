@@ -57,6 +57,7 @@ class Player extends Entity
 	private var _dmgCoutnDown:Int;
 	var _gameOver:Bool;
 	
+	private var _hud:Hud;
 	
 	public function new() 
 	{
@@ -80,6 +81,8 @@ class Player extends Entity
 		//_behaviours.push(new UpdatePosBehaviour(_velocity, _maxVelocity));
 		
 		
+		_hud = new Hud(10, 10, 160, "playerHud");
+		HXP.scene.add(_hud);
 		
 		
 	}
@@ -99,7 +102,7 @@ class Player extends Entity
 	{
 		super.update();
 		
-		
+		_hud.setValue(GameData.instance.health / GameData.instance.maxHealth);
 		
 		if (GameData.instance.health <= 0) {
 			// DEAD

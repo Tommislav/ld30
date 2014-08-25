@@ -18,6 +18,7 @@ class GameData
 
 	public static function resetGameData() {
 		instance = new GameData();
+		instance.health = instance.maxHealth;
 	}
 	
 	public function new() {	
@@ -42,7 +43,7 @@ class GameData
 	public var swordRecovery:Int = 500;
 	
 	public var health:Int = 1;
-	public var maxHealth:Int = 100;
+	public var maxHealth:Int = 12;
 	
 	public var money:Int = 0;
 	
