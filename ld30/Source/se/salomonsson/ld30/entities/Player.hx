@@ -2,7 +2,9 @@ package se.salomonsson.ld30.entities;
 
 import com.haxepunk.Entity;
 import com.haxepunk.graphics.Emitter;
+import com.haxepunk.graphics.Image;
 import com.haxepunk.HXP;
+import com.haxepunk.tweens.misc.VarTween;
 import com.haxepunk.utils.Ease;
 import com.haxepunk.utils.Input;
 import flash.geom.Point;
@@ -14,6 +16,7 @@ import se.salomonsson.ld30.EntityType;
 import se.salomonsson.ld30.gfx.DynamigGfxList;
 import se.salomonsson.ld30.gfx.SwordGfx;
 import se.salomonsson.ld30.GraphicsFactory;
+import se.salomonsson.ld30.scene.SplashStartScene;
 import se.salomonsson.ld30.SoundFactory;
 
 /**
@@ -52,6 +55,7 @@ class Player extends Entity
 	private var _rightDownTime:Int;
 	
 	private var _dmgCoutnDown:Int;
+	var _gameOver:Bool;
 	
 	
 	public function new() 
@@ -95,6 +99,8 @@ class Player extends Entity
 	{
 		super.update();
 		
+		
+		
 		if (GameData.instance.health <= 0) {
 			// DEAD
 			collidable = false;
@@ -104,7 +110,19 @@ class Player extends Entity
 			this.y += _velocity.y;
 			
 			if (this.y > HXP.height) {
-				trace("GAME OVER");
+				if (!_gameOver) {
+					_gameOver = true;
+					var gameOverSign:Image = new Image("assets/game_over.png");
+					gameOverSign.x = HXP.camera.x + 276;
+					gameOverSign.y = HXP.camera.y + 194;
+					HXP.scene.addGraphic(gameOverSign);
+				}
+			}
+			
+			if (_gameOver) {
+				if (Input.mousePressed) {
+					HXP.scene = new SplashStartScene();
+				}
 			}
 			
 			return;

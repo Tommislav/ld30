@@ -14,6 +14,7 @@ import se.salomonsson.ld30.scene.HubScene;
 import se.salomonsson.ld30.scene.IronScene;
 import se.salomonsson.ld30.scene.SplashEndScreen;
 import se.salomonsson.ld30.scene.SplashScreen;
+import se.salomonsson.ld30.scene.SplashStartScene;
 import se.salomonsson.ld30.scene.StartScenee;
 
 
@@ -50,8 +51,9 @@ class Main extends Engine {
 		GameData.resetGameData();
 		
 		
-		//HXP.screen.color = 0xcccccc;
-		HXP.scene = new SplashEndScreen();
+		HXP.screen.color = 0xffffff;
+		//HXP.scene = new SplashStartScene();
+		HXP.scene = new StartScenee();
 	}
 	
 	public function changeLevel(name:String) 

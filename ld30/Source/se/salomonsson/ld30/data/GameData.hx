@@ -41,7 +41,7 @@ class GameData
 	public var swordLength:Int = 65;
 	public var swordRecovery:Int = 500;
 	
-	public var health:Int = 16;
+	public var health:Int = 1;
 	public var maxHealth:Int = 100;
 	
 	public var money:Int = 0;
