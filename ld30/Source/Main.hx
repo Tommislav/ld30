@@ -5,7 +5,6 @@ import com.haxepunk.Engine;
 import com.haxepunk.HXP;
 import com.haxepunk.utils.Input;
 import flash.ui.Keyboard;
-import pgr.dconsole.DC;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.Player;
 import se.salomonsson.ld30.GraphicsFactory;
@@ -13,6 +12,8 @@ import se.salomonsson.ld30.scene.FireScene;
 import se.salomonsson.ld30.scene.ForrestScene;
 import se.salomonsson.ld30.scene.HubScene;
 import se.salomonsson.ld30.scene.IronScene;
+import se.salomonsson.ld30.scene.SplashEndScreen;
+import se.salomonsson.ld30.scene.SplashScreen;
 import se.salomonsson.ld30.scene.StartScenee;
 
 
@@ -32,9 +33,6 @@ class Main extends Engine {
 			HXP.console.toggleKey = Keyboard.NUMBER_0;
 			HXP.volume = 0;
 			
-			DC.init(60);
-			DC.log("LUDUM DARE 30! CONNECTED WORLDS!!!");
-			
 		#end
 		
 		// DEFINE INPUT
@@ -53,7 +51,7 @@ class Main extends Engine {
 		
 		
 		//HXP.screen.color = 0xcccccc;
-		HXP.scene = new StartScenee();
+		HXP.scene = new SplashEndScreen();
 	}
 	
 	public function changeLevel(name:String) 

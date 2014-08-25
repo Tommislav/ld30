@@ -14,6 +14,10 @@ class StartScenee extends GameBaseScene
 	public function new() 
 	{
 		super();
+	}
+	
+	override public function begin() 
+	{
 		super.begin();
 		loadTileMap("assets/start_level.tmx", ["main", "main_fg"]);
 		
@@ -22,5 +26,4 @@ class StartScenee extends GameBaseScene
 		add(new EmitEntity());
 		addPlayerAtPosition(new Player(), "start");
 	}
-	
 }
