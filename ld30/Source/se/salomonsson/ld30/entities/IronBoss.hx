@@ -52,7 +52,15 @@ class IronBoss extends EnemyBase
 		
 		super(x, y, _gfx, width, height, money);
 		_hp = 2;
-		_dmgCounter = 6;
+	}
+	
+	override public function added():Void 
+	{
+		super.added();
+		if (GameData.instance.ironBossKilled) {
+			HXP.scene.remove(this);
+			return;
+		}
 	}
 	
 	override public function wantsToUpdate(cameraBounds:Rectangle):Bool { return true; }
@@ -87,24 +95,27 @@ class IronBoss extends EnemyBase
 		}
 	}
 	
+	private static var killNum:Int = 0;
+	
 	override private function onKilled() {
 		
 		if (_size == 0 || _size == 1) {
 			var off = (_size == 0) ? 128 / 2 : 64 / 2;
-			if (_size == 0) {
-				HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, -1, 1) );
-				HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, 1, 1) );
-			}
+			
+			HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, -1, 1) );
+			HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, 1, 1) );
+			
 			HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, -1, -1));
 			HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, 1, -1) );
 			
 		}
-		
+		killNum++;
 		
 		
 		if (_size == 2) {
 			GameData.instance.ironSpawnsKilled++;
-			if (GameData.instance.ironSpawnsKilled == 8) {
+			//trace(":" + GameData.instance.ironSpawnsKilled);
+			if (GameData.instance.ironSpawnsKilled == 16) {
 				GameData.instance.ironBossHP = 0;
 				GameData.instance.ironBossKilled = true;
 				SoundFactory.playBgLoop("8BitDreams");
@@ -123,6 +134,17 @@ class IronBoss extends EnemyBase
 		if (afterHp != beforeHp) {
 			GameData.instance.ironBossHP -= (beforeHp - afterHp);
 		}
+	}
+	
+	override private function postUpdate()
+	{
+		super.postUpdate();
+		_cnt++;
+	}
+	
+	override private function canBeAttacked(e:Entity):Bool 
+	{
+		return (_cnt > 30);
 	}
 	
 }

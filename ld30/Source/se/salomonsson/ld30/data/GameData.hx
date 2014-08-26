@@ -50,7 +50,7 @@ class GameData
 	
 	public var lock:Map<String, Bool>;
 	
-	public var ironBossMaxHp:Int = 25;
+	public var ironBossMaxHp:Int = 16*2;
 	public var ironBossHP:Int;
 	
 	public var mooseBossKilled:Bool;

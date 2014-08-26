@@ -17,7 +17,7 @@ class LargeShieldEntity extends EnemyBase
 	public function new(x:Float, y:Float) 
 	{
 		_gfx = GraphicsFactory.instance.getLargeShiledGfx();
-		super(x, y, _gfx, 32, 96, 4);
+		super(x, y, _gfx, 32, 96, 2);
 		setHitbox(32, 96);
 		_hp = 1;
 	}

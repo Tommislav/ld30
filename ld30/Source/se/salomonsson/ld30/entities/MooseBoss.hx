@@ -43,7 +43,7 @@ class MooseBoss extends EnemyBase
 		super(x, y, _gfx);
 		
 		setHitbox(256, 256);
-		_maxHp = 10;
+		_maxHp = 16;
 		_hp = _maxHp;
 		
 		_money = 20;
