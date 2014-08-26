@@ -104,7 +104,8 @@ class IronBoss extends EnemyBase
 		
 		if (_size == 2) {
 			GameData.instance.ironSpawnsKilled++;
-			if (GameData.instance.ironBossHP == 0) {
+			if (GameData.instance.ironSpawnsKilled == 8) {
+				GameData.instance.ironBossHP = 0;
 				GameData.instance.ironBossKilled = true;
 				SoundFactory.playBgLoop("8BitDreams");
 			}
