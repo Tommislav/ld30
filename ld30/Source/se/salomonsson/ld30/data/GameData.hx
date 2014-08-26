@@ -6,6 +6,7 @@ import se.salomonsson.ld30.scene.ForrestScene;
 import se.salomonsson.ld30.scene.HubScene;
 import se.salomonsson.ld30.scene.IronScene;
 import se.salomonsson.ld30.scene.ShopScene;
+import se.salomonsson.ld30.scene.SplashEndScreen;
 import se.salomonsson.ld30.scene.StartScenee;
 
 /**
@@ -45,15 +46,16 @@ class GameData
 	public var health:Int = 1;
 	public var maxHealth:Int = 12;
 	
-	public var money:Int = 500;
+	public var money:Int = 0;
 	
 	public var lock:Map<String, Bool>;
 	
-	public var ironBossMaxHp:Int = 21*3;
+	public var ironBossMaxHp:Int = 25;
 	public var ironBossHP:Int;
 	
 	public var mooseBossKilled:Bool;
 	public var ironBossKilled:Bool;
+	public var fireLevelCompleted:Bool;
 	public var ironSpawnsKilled:Int;
 	
 	
@@ -70,6 +72,10 @@ class GameData
 	public function isUnlocked(key:String):Bool {
 		if (key == "moose") { return mooseBossKilled; }
 		if (key == "iron") { return ironBossKilled; }
+		if (key == "fire") { return true; }
+		if (key == "exit") {
+			return return mooseBossKilled && ironBossKilled && fireLevelCompleted;
+		}
 		return true;
 	}
 	
@@ -99,6 +105,8 @@ class GameData
 				return new ForrestScene();
 			case "5":
 				return new IronScene();
+			case "6":
+				return new SplashEndScreen();
 		}
 		return new StartScenee();
 	}

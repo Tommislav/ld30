@@ -29,9 +29,15 @@ class SoundFactory
 	}
 	
 	private static var _bgLoop:Sfx;
+	public static var _bgLoopName:String = "";
 	
 	public static function playBgLoop(soundName:String):Sfx {
+		if (_bgLoopName == soundName) {
+			return _bgLoop;
+		}
+		
 		stopBgLoop();
+		_bgLoopName = soundName;
 		_bgLoop = getSound(soundName);
 		_bgLoop.loop();
 		return _bgLoop;
@@ -41,6 +47,7 @@ class SoundFactory
 		if (_bgLoop != null) {
 			_bgLoop.stop();
 			_bgLoop = null;
+			_bgLoopName = "";
 		}
 	}
 	

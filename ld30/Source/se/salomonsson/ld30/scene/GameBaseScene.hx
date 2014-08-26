@@ -143,7 +143,7 @@ class GameBaseScene extends Scene
 	override public function end() 
 	{
 		super.end();
-		SoundFactory.stopBgLoop();
+		//SoundFactory.stopBgLoop();
 	}
 	
 }

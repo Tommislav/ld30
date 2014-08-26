@@ -4,6 +4,7 @@ import com.haxepunk.HXP;
 import com.haxepunk.Scene;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.EmitEntity;
+import se.salomonsson.ld30.entities.MoneyHud;
 import se.salomonsson.ld30.entities.MooseBoss;
 import se.salomonsson.ld30.entities.Player;
 
@@ -26,6 +27,7 @@ class ForrestScene extends GameBaseScene
 		
 		
 		add(new EmitEntity());
+		add(new MoneyHud());
 		
 		var lastWorld:String = GameData.instance.lastWorld;
 		addPlayerAtPosition(new Player(), lastWorld);

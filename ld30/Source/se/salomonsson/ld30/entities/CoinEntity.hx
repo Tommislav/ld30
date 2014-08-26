@@ -8,6 +8,7 @@ import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.EntityType;
 import se.salomonsson.ld30.gfx.DynamigGfxList;
 import se.salomonsson.ld30.GraphicsFactory;
+import se.salomonsson.ld30.SoundFactory;
 
 /**
  * ...
@@ -57,6 +58,7 @@ class CoinEntity extends EnemyBase
 			// play coin sound
 			emit("coin", 10, centerX, centerY, 10, 10);
 			
+			SoundFactory.getSound("coin.wav").play();
 			GameData.instance.money += 1;
 			HXP.scene.remove(this);
 		}

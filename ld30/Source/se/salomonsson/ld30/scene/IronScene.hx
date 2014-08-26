@@ -5,6 +5,7 @@ import com.haxepunk.Scene;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.EmitEntity;
 import se.salomonsson.ld30.entities.IronBossHud;
+import se.salomonsson.ld30.entities.MoneyHud;
 import se.salomonsson.ld30.entities.Player;
 
 /**
@@ -26,6 +27,7 @@ class IronScene extends GameBaseScene
 		
 		
 		add(new EmitEntity());
+		add(new MoneyHud());
 		
 		var lastWorld:String = GameData.instance.lastWorld;
 		addPlayerAtPosition(new Player(), lastWorld);

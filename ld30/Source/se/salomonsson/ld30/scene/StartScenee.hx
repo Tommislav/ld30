@@ -2,6 +2,7 @@ package se.salomonsson.ld30.scene;
 import com.haxepunk.HXP;
 import se.salomonsson.ld30.entities.EmitEntity;
 import se.salomonsson.ld30.entities.EyeEnemy;
+import se.salomonsson.ld30.entities.MoneyHud;
 import se.salomonsson.ld30.entities.Player;
 import se.salomonsson.ld30.GraphicsFactory;
 
@@ -25,6 +26,7 @@ class StartScenee extends GameBaseScene
 		playBgLoop("8BitDreams");
 		
 		add(new EmitEntity());
+		add(new MoneyHud());
 		addPlayerAtPosition(new Player(), "start");
 		HXP.screen.color = 0xcccccc;
 	}

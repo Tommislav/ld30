@@ -35,7 +35,7 @@ class InfoEntity extends Entity
 		_txt.autoHeight = true;
 		_txt.autoWidth = true;
 		
-		_lockText = new Text("LOCKED", 0, 0, 0, 0, { color:0xcc0000 } );
+		_lockText = new Text(getLockedText(), 0, 0, 0, 0, { color:0xcc0000 } );
 		_lockText.autoHeight = true;
 		_lockText.autoWidth = true;
 		
@@ -46,6 +46,10 @@ class InfoEntity extends Entity
 		setHitbox(w, h);
 		
 		_isVisible = true;
+	}
+	
+	private function getLockedText():String {
+		return "LOCKED";
 	}
 	
 	private function showLockText(f:Bool) {
@@ -78,7 +82,7 @@ class InfoEntity extends Entity
 		}
 		
 		this.graphic.x = e.centerX - this.x - _halfW;
-		this.graphic.y = e.y - this.y - 60;
+		this.graphic.y = e.y - this.y - 30;
 	}
 	
 	function hideInfo() {

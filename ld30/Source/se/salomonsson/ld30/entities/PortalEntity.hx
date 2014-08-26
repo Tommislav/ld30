@@ -19,16 +19,30 @@ import se.salomonsson.ld30.SoundFactory;
 class PortalEntity extends InfoEntity
 {
 	private var _nextLevel:String;
-	var _lockId:String;
+	private var _lockId:String;
 	
 	public function new(x:Float, y:Float, w:Int, h:Int, str:String, nextLevel:String="", lockId:String="") 
 	{
-		super(x, y, w, h, str);
-		
 		_nextLevel = nextLevel;
 		_lockId = lockId;
+		
+		super(x, y, w, h, str);
 	}
 	
+	override private function getLockedText():String 
+	{
+		if (_lockId == "exit") {
+			var i:Int = 0;
+			if (GameData.instance.fireLevelCompleted) i++;
+			if (GameData.instance.mooseBossKilled) i++;
+			if (GameData.instance.ironBossKilled) i++;
+			
+			return "LOCKED ("+i+"/3)";
+		} else {
+			return "LOCKED";
+		}
+		
+	}
 	
 	override private function onPlayerTouching(player:Entity) 
 	{
@@ -44,6 +58,10 @@ class PortalEntity extends InfoEntity
 			if (Input.pressed(Player.CTRL_ENTER_PORTAL) && unlocked) {
 				SoundFactory.getSound("Portal.wav").play();
 				GameData.instance.gotoWorld(_nextLevel);
+				
+				if (_lockId == "fire") {
+					GameData.instance.fireLevelCompleted = true;
+				}
 				
 			}
 		}

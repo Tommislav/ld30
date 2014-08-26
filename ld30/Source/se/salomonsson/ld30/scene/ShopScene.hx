@@ -94,6 +94,7 @@ class ShopScene extends GameBaseScene
 		switch (item) {
 			case 0:
 				// HEALTH
+				GameData.instance.maxHealth += 10;
 				GameData.instance.health = GameData.instance.maxHealth;
 				statusText = "HEALTH FULLY RESTORED";
 				

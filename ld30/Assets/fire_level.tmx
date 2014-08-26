@@ -46,7 +46,7 @@
    eJzt3EEKgCAQBVBzY/e/bFuXhRBaiKS9B+5m6QwyfAwBAAAAgBkc23kAAAAAAAAAAO5cMwbyBgAAAAAAsLYU6zV7Qw0AAAAAAPQmzw7/86bnzQmAdZjpAABzG7HP82aEvp72rb09I5T3zB9IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwXRn5YiL0
   </data>
  </layer>
- <objectgroup name="obj" width="130" height="120" visible="0">
+ <objectgroup name="obj" width="130" height="120">
   <object type="start" x="1808" y="288" width="32" height="32">
    <properties>
     <property name="from" value="start"/>
@@ -147,6 +147,7 @@
    <properties>
     <property name="info" value="CONNECTION TO HUB"/>
     <property name="level" value="1"/>
+    <property name="locked" value="fire"/>
    </properties>
   </object>
  </objectgroup>

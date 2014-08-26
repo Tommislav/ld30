@@ -51,7 +51,7 @@ class IronBoss extends EnemyBase
 		}
 		
 		super(x, y, _gfx, width, height, money);
-		_hp = 3;
+		_hp = 2;
 		_dmgCounter = 6;
 	}
 	
@@ -91,8 +91,10 @@ class IronBoss extends EnemyBase
 		
 		if (_size == 0 || _size == 1) {
 			var off = (_size == 0) ? 128 / 2 : 64 / 2;
-			HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, -1, 1) );
-			HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, 1, 1) );
+			if (_size == 0) {
+				HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, -1, 1) );
+				HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, 1, 1) );
+			}
 			HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, -1, -1));
 			HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, 1, -1) );
 			
@@ -116,7 +118,7 @@ class IronBoss extends EnemyBase
 		
 		var beforeHp:Int = _hp;
 		super.checkAttacked();
-		var afterHp:Int = _hp;
+		var afterHp:Int = (_hp < 0) ? 0 : _hp;
 		if (afterHp != beforeHp) {
 			GameData.instance.ironBossHP -= (beforeHp - afterHp);
 		}
