@@ -42,12 +42,12 @@
  </layer>
  <layer name="main" width="270" height="100">
   <data encoding="base64" compression="zlib">
-   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
+   eJzt3VluE0EQgOEmOUbggeUucAWWuzA8sNwFrsByl5B70KPWKJKVIVXjiWC6v0+qF0eyLEv+5SnbnVIAcr49+tePADga3QCydAPI0g0gSzeALN0AsnQDyNINIEs3gCzdALJ0A8jSDSBrj25c1Xlc58n5dwUcwB7deF9nqvPh/LsCDmCPblzX+V3n5vy7Ag7AfgPI0g0gy14UyLIXBbLsRYEs+w0gSzeALHtRIMteFMiyFwWy7DeALN0AsuxFgSx7USDLXhTIst8Ask67sewqImOfAWM67cayq4iMfQaM6bQby65iumfsM2Bca/uN+XplWhnvM2Bsa9342/WKbsDY1rqxXK/cNfP1yVefw8Cwtn4O6/NbGJduAFm6AWTpBpClG0CWbgBZugFk6QaQpRtAlm4AWboBZOkGkLX19T//XjZ6LlhP44wzuL8bL+vfX90xa7+V7Xmm4gwBmLneiJvfY+kG6EaGbkCjG3G6AY1uxOkGNLoRpxvQ6EacbkCjG3G6AY1uxOkGNLoRpxvQ6EacbkCjG3G6AY1uxOkGNLoRpxvQ6EacbkAT6cZVcfbETDegiXRjfr1MxWtmeR6c88PoIt24Lu3cmpuHfjD/ueV5iJzvs8zoraVP9hv7W96XzKMb9Eg39qcb9E439qcb9E43tnt9UcqbOm/rvLu4vV036J1ubPe9tuJHnZ91fukGA9GN7Z5elvKszvM6Ly5vb9cNeqcb2+kGo9KN7T7WVnyq87nOF91gIKP+v8aHnKnoBn2LfgfSbJvRv2MLAAAAAAAAAAAAAAAAAAAAAAAAAAAAwLH9AaPDP5Q=
   </data>
  </layer>
  <layer name="collision" width="270" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt3dFuokAABVDd///ozaYP7RKryBWY4Z6TTPpQFPBeh6kae7/dbnfDCAddZE5Kh/rInJQO9ZE5KR3qI3NSOtRH5qR0qI/MSelQH5mT0qE+MielQ31kTkqH+siclA71kTkpHeojc1I61EfmpHSoj8xJ6VAfmZPSoT4yJ6VDfY7K/M+Kkd5+7X1uva+tx77HOex1HluGeaOPzEnpUB+Zk9KhPjInpUN9ZE5Kh/rInJQO9ZE5KR3qI3NSOtRH5mP51GdF9r7Pn3Soz+yZr/2fYZ/ejm8eqz6zZ35f/DxqO755rPqMnvmr6/+Z6w1rky/t599o9MxHvv6PfGxHaj//RmdmvuZ6PfI1feRjO1L7+Tc6e944+xjIya/PMvP7myPd99Wv1y3nSJdH88bW2y5/d/XnyxoNa6ornxuPPVtvPLvNmm0e3X+bhvnzyufGY8/e33z3Nsttrv584YuM++w5b6zdlrnJuM+az1NteT3UvLHOEeuyT39P6pKM++yVub9T1rnC/DrzsbONzM91hfl15mNnG5mfy3qDGcn8XK/mjRnWIyMfG/uQ+blezQszrEdGPjb2IfOxWW8wIpmT0qE+MielQ31kTkqH+rRkPsPrBLPymPZpyXyG9yXeNcpcePb+OV5L5qM8xz5plLnw7P1zPJnPa5S58Oz9czyZk9KhPjInpUN9ZE5Kh/rInJQO9ZF5p3e+A+zV94LpUB+Zk9KhPjK/nqPfn9WhPjK/nqM/D6ZDfWR+PdYb7E3mpHSoj8xJ6VAfmZPSoT4yJ6VDfWROSof6yJyUDvWROSkd6iNzUjrUR+akdKiPzEnpUJ9HmY/yvZXMQU/6/DZv/PY7WNKTPtYbpPSkj8xJ6VAfmZPSoT4yJ6VDfWS+j6bXiBrOkf/dDeMDAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/vkLXFMDcA==
+   eJzt3dFunDAQBdDd/v9H96GqlBAvOAwGzD1HQn3KLjPXmnqdhLxfr9fb5SpeZJE5VdZQHplTZQ3lkTlV1lCeIzK3brLJP4+5QZX885gbVMk/j7lBlfzzmBtUyT+PuUGV/POYG1TJP4+5QZX885gbVMk/z1Fzw+835ZJ7niP3G9ZPJrnnsd+gSu55nG9QJf885kafPxvXEa/x29fe+3pHXwn5853PKVTJPY9zUarknsd+gyq553G+QZX885gbVMk/j88pVMk9j3NRquSex37jXio/z3Hma34l9zzON6iSfx5zgyr55/E5Zb/UupfS60/kXHS/1LqX0utPZL+xX2rdS+n1J3K+QZX88ywzf++4+CyhT0+ujbbW3Nj7tfyUcAby5NpoW9tvrH3N0/8PPUpCr55cG22fMt+aG/Cf9ZDH3KDKesizNjechY53Rk+PeJbpGushz97MrZVjPOHcdOZ7Zx9z41pP2MPNfO/sY25cy36DGZkb19qaGzPsR+58b4xhblxray7MsB+5870xhrlxb/Yb3JG5QZW1kMfcoMpayGNuUGUt5DE3qLIW8pgb87rLmenV78/5zI153eV7tFe/P+czN+Zlv8FVtjLf89zAJ1/8pC95ZN5Pr9r0JY/M+1V7NXK/c+X+yRrKI/N+etWmL3lk3u9JvfrNM8C2ngv2pL7QR+b99KpNX/LIvN8svTr7+z+z9IXjyLzfLL16L/496/3IIfN+s/TKfoPRZN5Pr9r0JY/M++lVm77kkXk/vWrTlzwy76dXbfqSR+b99KpNX/LIvJ9etelLnp7M/R75P+n1f6IvecyNfun1f6IvecyNfp7v05ZWLzIfIa2nafUi8xHSeppWLzIfIa2nafUi8xHSeppWLzIfIa2nafUi8xHSeppWLzIfIa2nafUi8xG+Pm8rob8JNfJd5W95uNZ/7uvqezi7XgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+AvqeAOs
   </data>
  </layer>
  <layer name="main_fg" width="270" height="100">
@@ -66,15 +66,14 @@
     <property name="id" value="ironboss"/>
    </properties>
   </object>
-  <object type="portal" x="2208" y="1152" width="64" height="80">
+  <object type="portal" x="1264" y="1152" width="64" height="80">
    <properties>
     <property name="info" value="BACK TO HUB"/>
     <property name="level" value="1"/>
     <property name="locked" value="iron"/>
    </properties>
   </object>
-  <object type="bouncer" x="976" y="752" width="16" height="400"/>
-  <object type="bouncer" x="16" y="496" width="32" height="736"/>
+  <object type="bouncer" x="1152" y="32" width="32" height="736"/>
   <object type="bouncer" x="1920" y="912" width="16" height="256"/>
   <object type="bouncer" x="2240" y="208" width="16" height="640"/>
  </objectgroup>

@@ -4,6 +4,7 @@ import com.haxepunk.HXP;
 import com.haxepunk.Scene;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.EmitEntity;
+import se.salomonsson.ld30.entities.IronBossHud;
 import se.salomonsson.ld30.entities.Player;
 
 /**
@@ -31,8 +32,13 @@ class IronScene extends GameBaseScene
 		HXP.screen.color = 0x000000;
 		
 		if (!GameData.instance.ironBossKilled) {
-			playBgLoop("LDBossSong");
+			
+			GameData.instance.ironBossHP = GameData.instance.ironBossMaxHp;
 			GameData.instance.ironSpawnsKilled = 0;
+			
+			playBgLoop("LDBossSong");
+			add(new IronBossHud());
+			
 		} else {
 			playBgLoop("8BitDreams");
 		}

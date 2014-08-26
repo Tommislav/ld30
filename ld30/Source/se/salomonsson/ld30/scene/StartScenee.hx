@@ -1,4 +1,5 @@
 package se.salomonsson.ld30.scene;
+import com.haxepunk.HXP;
 import se.salomonsson.ld30.entities.EmitEntity;
 import se.salomonsson.ld30.entities.EyeEnemy;
 import se.salomonsson.ld30.entities.Player;
@@ -25,5 +26,6 @@ class StartScenee extends GameBaseScene
 		
 		add(new EmitEntity());
 		addPlayerAtPosition(new Player(), "start");
+		HXP.screen.color = 0xcccccc;
 	}
 }

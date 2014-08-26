@@ -128,7 +128,7 @@ class GameBaseScene extends Scene
 					add(new MooseBoss(x,y));
 				}
 			case "ironboss":
-				add(new IronBoss(x, y, 0, 6));
+				add(new IronBoss(x, y, 0, 1));
 			case "lava":
 				add(new Lava(x,y,obj.width, obj.height));
 		}

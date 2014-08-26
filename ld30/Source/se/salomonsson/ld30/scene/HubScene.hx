@@ -1,4 +1,5 @@
 package se.salomonsson.ld30.scene;
+import com.haxepunk.HXP;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.EmitEntity;
 import se.salomonsson.ld30.entities.Player;
@@ -23,6 +24,7 @@ class HubScene extends GameBaseScene
 		
 		add(new EmitEntity());
 		
+		HXP.screen.color = 0x808080;
 		var lastWorld:String = GameData.instance.lastWorld;
 		addPlayerAtPosition(new Player(), lastWorld);
 		

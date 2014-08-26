@@ -35,13 +35,14 @@ class MooseBoss extends EnemyBase
 	private var _hud:Hud;
 	private var _maxHp:Int;
 	
+	private var _initCountdown:Int;
+	
 	public function new(x:Float, y:Float) 
 	{
 		_gfx = GraphicsFactory.getMooseGraphics();
 		super(x, y, _gfx);
 		
 		setHitbox(256, 256);
-		
 		_maxHp = 10;
 		_hp = _maxHp;
 		
@@ -55,6 +56,8 @@ class MooseBoss extends EnemyBase
 		
 		_hud = new Hud(7, 583, 786, "moose");
 		HXP.scene.add(_hud);
+		
+		setIdleState();
 	}
 	
 	override private function preUpdate() 

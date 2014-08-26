@@ -20,9 +20,9 @@ class IronBoss extends EnemyBase
 	private var _speed:Float;
 	private var _collisionPause:Int;
 	private var _size:Int;
-	private var _life:Int;
+	private var _cnt:Int;
 	
-	public function new(x:Float, y:Float, size:Int, money:Int, dirX:Int=0, dirY:Int=0, life:Int=0) 
+	public function new(x:Float, y:Float, size:Int, money:Int, dirX:Int=0, dirY:Int=0) 
 	{
 		if (size == 0) {
 			_gfx = GraphicsFactory.instance.getIronBouncerLarge();
@@ -39,7 +39,6 @@ class IronBoss extends EnemyBase
 			_speed = 4;
 		}
 		_size = size;
-		_life = life;
 		
 		_dirX = dirX;
 		if (_dirX == 0) {
@@ -52,21 +51,11 @@ class IronBoss extends EnemyBase
 		}
 		
 		super(x, y, _gfx, width, height, money);
-		_hp = 2;
+		_hp = 3;
+		_dmgCounter = 6;
 	}
 	
 	override public function wantsToUpdate(cameraBounds:Rectangle):Bool { return true; }
-	
-	override private function postUpdate() 
-	{
-		if (_life > 0) {
-			if (--_life <= 0) {
-				// SELF DESTRUCT - no coins
-				_hp = 0;
-				onKilled();
-			}
-		}
-	}
 	
 	override private function updatePhysics() 
 	{
@@ -102,23 +91,19 @@ class IronBoss extends EnemyBase
 		
 		if (_size == 0 || _size == 1) {
 			var off = (_size == 0) ? 128 / 2 : 64 / 2;
-			if (_size == 0) {
-				HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, -1, 0) );
-				HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, 1, 0) );
-			} else {
-				HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, -1, 1, Std.int(Math.random() * 400+400)) );
-				HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, 1, 1, Std.int(Math.random() * 400+400)) );
-				HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, -1, -1, Std.int(Math.random() * 400+400)) );
-				HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, 1, -1, Std.int(Math.random() * 400+400)) );
-			}
+			HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, -1, 1) );
+			HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, 1, 1) );
+			HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, -1, -1));
+			HXP.scene.add( new IronBoss(centerX - off, centerY - off, _size + 1, _money, 1, -1) );
 			
 		}
 		
+		
+		
 		if (_size == 2) {
 			GameData.instance.ironSpawnsKilled++;
-			trace("KILLED: " + GameData.instance.ironSpawnsKilled);
-			if (GameData.instance.ironSpawnsKilled == 8) {
-				GameData.instance.ironBossKilled;
+			if (GameData.instance.ironBossHP == 0) {
+				GameData.instance.ironBossKilled = true;
 				SoundFactory.playBgLoop("8BitDreams");
 			}
 		}
@@ -126,6 +111,15 @@ class IronBoss extends EnemyBase
 		super.onKilled();
 	}
 	
-	
+	override private function checkAttacked() 
+	{
+		
+		var beforeHp:Int = _hp;
+		super.checkAttacked();
+		var afterHp:Int = _hp;
+		if (afterHp != beforeHp) {
+			GameData.instance.ironBossHP -= (beforeHp - afterHp);
+		}
+	}
 	
 }

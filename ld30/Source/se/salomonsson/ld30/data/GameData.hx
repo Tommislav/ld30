@@ -39,17 +39,18 @@ class GameData
 	public var dashRecoveryTime:Int = 800;
 	
 	public var swordStr:Int = 1;
-	public var swordLength:Int = 65;
+	public var swordLength:Int = 55;
 	public var swordRecovery:Int = 500;
 	
 	public var health:Int = 1;
 	public var maxHealth:Int = 12;
 	
-	public var money:Int = 0;
+	public var money:Int = 500;
 	
 	public var lock:Map<String, Bool>;
 	
-	
+	public var ironBossMaxHp:Int = 21*3;
+	public var ironBossHP:Int;
 	
 	public var mooseBossKilled:Bool;
 	public var ironBossKilled:Bool;
@@ -59,6 +60,8 @@ class GameData
 	public var currentWorld:String;
 	public var lastWorld:String;
 	
+	
+	public var upgradeCost:Int = 5;
 	
 	public function unlock(key:String) {
 		
