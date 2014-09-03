@@ -26,7 +26,7 @@ class HubScene extends GameBaseScene
 		add(new EmitEntity());
 		add(new MoneyHud());
 		
-		HXP.screen.color = 0x808080;
+		GraphicsFactory.setBackgroundColor(0x808080);
 		var lastWorld:String = GameData.instance.lastWorld;
 		addPlayerAtPosition(new Player(), lastWorld);
 		

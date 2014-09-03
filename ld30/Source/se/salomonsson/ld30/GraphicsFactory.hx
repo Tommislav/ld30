@@ -206,7 +206,13 @@ class GraphicsFactory
 	}
 	
 	
-	
+	public static function setBackgroundColor(col:Int) {
+		#if flash
+			HXP.screen.color = col;
+		#else
+			HXP.stage.color = col;
+		#end
+	}
 	
 	
 }

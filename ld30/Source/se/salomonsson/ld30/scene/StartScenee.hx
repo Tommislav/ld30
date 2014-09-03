@@ -28,6 +28,6 @@ class StartScenee extends GameBaseScene
 		add(new EmitEntity());
 		add(new MoneyHud());
 		addPlayerAtPosition(new Player(), "start");
-		HXP.screen.color = 0xcccccc;
+		GraphicsFactory.setBackgroundColor(0xcccccc);
 	}
 }

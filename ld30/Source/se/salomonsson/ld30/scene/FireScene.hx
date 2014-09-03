@@ -28,7 +28,7 @@ class FireScene extends GameBaseScene
 		add(new EmitEntity());
 		add(new MoneyHud());
 		addPlayerAtPosition(new Player());
-		HXP.screen.color = 0x343434;
+		GraphicsFactory.setBackgroundColor(0x343434);
 		
 	}
 	
