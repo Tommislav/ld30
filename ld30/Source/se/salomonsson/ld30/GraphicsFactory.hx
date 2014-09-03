@@ -71,9 +71,13 @@ class GraphicsFactory
 		registerImgPart32("coin2", 8, 0);
 		registerImgPart32("coin3", 9, 0);
 		registerImgPart32("coin4", 10, 0);
+		registerImgPart32("coin4", 10, 0);
 		
-		registerImgPart32("square1", 0, 1);
-		registerImgPart32("square2", 1, 1);
+		// Solid colors
+		_rect.set("solid_red", new Rectangle(0 * 16, 1 * 32, 16, 16));
+		_rect.set("solid_orange", new Rectangle(1 * 16, 1 * 32, 16, 16));
+		_rect.set("solid_brown", new Rectangle(2 * 16, 1 * 32, 16, 16));
+		_rect.set("solid_blue", new Rectangle(3 * 16, 1 * 32, 16, 16));
 		
 		
 		registerImgPart32("large-eyes1", 11, 0);
@@ -99,10 +103,19 @@ class GraphicsFactory
 		var rect = Image.createRect(width, height, color);
 		return rect;
 	}
+	
+	public static function getColoredRect(name:String, width:Int, height:Int):Image {
+		var img:Image = instance.getImgPart(name);
+		var scaleX:Float = width / img.width;
+		var scaleY:Float = height / img.height;
+		img.scaleX = scaleX;
+		img.scaleY = scaleY;
+		return img;
+	}
 
 	public static function getPlayerGraphic() {
 		var g:DynamigGfxList = new DynamigGfxList();
-		g.add2(instance.getImgPart("square1"), 		false, "");
+		g.add2(getColoredRect("solid_red", 32, 32),	false, "");
 		g.add2(instance.getImgPart("shade"), 		false, "");
 		g.add2(instance.getImgPart("ninja"), 		true, "");
 		g.add2(instance.getImgPart("ninja-eyes1"), 	true, "normal");
@@ -118,7 +131,9 @@ class GraphicsFactory
 	
 	public static function getGenericEnemyGraphic() {
 		var g:DynamigGfxList = new DynamigGfxList();
-		g.add2(instance.getImgPart("square2"), 		false, "");
+		
+		
+		g.add2(getColoredRect("solid_orange", 32, 32), false, "");
 		g.add2(instance.getImgPart("shade"), 		false, "");
 		g.add2(instance.getImgPart("eye"), 			false, "eye");
 		g.add2(instance.getImgPart("eye-close"),	false, "dmg");
@@ -141,7 +156,7 @@ class GraphicsFactory
 	static public function getMooseGraphics() 
 	{
 		var g:DynamigGfxList = new DynamigGfxList();
-		g.add2(getColoredRectangle(256, 256, 0x4b2d16), false, "");
+		g.add2(getColoredRect("solid_brown", 256, 256), false, "");
 		g.add2(instance.getImgPart("shade64x256"), false, "");
 		g.add2(instance.getImgPart("moose-eyes1"), true, "eyesOpen");
 		g.add2(instance.getImgPart("moose-eyes2"), true, "eyesClosed");
@@ -151,7 +166,7 @@ class GraphicsFactory
 	public function getLargeShiledGfx() 
 	{
 		var g:DynamigGfxList = new DynamigGfxList();
-		g.add2(getColoredRectangle(32, 96, 0xfcd600), false, "");
+		g.add2(getColoredRect("solid_orange", 32, 96), false, "");
 		g.add2(getImgPart("shade32x96"), false, "");
 		g.add2(instance.getImgPart("large-eyes1"), false, "");
 		var shield:Image = instance.getImgPart("shield96");
@@ -162,7 +177,7 @@ class GraphicsFactory
 	
 	public function getIronBouncerLarge()  {
 		var g:DynamigGfxList = new DynamigGfxList();
-		g.add2(getColoredRectangle(256, 256, 0x000794), false, "");
+		g.add2(getColoredRect("solid_blue", 256, 256), false, "");
 		g.add2(getImgPart("shade64x256"), false, "");
 		
 		var bigEyes = getImgPart("iron-eyes-big");
@@ -176,7 +191,7 @@ class GraphicsFactory
 	
 	public function getIronBouncerMedium()  {
 		var g:DynamigGfxList = new DynamigGfxList();
-		g.add2(getColoredRectangle(128, 128, 0x000794), false, "");
+		g.add2(getColoredRect("solid_blue", 128, 128), false, "");
 		g.add2(getImgPart("shade64x128"), false, "");
 		g.add2(getImgPart("iron-eyes-big"), false, "");
 		return g;
@@ -184,7 +199,7 @@ class GraphicsFactory
 	
 	public function getIronBouncerSmall()  {
 		var g:DynamigGfxList = new DynamigGfxList();
-		g.add2(getColoredRectangle(64, 64, 0x000794), false, "");
+		g.add2(getColoredRect("solid_blue", 64, 64), false, "");
 		g.add2(getImgPart("shade64x32"), false, "");
 		g.add2(getImgPart("iron-eyes-small"), false, "");
 		return g;

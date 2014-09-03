@@ -65,6 +65,7 @@ class Joystick
 		{
 			if (buttons.get(button) == BUTTON_PRESSED)
 			{
+				trace("----------> " + button);
 				buttons.set(button, BUTTON_ON);
 			}
 		}
@@ -172,12 +173,12 @@ class XBOX_GAMEPAD
 
 	//public static inline var TRIGGER:Int = 3;
 #else // default windows mapping
-	public static inline var A_BUTTON:Int = 0;
-	public static inline var B_BUTTON:Int = 1;
-	public static inline var X_BUTTON:Int = 2;
-	public static inline var Y_BUTTON:Int = 3;
-	public static inline var LB_BUTTON:Int = 4;
-	public static inline var RB_BUTTON:Int = 5;
+	public static inline var A_BUTTON:Int = 10;
+	public static inline var B_BUTTON:Int = 11;
+	public static inline var X_BUTTON:Int = 12;
+	public static inline var Y_BUTTON:Int = 13;
+	public static inline var LB_BUTTON:Int = 8;
+	public static inline var RB_BUTTON:Int = 9;
 	public static inline var BACK_BUTTON:Int = 6;
 	public static inline var START_BUTTON:Int = 7;
 	public static inline var LEFT_ANALOGUE_BUTTON:Int = 8;
@@ -186,6 +187,10 @@ class XBOX_GAMEPAD
 	public static inline var LEFT_ANALOGUE_Y:Int = 1;
 	public static inline var RIGHT_ANALOGUE_X:Int = 4;
 	public static inline var RIGHT_ANALOGUE_Y:Int = 3;
+	public static inline var DPAD_UP:Int = 0;
+	public static inline var DPAD_DOWN:Int = 1;
+	public static inline var DPAD_LEFT:Int = 2;
+	public static inline var DPAD_RIGHT:Int = 3;
 
 	/**
 	* Keep in mind that if TRIGGER axis returns value > 0 then LT is being pressed, and if it's < 0 then RT is being pressed

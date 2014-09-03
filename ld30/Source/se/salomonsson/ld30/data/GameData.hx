@@ -74,7 +74,7 @@ class GameData
 		if (key == "iron") { return ironBossKilled; }
 		if (key == "fire") { return true; }
 		if (key == "exit") {
-			return return mooseBossKilled && ironBossKilled && fireLevelCompleted;
+			return mooseBossKilled && ironBossKilled && fireLevelCompleted;
 		}
 		return true;
 	}
