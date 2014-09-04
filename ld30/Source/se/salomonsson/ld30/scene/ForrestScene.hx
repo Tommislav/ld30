@@ -7,6 +7,7 @@ import se.salomonsson.ld30.entities.EmitEntity;
 import se.salomonsson.ld30.entities.MoneyHud;
 import se.salomonsson.ld30.entities.MooseBoss;
 import se.salomonsson.ld30.entities.Player;
+import se.salomonsson.ld30.GraphicsFactory;
 
 /**
  * ...
@@ -31,7 +32,7 @@ class ForrestScene extends GameBaseScene
 		
 		var lastWorld:String = GameData.instance.lastWorld;
 		addPlayerAtPosition(new Player(), lastWorld);
-		HXP.screen.color = 0x18238b;
+		GraphicsFactory.setBackgroundColor(0x18238b);
 		
 		if (!GameData.instance.mooseBossKilled) {
 			playBgLoop("LDBossSong");

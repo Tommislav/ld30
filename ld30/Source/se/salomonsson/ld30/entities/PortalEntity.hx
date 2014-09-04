@@ -7,6 +7,7 @@ import com.haxepunk.graphics.Text;
 import com.haxepunk.HXP;
 import com.haxepunk.Scene;
 import com.haxepunk.utils.Input;
+import com.haxepunk.utils.Joystick.XBOX_GAMEPAD;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.EntityType;
 import se.salomonsson.ld30.scene.HubScene;
@@ -55,7 +56,7 @@ class PortalEntity extends InfoEntity
 				showLockText(!unlocked);
 			}
 			
-			if (Input.pressed(Player.CTRL_ENTER_PORTAL) && unlocked) {
+			if ((Input.pressed(Player.CTRL_ENTER_PORTAL) || Input.joystick(0).pressed(XBOX_GAMEPAD.DPAD_UP)) && unlocked) {
 				SoundFactory.getSound("Portal.wav").play();
 				GameData.instance.gotoWorld(_nextLevel);
 				

@@ -7,6 +7,7 @@ import se.salomonsson.ld30.entities.EmitEntity;
 import se.salomonsson.ld30.entities.IronBossHud;
 import se.salomonsson.ld30.entities.MoneyHud;
 import se.salomonsson.ld30.entities.Player;
+import se.salomonsson.ld30.GraphicsFactory;
 
 /**
  * ...
@@ -31,7 +32,7 @@ class IronScene extends GameBaseScene
 		
 		var lastWorld:String = GameData.instance.lastWorld;
 		addPlayerAtPosition(new Player(), lastWorld);
-		HXP.screen.color = 0x000000;
+		GraphicsFactory.setBackgroundColor(0x000000);
 		
 		if (!GameData.instance.ironBossKilled) {
 			

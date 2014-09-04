@@ -7,6 +7,7 @@ import com.haxepunk.HXP;
 import com.haxepunk.tweens.misc.VarTween;
 import com.haxepunk.utils.Ease;
 import com.haxepunk.utils.Input;
+import com.haxepunk.utils.Joystick;
 import flash.geom.Point;
 import flash.Lib;
 import se.salomonsson.ld30.behaviours.IBehaviour;
@@ -61,10 +62,17 @@ class Player extends Entity
 	
 	private var _hud:Hud;
 	
+	
+	private var _joystick:Joystick;
+	
+	
 	public function new() 
 	{
 		super(100, 100);
 		_resistance = 1;
+		
+		_joystick = new Joystick();
+		trace("number of joysticks: " + Input.joysticks);
 		
 		this.type = EntityType.PLAYER;
 		this.name = EntityType.PLAYER;
@@ -207,13 +215,13 @@ class Player extends Entity
 		
 		
 		
-		if (Input.check(CTRL_LEFT)) {
+		if (Input.check(CTRL_LEFT) || Input.joystick(0).check(XBOX_GAMEPAD.DPAD_LEFT)) {
 			if (_velocity.x > 0) { _velocity.x *= 0.9; }
 			isMoving = true;
 			_velocity.x -= gd.moveSpeed;
 			_dir.x = -1;
 		}
-		if (Input.check(CTRL_RIGHT)) {
+		if (Input.check(CTRL_RIGHT) || Input.joystick(0).check(XBOX_GAMEPAD.DPAD_RIGHT)) {
 			
 			if (_velocity.x < 0) { _velocity.x *= 0.9; }
 			isMoving = true;
@@ -228,7 +236,7 @@ class Player extends Entity
 			}
 		}
 		
-		if (Input.check(CTRL_ATK)) {
+		if (Input.check(CTRL_ATK) || Input.joystick(0).check(XBOX_GAMEPAD.X_BUTTON)) {
 			if (canAttack()) {
 				attack();
 			}
@@ -244,7 +252,9 @@ class Player extends Entity
 			_velocity.y = 0;
 		}
 		
-		if (Input.pressed(CTRL_JUMP)) {
+		
+		
+		if (Input.pressed(CTRL_JUMP) || Input.joystick(0).pressed(XBOX_GAMEPAD.A_BUTTON)) {
 			if (_onGround) {
 				_velocity.y -= gd.jumpStr;
 				_isJumping = true;
@@ -252,23 +262,29 @@ class Player extends Entity
 		}
 		
 		
-		if (Input.pressed(CTRL_LEFT)) {
-			if (checkDashDoubleClick(-1)) {
-				if (canDash()) {
-					dash( -1);
+		if (Input.joystick(0).pressed(XBOX_GAMEPAD.LB_BUTTON)) {
+			if (canDash()) dash( -1);
+		} else {
+			if (Input.pressed(CTRL_LEFT)) {
+				if (checkDashDoubleClick(-1)) {
+					if (canDash()) {
+						dash( -1);
+					}
 				}
 			}
 		}
-		if (Input.pressed(CTRL_RIGHT)) {
-			if (checkDashDoubleClick(1)) {
-				if (canDash()) {
-					dash(1);
-				}
-			}			
+		
+		if (Input.joystick(0).pressed(XBOX_GAMEPAD.RB_BUTTON)) {
+			if (canDash()) dash(1);
+		} else {
+			if (Input.pressed(CTRL_RIGHT)) {
+				if (checkDashDoubleClick(1)) {
+					if (canDash()) {
+						dash(1);
+					}
+				}			
+			}
 		}
-		
-		
-		
 		
 	}
 	

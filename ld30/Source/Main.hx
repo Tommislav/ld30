@@ -1,6 +1,5 @@
 package;
 
-
 import com.haxepunk.Engine;
 import com.haxepunk.HXP;
 import com.haxepunk.utils.Input;
@@ -52,7 +51,7 @@ class Main extends Engine {
 		GameData.resetGameData();
 		
 		
-		HXP.screen.color = 0xffffff;
+		GraphicsFactory.setBackgroundColor(0xffffff);
 		HXP.scene = new SplashStartScene();
 		//HXP.scene = new HubScene();
 	}
