@@ -4,6 +4,8 @@
 	<meta title="Ld30" package="se.salomonsson.ld30" version="1.0.0" company="Salomonsson.se" />
 	<app main="Main" path="Export" file="Ld30" width="800" height="600" />
 	
+	<window width="800" height="600" background="#FFFFFF" fps="60" vsync="true" hardware="true" />
+	
 	<source path="Source" />
 	<source path="../haxepunk-fork" />
 	
