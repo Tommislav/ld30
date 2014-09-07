@@ -15,17 +15,17 @@
  </tileset>
  <layer name="main" width="130" height="60">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="collision" width="130" height="60">
   <data encoding="base64" compression="zlib">
-   eJztmUuSwyAMBZO5/6FTWXgzcRxAT/BkuqtYWh/owmA/HqDkuTBmRm4YAw/gDR588hwclcGDc/BgXkznueupDQ9iMZ3nDg/mxXSeOzyYF9N57lZ68HcxssCDc9gP5sVU5R6956nO/3gQi6n0QA0ezIvp7sGvPYLvB5qYzh605MEDTcy7ePCfq/N+y1gBHoznucM+cIAH7TnwICdmJQ++5cWDeMxdPXA8K+BBLC/7QTwmHviAB7G8eBCPiQc+4EEsb3buWWdIPKibWwke1M2tZOW/+zt4sBr1eyNjnVtyOsWBNeABvMGDflTv7cg3bfV5AQ/6UfQajTH6PB7EUZ7N8KAuyh6PWKN3DDyYj/qOdsRc8TwejLPyO5/6eTzo52wfyPrO1/tuwIN5nPXk0ice5HN1HnDpEw/yueolo0/uC1603Atc+sSDPFp6cOkTD/T0fB/I7rPn/8IIePCdntpd+nT2oPLYpc9sDyI41LA7DmvgUMPuOKyBQw2747AGDjXsjsMaONSwOw5r4FDD7jisgUMNu+OwBuo7PvRTZX6r1FmVKvPLvpBLtXmtVm8Vqs0r+0IOVeezat2uVJ3P1f/s7jgAAKK8AKGAAvM=
+   eJztmcluxCAQBSf5/4+OcvAl43GA3l5DlcTRvUAJY/x6afG1wfBmNGZE7iq694IHPnTvBQ/eUdlXM8GDe/AgL6by3M3Uhge2mMpzhwd5MZXnDg/yYirPXaUH3w8jCjy4h/0gL6ZX7ur7NTywxfT0wBs8yIup7sF/ewT3Bz4xlT0YyYMHPjF38eAvT+f9kVEBHqzn2WEfuMCD8Rx4EBOzkwef8uKBPeapHiieFfDAlpf9wB4TD3TAA1tePLDHxAMd8MCWNzp31hkSD/rm9gQP+ub2pPLf/Q4eVOP93ohY55GcSnGgBjyAX/BgHq/3tuVO2/u8gAfzePRqjbH6PB7Y8Tyb4UFfPHu8Yq1+Y+BBPt7faFfMiufxYJ3Kez7v5/Fgnrt9IOqeb/bdgAd53PWk0icexPN0HlDpEw/ieeolok++F7QY+S5Q6RMP4hjpQaVPPPBn5n4gus+Z/wsr4MFnZmpX6VPZg87jlD6jPbCgUMPpKKyBQg2no7AGCjWcjsIaKNRwOgproFDD6SisgUINp6OwBgo1nI7CGnh/48M8Xea3S51d6TK/7AuxdJvXbvV2odu8si/E0HU+u9atStf5rP5nt+MAALDyAzzQAyU=
   </data>
  </layer>
  <layer name="main_fg" width="130" height="60">
   <data encoding="base64" compression="zlib">
-   eJzt28sKgCAUBFDr/385ChdCiD0wSsxzwL0QOOPFQgCAbyxT3QJIprn1DgD4I12U3Orbt6HrAQVX+SyzqVWaMZg7/FPtXNr5AgDj0hU4Ym4IANylQ5LTJYEzcoOc3ABqmGkDdOyld2vygBL3DSLvZccmG0hkApFMGJs8IJEJQM69YWz7jth7Rjz9t7TVAgAAAAAAAACgrQ1gYZb3
+   eJzt28sKgCAQBdDq/385ihZCiL2MEvUccB+4uHcGGwYA+Mc8Pj8Ae+NU+gsAaJE+Smxx92XoekDCVT7LbHKldgz2Dm3K2UubCQCgb7oCR+wNAYC7dEhiuiRwRm4QkxtADjttgIp99G5NHpBi3mDjvWzfZAOBTGAjE/omDwhkAhAzN/Rt3xFrz4i3/5aWOgAAAAAAAAAAlLUCCCSV+Q==
   </data>
  </layer>
  <objectgroup name="obj" width="130" height="60">
@@ -36,18 +36,19 @@
   </object>
   <object type="portal" x="336" y="736" width="64" height="80">
    <properties>
-    <property name="info" value="&lt;PRESS DOWN TO ENTER CONNECTION&gt;"/>
+    <property name="id" value="start-hub"/>
+    <property name="info" value="PRESS DOWN TO ENTER CONNECTION"/>
     <property name="level" value="1"/>
    </properties>
   </object>
   <object type="info" x="432" y="640" width="80" height="48">
    <properties>
-    <property name="info" value="MOVE WITH &lt;WASD&gt; OR &lt;ARROW&gt; KEYS"/>
+    <property name="info" value="MOVE WITH WASD OR ARROW KEYS"/>
    </properties>
   </object>
   <object type="info" x="720" y="640" width="80" height="48">
    <properties>
-    <property name="info" value="&lt;UP&gt; TO JUMP"/>
+    <property name="info" value="UP TO JUMP"/>
    </properties>
   </object>
   <object type="info" x="1248" y="416" width="80" height="48">
@@ -62,7 +63,7 @@
   </object>
   <object type="info" x="528" y="848" width="48" height="48">
    <properties>
-    <property name="info" value="ENTER PORTALS WITH &lt;DOWN&gt;"/>
+    <property name="info" value="ENTER PORTALS WITH DOWN"/>
    </properties>
   </object>
   <object type="info" x="1072" y="640" width="80" height="48">
@@ -73,7 +74,7 @@
   <object type="coin" x="1024" y="656" width="32" height="32"/>
   <object type="info" x="1600" y="848" width="48" height="48">
    <properties>
-    <property name="info" value="ATTACK WITH &lt;SPACE&gt;"/>
+    <property name="info" value="ATTACK WITH SPACE"/>
    </properties>
   </object>
   <object type="enemy" x="1504" y="848" width="32" height="32">

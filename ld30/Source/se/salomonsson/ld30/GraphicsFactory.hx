@@ -71,13 +71,14 @@ class GraphicsFactory
 		registerImgPart32("coin2", 8, 0);
 		registerImgPart32("coin3", 9, 0);
 		registerImgPart32("coin4", 10, 0);
-		registerImgPart32("coin4", 10, 0);
 		
 		// Solid colors
-		_rect.set("solid_red", new Rectangle(0 * 16, 1 * 32, 16, 16));
-		_rect.set("solid_orange", new Rectangle(1 * 16, 1 * 32, 16, 16));
-		_rect.set("solid_brown", new Rectangle(2 * 16, 1 * 32, 16, 16));
-		_rect.set("solid_blue", new Rectangle(3 * 16, 1 * 32, 16, 16));
+		_rect.set("solid_red", new Rectangle(0 * 16, 	2*16, 16, 16));
+		_rect.set("solid_orange", new Rectangle(1 * 16, 2*16, 16, 16));
+		_rect.set("solid_brown", new Rectangle(2 * 16, 2*16, 16, 16));
+		_rect.set("solid_blue", new Rectangle(3 * 16, 2*16, 16, 16));
+		_rect.set("solid_green1", new Rectangle(0 * 16, 3*16, 16, 16));
+		_rect.set("solid_green2", new Rectangle(1 * 16, 3*16, 16, 16));
 		
 		
 		registerImgPart32("large-eyes1", 11, 0);
@@ -94,7 +95,15 @@ class GraphicsFactory
 		_rect.set("moose-eyes2", new Rectangle(2 * 32, 7 * 32, 256, 5 * 32));
 		
 		_rect.set("iron-eyes-big", new Rectangle(16*32,3*32,128,128));
-		_rect.set("iron-eyes-small", new Rectangle(16*32,0,64,64));
+		_rect.set("iron-eyes-small", new Rectangle(16 * 32, 0, 64, 64));
+		
+		// punch enemy
+		_rect.set("p_shade", new Rectangle(320,64, 32,48));
+		_rect.set("p-eyes", new Rectangle(320,32,32,32));
+		_rect.set("p-eyes-atk", new Rectangle(352,32,32,32));
+		_rect.set("p-eyes-dmg", new Rectangle(384,32,32,32));
+		_rect.set("p-fist", new Rectangle(352,64,16,26));
+		_rect.set("p-fist2", new Rectangle(368,64,20,26));
 	}
 	
 	
@@ -205,6 +214,37 @@ class GraphicsFactory
 		return g;
 	}
 	
+	public function getPunchingEnemy() {
+		
+		var g:DynamigGfxList = new DynamigGfxList();
+		g.add2(getColoredRect("solid_green1", 32, 48),false, "");
+		g.add2(getColoredRect("p_shade", 32, 48),false, "");
+		g.add2(getImgPart("p-eyes"), true, "eye");
+		g.add2(getImgPart("p-eyes-atk"), true, "atk");
+		g.add2(getImgPart("p-eyes-dmg"), true, "dmg");
+		
+		g.setGroupVisible("atk", false);
+		g.setGroupVisible("dmg", false);
+		
+		
+		//_rect.set("p_shade", new Rectangle(320,64, 32,48));
+		//_rect.set("p-eyes", new Rectangle(16*20,16*2,32,32));
+		//_rect.set("p-eyes-atk", new Rectangle(16*21,16*2,32,32));
+		//_rect.set("p-eyes-dmg", new Rectangle(16*22,16*2,32,32));
+		//_rect.set("p-fist", new Rectangle(352,64,16,26));
+		//_rect.set("p-fist2", new Rectangle(368,64,16,26));
+		
+		return g;
+	}
+	
+	public function getPunchingFist() {
+		var g:DynamigGfxList = new DynamigGfxList();
+		g.add2(getImgPart("p-fist"), true, "closed");
+		g.add2(getImgPart("p-fist2"), true, "open");
+		
+		g.setGroupVisible("open", false);
+		return g;
+	}
 	
 	public static function setBackgroundColor(col:Int) {
 		#if flash

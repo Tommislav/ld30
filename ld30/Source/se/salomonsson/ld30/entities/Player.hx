@@ -4,7 +4,6 @@ import com.haxepunk.Entity;
 import com.haxepunk.graphics.Emitter;
 import com.haxepunk.graphics.Image;
 import com.haxepunk.HXP;
-import com.haxepunk.tweens.misc.VarTween;
 import com.haxepunk.utils.Ease;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Joystick;

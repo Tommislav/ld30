@@ -3,6 +3,7 @@ import com.haxepunk.HXP;
 import com.haxepunk.Scene;
 import se.salomonsson.ld30.scene.FireScene;
 import se.salomonsson.ld30.scene.ForrestScene;
+import se.salomonsson.ld30.scene.ForrestScene2;
 import se.salomonsson.ld30.scene.HubScene;
 import se.salomonsson.ld30.scene.IronScene;
 import se.salomonsson.ld30.scene.ShopScene;
@@ -61,7 +62,7 @@ class GameData
 	
 	public var currentWorld:String;
 	public var lastWorld:String;
-	
+	public var lastPassedPortalId:String;
 	
 	public var upgradeCost:Int = 5;
 	
@@ -95,18 +96,13 @@ class GameData
 		switch(id) {
 			case "0":
 				return new StartScenee();
-			case "1":
-				return new HubScene();
-			case "2":
-				return new ShopScene();
-			case "3":
-				return new FireScene();
-			case "4":
-				return new ForrestScene();
-			case "5":
-				return new IronScene();
-			case "6":
-				return new SplashEndScreen();
+			case "1": return new HubScene();
+			case "2": return new ShopScene();
+			case "3": return new FireScene();
+			case "4": return new ForrestScene();
+			case "7": return new ForrestScene2();
+			case "5": return new IronScene();
+			case "6": return new SplashEndScreen();
 		}
 		return new StartScenee();
 	}

@@ -6,6 +6,7 @@ import com.haxepunk.Scene;
 import com.haxepunk.tweens.misc.VarTween;
 import com.haxepunk.utils.Ease;
 import com.haxepunk.utils.Input;
+import com.haxepunk.utils.Joystick.XBOX_GAMEPAD;
 
 /**
  * ...
@@ -49,7 +50,7 @@ class SplashScreen extends Scene
 		}
 		
 		if (!_clicked && _countdown == 0) {
-			if (Input.mousePressed) {
+			if (Input.mousePressed || Input.joystick(0).check(XBOX_GAMEPAD.START_BUTTON)) {
 				_clicked = true;
 				_countdown2 = 10;
 			}

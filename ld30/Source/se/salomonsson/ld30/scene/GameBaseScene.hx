@@ -20,6 +20,7 @@ import se.salomonsson.ld30.entities.LargeShieldEntity;
 import se.salomonsson.ld30.entities.Lava;
 import se.salomonsson.ld30.entities.MooseBoss;
 import se.salomonsson.ld30.entities.PortalEntity;
+import se.salomonsson.ld30.entities.Punching;
 import se.salomonsson.ld30.SoundFactory;
 
 /**
@@ -65,9 +66,10 @@ class GameBaseScene extends Scene
 			}
 			
 			if (o.type == "portal") {
+				var portalId:String		= o.custom.has("id")		? o.custom.resolve("id")		: "";
 				var nextLevel:String 	= o.custom.has("level") 	? o.custom.resolve("level") 	: "";
 				var lockId:String 		= o.custom.has("locked") 	? o.custom.resolve("locked") 	: "";
-				add(new PortalEntity(o.x, o.y, o.width, o.height, o.custom.resolve("info"), nextLevel, lockId));
+				add(new PortalEntity(o.x, o.y, o.width, o.height, portalId, o.custom.resolve("info"), nextLevel, lockId));
 			}
 			
 			if (o.type == "info") {
@@ -130,7 +132,10 @@ class GameBaseScene extends Scene
 			case "ironboss":
 				add(new IronBoss(x, y, 0, 1));
 			case "lava":
-				add(new Lava(x,y,obj.width, obj.height));
+				add(new Lava(x, y, obj.width, obj.height));
+			
+			case "punch":
+				add(new Punching(x, y, obj.width,obj.height, maxMoney));
 		}
 	}
 	

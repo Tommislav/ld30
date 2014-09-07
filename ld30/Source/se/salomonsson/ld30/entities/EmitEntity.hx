@@ -32,12 +32,12 @@ class EmitEntity extends Entity
 		emitter.setAlpha("expl-l", 1, 0, Ease.sineOut);
 		
 		emitter.newType("dashL", [0]);
-		emitter.setMotion("dashL", -45, 20, 1, 90, 10, 0.1, Ease.sineOut);
-		emitter.setAlpha("dashL", 1, 0, Ease.sineIn);
+		emitter.setMotion("dashL", -90, 20, 0.3, 180, 40, 0.1, Ease.sineOut);
+		emitter.setAlpha("dashL", 1, 0, Ease.sineOut);
 		
 		emitter.newType("dashR", [0]);
-		emitter.setMotion("dashR", 180-45, 20, 1, 90, 10, 0.1, Ease.sineOut);
-		emitter.setAlpha("dashR", 1, 0, Ease.sineIn);
+		emitter.setMotion("dashR", 180-90, 20, 0.3, 180, 40, 0.1, Ease.sineOut);
+		emitter.setAlpha("dashR", 1, 0, Ease.sineOut);
 		
 		emitter.newType("coin", [1]);
 		emitter.setMotion("coin", 90-45, 64, 1, 90, 64, 1, Ease.circOut);

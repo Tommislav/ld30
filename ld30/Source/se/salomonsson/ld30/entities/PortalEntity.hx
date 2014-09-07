@@ -19,11 +19,13 @@ import se.salomonsson.ld30.SoundFactory;
  */
 class PortalEntity extends InfoEntity
 {
+	private var _id:String;
 	private var _nextLevel:String;
 	private var _lockId:String;
 	
-	public function new(x:Float, y:Float, w:Int, h:Int, str:String, nextLevel:String="", lockId:String="") 
+	public function new(x:Float, y:Float, w:Int, h:Int, id:String, str:String, nextLevel:String="", lockId:String="") 
 	{
+		_id = id;
 		_nextLevel = nextLevel;
 		_lockId = lockId;
 		
@@ -56,8 +58,9 @@ class PortalEntity extends InfoEntity
 				showLockText(!unlocked);
 			}
 			
-			if ((Input.pressed(Player.CTRL_ENTER_PORTAL) || Input.joystick(0).pressed(XBOX_GAMEPAD.DPAD_UP)) && unlocked) {
+			if ((Input.pressed(Player.CTRL_ENTER_PORTAL) || Input.joystick(0).pressed(XBOX_GAMEPAD.DPAD_DOWN)) && unlocked) {
 				SoundFactory.getSound("Portal.wav").play();
+				GameData.instance.lastPassedPortalId = _id;
 				GameData.instance.gotoWorld(_nextLevel);
 				
 				if (_lockId == "fire") {

@@ -44,6 +44,9 @@ class ShopScene extends GameBaseScene
 			_clickRects.push(new Rectangle(42, 222 + (i * 50), 275, 40));
 		}
 		_clickRects.push(new Rectangle(42, 524, 420, 40));
+		
+		
+		GameData.instance.lastPassedPortalId = "shop-hub";
 	}
 	
 	private function getText(str:String, x:Float, y:Float, col:Int=0xffffff) {

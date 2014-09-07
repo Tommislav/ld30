@@ -1,15 +1,15 @@
 package se.salomonsson.ld30.scene;
-import com.haxepunk.HXP;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.EmitEntity;
 import se.salomonsson.ld30.entities.MoneyHud;
 import se.salomonsson.ld30.entities.Player;
+import se.salomonsson.ld30.GraphicsFactory;
 
 /**
  * ...
  * @author Tommislav
  */
-class HubScene extends GameBaseScene
+class ForrestScene2 extends GameBaseScene
 {
 
 	public function new() 
@@ -20,15 +20,15 @@ class HubScene extends GameBaseScene
 	override public function begin() 
 	{
 		super.begin();
-		loadTileMap("assets/hub_level.tmx", ["main", "main_fg"]);
-		playBgLoop("8BitDreams");
+		loadTileMap("assets/forest_level2.tmx", ["moon","bg2", "bg", "main", "main_fg"]);
+		
 		
 		add(new EmitEntity());
 		add(new MoneyHud());
 		
-		GraphicsFactory.setBackgroundColor(0x808080);
-		addPlayerAtPosition(new Player(), GameData.instance.lastPassedPortalId);
-		
+		var lastWorld:String = GameData.instance.lastWorld;
+		addPlayerAtPosition(new Player(), lastWorld);
+		GraphicsFactory.setBackgroundColor(0x18238b);
 	}
 	
 }

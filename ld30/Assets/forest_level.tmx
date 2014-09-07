@@ -42,7 +42,7 @@
  </layer>
  <layer name="main" width="270" height="100">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="collision" width="270" height="100">
@@ -58,13 +58,14 @@
  <objectgroup name="obj" width="270" height="100">
   <object type="portal" x="96" y="672" width="64" height="80">
    <properties>
+    <property name="id" value="forrest1-hub"/>
     <property name="info" value="CONNECTION TO HUB WORLD"/>
     <property name="level" value="1"/>
    </properties>
   </object>
   <object type="start" x="176" y="720" width="32" height="32">
    <properties>
-    <property name="from" value="1"/>
+    <property name="from" value="hub-forrest"/>
    </properties>
   </object>
   <object type="enemy" x="768" y="976" width="256" height="256">
@@ -72,9 +73,18 @@
     <property name="id" value="moose"/>
    </properties>
   </object>
+  <object type="portal" x="1600" y="1152" width="64" height="80">
+   <properties>
+    <property name="id" value="forrest2-hub"/>
+    <property name="info" value="CONNECT TO HUB"/>
+    <property name="level" value="1"/>
+    <property name="locked" value="moose"/>
+   </properties>
+  </object>
   <object type="portal" x="1680" y="1152" width="64" height="80">
    <properties>
-    <property name="info" value="BACK TO HUB"/>
+    <property name="id" value="forrest2-hub"/>
+    <property name="info" value="DEEPER INTO FOREST"/>
     <property name="level" value="1"/>
     <property name="locked" value="moose"/>
    </properties>

@@ -33,7 +33,7 @@
  </layer>
  <layer name="main" width="130" height="120">
   <data encoding="base64" compression="zlib">
-   eJztnEly1TAQQAVhOgWE4QTALuEgDHumXIPhBpyGYR8IORJSEVcUR7YluSVZ7fequoqE+m21/Gwp/pKNAdgPd2zcFYx7dZsPQnyw8VEwTgTbJu0o7k6zZQ9c2/4KxceJ30m3uVe27MG3G2VzDbVr8cDdP3PvbXigwwPnwHAOclzAAx0e+Ocxpx4JD/zxFg/a0NqDk1EuaQ+ObBxfxLPI8Hl68btQu/Ag/PkteuC4P/p5TS4fPAh/PnUccHE+yoUHbajtwdwx8KAdeJCWywcPwp/Hg35pMT+Yek5f6u9GPFhmrQdnRu4Z/njeuBY8iGetB1sGD+LBg7RcPnjQB3gQDx6k5fLBgz4Ye+DmtDHfJYQiNH/Fgz4YeyANHvQBHsSDB/ngwbbw1xj4EbveICaeM0+ECfAAHHgQx7CPROs+DzxYxl8H7WKNCyX3JYXaFXs8TffRUh6Mv49ek1t6bfxSuyTXVPQCHqQdb7ynDQ/i85b2YGlfopQH47XVeBDmwMYtG7dN2AN/3E2ZL8x5sNTmJYfw4D+S9by18c7GexP2IPdYJT1wMTX/w4M8Tm38tvHH9OVBzlwCD67ijwX+84IYD2L/flvy4HAm8CCOtfWExoLxOR9+569pPQ/8/1Tbljx4MBPSHhya637hwdWxYDjP5ybc/7nPelLH95TPpkYo71498MeC2HFBc2j3YOp8+2NB7LigObR7MHW+T83lWOD/2x8XpPe3bDkk9960Ys6DqfMNV8l9PrYltM17W6ChDzXU0BoNfaihhtZo6EMNNbRGQx9qqKE1GvpQQw0xDGvbXwi+U3FAQx9qqKE1GvpQQw0+RxnXfM5nfDT0YS81bHkNfC99OEcvNWx5r0AvfThHLzX43134rL2nS9BLH86hoYbWaOhDDTW0RkMfaqihNRr6UEMNrdHQh7VqKPk8zz9GizmjBg/Ga4ghHQ0ejNfSHCdetzWu862jwYOt1zD2zH8XUin3UteZbb0PY9BQgzSpfaKhDzXUIA0epOPvayhNrWPhQTr+vobS1DoWHqThrs93XpS8TmseCw/SGK7PIUpepzWPtXcPXJR6P11Pkbp3UaMHxD492NN+1FJ7WDV4EIP02kCJfLk5Ut/NupfniTFIrw2UyJebo8S7UvGgXT48qM+ePBjmBXhwnb14EHovHh5cggfxOfGgbr5S48L4WRIeXLInD5gnToMH8TnxoG4+PKgPHsTnxIO6+fCgPngQnxMP6uaT9IDvG+PQ7IFETXjQLh8e1Ee7By9vGvPKxmsbb27mtwUP6ueT9OC7Pfc/bPy08QsPJtHuwcMDYx7ZeGzjyUF+W/CgPngADkkPPtlz/9nGFxtf8aAr1niQulZ1KXiXSDtyPTgz1+8JksH9oC5r5ix4oAc8AAcegGONByX38jFPrMvaZxpctzrAA3D4HnD/3i9bfNYN9cEDcOABOPAAHHgADjwABx6AAw/AgQfgwAMAAAAAAAAAAADQxj9N7TdD
+   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
   </data>
  </layer>
  <layer name="collision" width="130" height="120">
@@ -47,7 +47,7 @@
   </data>
  </layer>
  <objectgroup name="obj" width="130" height="120">
-  <object type="start" x="1808" y="288" width="32" height="32">
+  <object type="start" x="1760" y="288" width="32" height="32">
    <properties>
     <property name="from" value="start"/>
    </properties>
@@ -143,7 +143,15 @@
   <object type="coin" x="1939" y="1019" width="32" height="32"/>
   <object type="coin" x="1888" y="912" width="32" height="32"/>
   <object type="coin" x="1856" y="864" width="32" height="32"/>
-  <object type="portal" x="1712" y="1376" width="64" height="80">
+  <object type="portal" x="1792" y="240" width="64" height="80">
+   <properties>
+    <property name="id" value="fire1-hub"/>
+    <property name="info" value="CONNECTION TO HUB"/>
+    <property name="level" value="1"/>
+    <property name="locked" value="fire"/>
+   </properties>
+  </object>
+  <object type="portal" x="1727" y="1368" width="64" height="80">
    <properties>
     <property name="info" value="CONNECTION TO HUB"/>
     <property name="level" value="1"/>
