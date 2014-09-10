@@ -19,9 +19,10 @@ class Composite extends Behavior
 	 * Adds a child behavior to the composite
 	 * @param child The behavior to add
 	 */
-	public inline function addChild(child:Behavior)
+	public inline function addChild(child:Behavior):Composite
 	{
 		children.add(child);
+		return this;
 	}
 
 	/**

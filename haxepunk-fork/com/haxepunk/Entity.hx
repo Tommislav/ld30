@@ -1,5 +1,6 @@
 package com.haxepunk;
 
+import com.haxepunk.ai.behaviors.Behavior;
 import com.haxepunk.ai.behaviors.Selector;
 import com.haxepunk.Entity.CollisionInfo;
 import flash.display.BitmapData;
@@ -1035,5 +1036,5 @@ class Entity extends Tweener
 	private var _point:Point;
 	private var _camera:Point;
 	
-	private var behaviorTree:Selector;
+	private var behaviorTree:Behavior;
 }

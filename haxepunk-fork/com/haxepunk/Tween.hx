@@ -28,6 +28,7 @@ typedef FriendTween = {
 class Tween extends EventDispatcher
 {
 	public var active:Bool;
+	
 
 	/**
 	 * Constructor. Specify basic information about the Tween.
@@ -86,7 +87,7 @@ class Tween extends EventDispatcher
 	}
 
 	/** @private Called when the Tween completes. */
-	private function finish()
+	public function finish()
 	{
 		switch(_type)
 		{
@@ -137,4 +138,6 @@ class Tween extends EventDispatcher
 	private var _parent:Tweener;
 	private var _prev:FriendTween;
 	private var _next:FriendTween;
+	
+	public var finished(default, null):Bool;
 }

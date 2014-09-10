@@ -160,7 +160,7 @@ class HXP
 	/**
 	 * Point used to determine drawing offset in the render loop.
 	 */
-	public static var camera:Point = new Point();
+	public static var camera:Camera = new Camera();
 
 	/**
 	 * Global tweener for tweening between multiple scenes

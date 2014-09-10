@@ -1,13 +1,23 @@
 package se.salomonsson.ld30.entities;
 
+import com.haxepunk.ai.behaviors.Composite;
+import com.haxepunk.ai.behaviors.Repeat;
+import com.haxepunk.ai.behaviors.Selector;
+import com.haxepunk.ai.behaviors.Sequence;
 import com.haxepunk.Entity;
 import com.haxepunk.Graphic;
 import com.haxepunk.HXP;
 import com.haxepunk.Mask;
 import com.haxepunk.Tween.TweenType;
+import com.haxepunk.tweens.misc.MultiVarTween;
 import com.haxepunk.tweens.misc.VarTween;
 import com.haxepunk.utils.Ease;
 import flash.geom.Point;
+import se.salomonsson.ld30.b.DebugBehaviour;
+import se.salomonsson.ld30.b.PauseBehaviour;
+import se.salomonsson.ld30.b.PositionEntityBehaviour;
+import se.salomonsson.ld30.b.ShakeCameraBehaviour;
+import se.salomonsson.ld30.b.TweenBehaviour;
 import se.salomonsson.ld30.EntityType;
 import se.salomonsson.ld30.gfx.DynamigGfxList;
 import se.salomonsson.ld30.GraphicsFactory;
@@ -16,7 +26,7 @@ import se.salomonsson.ld30.GraphicsFactory;
  * ...
  * @author Tommislav
  */
-class Punching extends EnemyBase
+class PunchGiant extends EnemyBase
 {
 	private var _fist:Entity;
 	
@@ -45,11 +55,13 @@ class Punching extends EnemyBase
 	
 	public function new(x, y, width, height, money) 
 	{
-		_gfx = GraphicsFactory.instance.getPunchingEnemy();
+		width = 80;
+		height = 112;
+		_gfx = GraphicsFactory.instance.getPunchGiantEnemy();
 		
-		super(x, y, _gfx, 32, 48, money);
-		setHitbox(32, 48);
-		_hp = 6;
+		super(x, y, _gfx, width, height, money);
+		setHitbox(width, height);
+		_hp = 12;
 		
 		// Walking bounds
 		_leftMost = x - 150;
@@ -60,85 +72,42 @@ class Punching extends EnemyBase
 		_fist = new Entity();
 		_fist.x = this.x - 5;
 		_fist.y = this.y + 19;
-		_fist.setHitbox(16, 20, 0, -5);
-		_fistGfx = GraphicsFactory.instance.getPunchingFist();
+		_fist.setHitbox(48, 48);
+		_fistGfx = GraphicsFactory.instance.getPunchGiantFist();
 		_fist.graphic = _fistGfx;
 		_fist.layer = HXP.BASELAYER - 1;
 		HXP.scene.add(_fist);
 		
-		setState(STATE_IDLE);
+		//http://obviam.net/index.php/game-ai-an-introduction-to-behavior-trees/
+		
+		var tree = new Selector();
+		tree.addChild( new Selector()
+			.addChild(new Sequence()
+				.addChild(new TweenBehaviour(_fistPos, {x:-30, y:-50}, 0.2, Ease.backIn))
+				.addChild(new PauseBehaviour(10))
+				.addChild(new TweenBehaviour(_fistPos, { x: 96, y: 64 }, 0.1, Ease.sineIn))
+				.addChild(new ShakeCameraBehaviour(20,6,6,0.8))
+				.addChild(new PauseBehaviour(40))
+				.addChild(new TweenBehaviour(_fistPos, { x: -5, y: 19 }, 1, Ease.circOut))
+			)
+		);
+		behaviorTree = tree;
+		
 	}
 	
 	override public function getDamage():Int { return 2; }
 	
 	
 	private function setEyeState(state:Int) {
-		if (_attackCnt == 0) {
-			_gfx.setGroupVisible("eye", (state == EYES_IDLE));
-			_gfx.setGroupVisible("atk", (state == EYES_DEF));
-			_gfx.setGroupVisible("dmg", (state == EYES_DMG));
-		}
+		//if (_attackCnt == 0) {
+			//_gfx.setGroupVisible("eye", (state == EYES_IDLE));
+			//_gfx.setGroupVisible("atk", (state == EYES_DEF));
+			//_gfx.setGroupVisible("dmg", (state == EYES_DMG));
+		//}
 	}
 	
-	private function setFistState(state:Int) {
-		_fistGfx.setGroupVisible("open", state == FIST_DEF );
-		_fistGfx.setGroupVisible("close", state != FIST_DEF );
-		
-		if (state == FIST_IDLE) {
-			_fistPos.x = -5;
-			_fistPos.y = 19;
-		}
-		
-		if (state == FIST_DEF) {
-			_fistPos.x = 28;
-			_fistPos.y = 12;
-		}
-	}
 	
-	private function setState(s:Int) {
-		_currentState = s;
-		
-		if (_currentState == STATE_IDLE) {
-			setEyeState(EYES_IDLE);
-			setFistState(FIST_IDLE);
-			_cnt = 20;
-		}
-		
-		if (_currentState == STATE_DEFENDING) {
-			setEyeState(EYES_DEF);
-			setFistState(FIST_DEF);
-		}
-		
-		if (_currentState == STATE_ATTACK) {
-			setEyeState(EYES_DEF);
-			
-			var pl:Entity = HXP.scene.getInstance(EntityType.PLAYER);
-			var angle:Float = Math.atan2((pl.centerY + 24) - _fist.centerY, pl.centerX - _fist.centerX);
-			var fx:Float = Math.cos(angle) * 110;
-			var fy:Float = Math.sin(angle) * 110;
-			
-			HXP.tween(_fistPos, { x: fx, y: fy }, 0.4, { ease: Ease.backIn, complete: retractPunch } );
-			
-			_cnt = 40;
-		}
-	}
-	
-	private function retractPunch(_) {
-		HXP.tween(_fistPos, { x: -3, y: 19 }, 0.2 );
-	}
-	
-	override private function preUpdate() 
-	{
-		if (_cnt > 0) {
-			_cnt--;
-			if (_cnt == 0) {
-				if (_currentState == STATE_IDLE) {
-					setState(STATE_ATTACK);
-				} else if (_currentState == STATE_ATTACK) {
-					setState(STATE_IDLE);
-				}
-			}
-		}
+	override private function preUpdate() {
 	}
 	
 	override private function postUpdate() 
@@ -173,18 +142,18 @@ class Punching extends EnemyBase
 		}
 	}
 	
-	override private function onAttacked(e:Entity) 
-	{
-		super.onAttacked(e);
-		setEyeState(EYES_DMG);
-		_attackCnt = 1;
-		HXP.alarm(1, openEyes, TweenType.OneShot);
-	}
+	//override private function onAttacked(e:Entity) 
+	//{
+		//super.onAttacked(e);
+		//setEyeState(EYES_DMG);
+		//_attackCnt = 1;
+		//HXP.alarm(1, openEyes, TweenType.OneShot);
+	//}
 	
-	function openEyes(_) 
-	{
-		_attackCnt = 0;
-		setEyeState(EYES_IDLE);
-	}
+	//function openEyes(_) 
+	//{
+		//_attackCnt = 0;
+		//setEyeState(EYES_IDLE);
+	//}
 	
 }
