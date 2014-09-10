@@ -218,7 +218,7 @@ class GraphicsFactory
 		
 		var g:DynamigGfxList = new DynamigGfxList();
 		g.add2(getColoredRect("solid_green1", 32, 48),false, "");
-		g.add2(getColoredRect("p_shade", 32, 48),false, "");
+		g.add2(getImgPart("p_shade"),false, "");
 		g.add2(getImgPart("p-eyes"), true, "eye");
 		g.add2(getImgPart("p-eyes-atk"), true, "atk");
 		g.add2(getImgPart("p-eyes-dmg"), true, "dmg");
@@ -226,16 +226,9 @@ class GraphicsFactory
 		g.setGroupVisible("atk", false);
 		g.setGroupVisible("dmg", false);
 		
-		
-		//_rect.set("p_shade", new Rectangle(320,64, 32,48));
-		//_rect.set("p-eyes", new Rectangle(16*20,16*2,32,32));
-		//_rect.set("p-eyes-atk", new Rectangle(16*21,16*2,32,32));
-		//_rect.set("p-eyes-dmg", new Rectangle(16*22,16*2,32,32));
-		//_rect.set("p-fist", new Rectangle(352,64,16,26));
-		//_rect.set("p-fist2", new Rectangle(368,64,16,26));
-		
 		return g;
 	}
+	
 	
 	public function getPunchingFist() {
 		var g:DynamigGfxList = new DynamigGfxList();
@@ -245,6 +238,19 @@ class GraphicsFactory
 		g.setGroupVisible("open", false);
 		return g;
 	}
+	
+	public function getPunchGiantEnemy() {
+		var g:DynamigGfxList = new DynamigGfxList();
+		g.add2(getColoredRect("solid_green1", 80, 112), false, "");
+		return g;
+	}
+	
+	public function getPunchGiantFist() {
+		var g:DynamigGfxList = new DynamigGfxList();
+		g.add2(getColoredRect("solid_green2", 48, 48), false, "");
+		return g;
+	}
+	
 	
 	public static function setBackgroundColor(col:Int) {
 		#if flash

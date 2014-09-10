@@ -20,6 +20,7 @@ import se.salomonsson.ld30.entities.LargeShieldEntity;
 import se.salomonsson.ld30.entities.Lava;
 import se.salomonsson.ld30.entities.MooseBoss;
 import se.salomonsson.ld30.entities.PortalEntity;
+import se.salomonsson.ld30.entities.PunchGiant;
 import se.salomonsson.ld30.entities.Punching;
 import se.salomonsson.ld30.SoundFactory;
 
@@ -135,7 +136,10 @@ class GameBaseScene extends Scene
 				add(new Lava(x, y, obj.width, obj.height));
 			
 			case "punch":
-				add(new Punching(x, y, obj.width,obj.height, maxMoney));
+				add(new Punching(x, y, obj.width, obj.height, maxMoney));
+			
+			case "punch-giant":
+				add(new PunchGiant(x, y, obj.width, obj.height, maxMoney));
 		}
 	}
 	
