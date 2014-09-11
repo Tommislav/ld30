@@ -2,11 +2,9 @@ package se.salomonsson.ld30.b;
 
 import com.haxepunk.ai.behaviors.Behavior;
 import com.haxepunk.ai.behaviors.BehaviorStatus;
-import com.haxepunk.Entity;
-import com.haxepunk.Tween;
+import com.haxepunk.Tween.TweenType;
 import com.haxepunk.Tweener;
 import com.haxepunk.tweens.misc.MultiVarTween;
-import com.haxepunk.tweens.misc.VarTween;
 import com.haxepunk.tweens.TweenEvent;
 import com.haxepunk.utils.Ease.EaseFunction;
 
@@ -31,13 +29,6 @@ class TweenBehaviour extends Behavior
 		_props = properties;
 		_duration = duration;
 		_ease = ease;
-		
-		
-		_tween = new MultiVarTween(null, TweenType.Persist);
-		_tween.tween(object, properties, duration, ease);
-		
-		_tweener = new Tweener();
-		_tweener.addTween(_tween);
 	}
 	
 	override private function initialize():Void {

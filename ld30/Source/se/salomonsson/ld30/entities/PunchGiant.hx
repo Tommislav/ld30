@@ -8,16 +8,21 @@ import com.haxepunk.Entity;
 import com.haxepunk.Graphic;
 import com.haxepunk.HXP;
 import com.haxepunk.Mask;
+import com.haxepunk.masks.SlopedGrid.TileType;
 import com.haxepunk.Tween.TweenType;
 import com.haxepunk.tweens.misc.MultiVarTween;
 import com.haxepunk.tweens.misc.VarTween;
 import com.haxepunk.utils.Ease;
 import flash.geom.Point;
 import se.salomonsson.ld30.b.DebugBehaviour;
+import se.salomonsson.ld30.b.DirectionSelector;
+import se.salomonsson.ld30.b.FacePlayerBehaviour;
+import se.salomonsson.ld30.b.PatrolBehaviour;
 import se.salomonsson.ld30.b.PauseBehaviour;
 import se.salomonsson.ld30.b.PositionEntityBehaviour;
 import se.salomonsson.ld30.b.ShakeCameraBehaviour;
 import se.salomonsson.ld30.b.TweenBehaviour;
+import se.salomonsson.ld30.b.WithinDistanceSelector;
 import se.salomonsson.ld30.EntityType;
 import se.salomonsson.ld30.gfx.DynamigGfxList;
 import se.salomonsson.ld30.GraphicsFactory;
@@ -78,24 +83,57 @@ class PunchGiant extends EnemyBase
 		_fist.layer = HXP.BASELAYER - 1;
 		HXP.scene.add(_fist);
 		
+		var player:Entity = HXP.scene.getInstance(EntityType.PLAYER);
+		
 		//http://obviam.net/index.php/game-ai-an-introduction-to-behavior-trees/
 		
-		var tree = new Selector();
-		tree.addChild( new Selector()
+		
+		var smashRight = new Sequence();
+		smashRight
+			.addChild(new DirectionSelector(this).facingRight())
+			.addChild(new TweenBehaviour(_fistPos, {x:-30, y:-50}, 0.2, Ease.backIn))
+			.addChild(new PauseBehaviour(5))
+			.addChild(new TweenBehaviour(_fistPos, { x: 96+20, y: 64 }, 0.1, Ease.sineIn))
+			.addChild(new ShakeCameraBehaviour(20,6,6,0.8))
+			.addChild(new PauseBehaviour(40))
+			.addChild(new TweenBehaviour(_fistPos, { x: -5, y: 19 }, 1, Ease.circOut));
+		
+		var smashLeft = new Sequence();
+		smashLeft
+			.addChild(new DirectionSelector(this).facingLeft())
+			.addChild(new TweenBehaviour(_fistPos, {x:62, y:-50}, 0.2, Ease.backIn))
+			.addChild(new PauseBehaviour(5))
+			.addChild(new TweenBehaviour(_fistPos, { x: -64-20, y: 64 }, 0.1, Ease.sineIn))
+			.addChild(new ShakeCameraBehaviour(20,6,6,0.8))
+			.addChild(new PauseBehaviour(40))
+			.addChild(new TweenBehaviour(_fistPos, { x: 37, y: 19 }, 1, Ease.circOut));
+		
+		// face player and smash in that direction
+		var smash = new Sequence()
+			.addChild(new FacePlayerBehaviour(this))
+			.addChild(new Selector()
+				.addChild(smashLeft).addChild(smashRight)
+			);
+		
+		var tree = new Selector()
 			.addChild(new Sequence()
-				.addChild(new TweenBehaviour(_fistPos, {x:-30, y:-50}, 0.2, Ease.backIn))
-				.addChild(new PauseBehaviour(10))
-				.addChild(new TweenBehaviour(_fistPos, { x: 96, y: 64 }, 0.1, Ease.sineIn))
-				.addChild(new ShakeCameraBehaviour(20,6,6,0.8))
-				.addChild(new PauseBehaviour(40))
-				.addChild(new TweenBehaviour(_fistPos, { x: -5, y: 19 }, 1, Ease.circOut))
-			)
-		);
+				.addChild(new WithinDistanceSelector(this, 100))
+				.addChild(smash))
+			.addChild(new PatrolBehaviour(this, this.x - 200, this.x + 200));	
+		
 		behaviorTree = tree;
 		
+		setDirX(1);
 	}
 	
 	override public function getDamage():Int { return 2; }
+	
+	override public function setDirX(dir:Int) 
+	{
+		super.setDirX(dir);
+		_fistPos.x = (dir < 0) ? 37 : -5;
+		_fistPos.y = 19;
+	}
 	
 	
 	private function setEyeState(state:Int) {

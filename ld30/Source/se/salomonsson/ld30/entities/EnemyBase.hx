@@ -6,6 +6,7 @@ import com.haxepunk.HXP;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import se.salomonsson.ld30.data.GameData;
+import se.salomonsson.ld30.entities.EnemyBase.EntityProp;
 import se.salomonsson.ld30.EntityType;
 import se.salomonsson.ld30.SoundFactory;
 
@@ -13,16 +14,30 @@ import se.salomonsson.ld30.SoundFactory;
  * ...
  * @author Tommislav
  */
+
+ 
+typedef EntityProp = {
+	private var _velocity:Point;
+	private var _maxVelocity:Point;
+	private var _hp:Int;
+	private var _killBonus:Int;
+	private var _money:Int;
+	private var _dirX:Int;
+	private var _dirY:Int;
+}
+ 
 class EnemyBase extends Entity
 {
 	private var _emitter:EmitEntity;
 	
-	private var _velocity:Point;
-	private var _maxVelocity:Point;
-	private var _hp:Int;
-	private var _dmgCounter:Int;
-	private var _killBonus:Int;
-	private var _money:Int;
+	public var _velocity:Point;
+	public var _maxVelocity:Point;
+	public var _hp:Int;
+	public var _dmgCounter:Int;
+	public var _killBonus:Int;
+	public var _money:Int;
+	public var _dirX:Int;
+	public var _dirY:Int;
 	
 	public var isAttackableByPlayer:Bool = true;
 	
@@ -36,6 +51,10 @@ class EnemyBase extends Entity
 		_velocity = new Point();
 		_maxVelocity = new Point();
 		_money = GameData.instance.getSpawnMoney(maxMoney);
+	}
+	
+	public function getProps():EntityProp {
+		return this;
 	}
 	
 	override public function wantsToRender(cameraBounds:Rectangle):Bool {
@@ -58,6 +77,13 @@ class EnemyBase extends Entity
 		return 1;
 	}
 	
+	public function setDirX(dir:Int) {
+		_dirX = dir;
+	}
+	
+	public function setDirY(dir:Int) {
+		_dirY = dir;
+	}
 	
 	
 	override public function update():Void 

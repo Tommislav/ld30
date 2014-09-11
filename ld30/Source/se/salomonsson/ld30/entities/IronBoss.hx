@@ -15,8 +15,6 @@ import se.salomonsson.ld30.GraphicsFactory;
 class IronBoss extends EnemyBase
 {
 	private var _gfx:DynamigGfxList;
-	private var _dirX:Int;
-	private var _dirY:Int;
 	private var _speed:Float;
 	private var _collisionPause:Int;
 	private var _size:Int;
