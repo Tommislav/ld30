@@ -26,8 +26,7 @@ class ForrestScene2 extends GameBaseScene
 		add(new EmitEntity());
 		add(new MoneyHud());
 		
-		var lastWorld:String = GameData.instance.lastWorld;
-		addPlayerAtPosition(new Player(), lastWorld);
+		addPlayerAtPosition(new Player(), GameData.instance.lastPassedPortalId);
 		GraphicsFactory.setBackgroundColor(0x18238b);
 	}
 	

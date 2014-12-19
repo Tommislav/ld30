@@ -1,5 +1,6 @@
 package se.salomonsson.ld30.scene;
 import com.haxepunk.HXP;
+import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.EmitEntity;
 import se.salomonsson.ld30.entities.EyeEnemy;
 import se.salomonsson.ld30.entities.MoneyHud;
@@ -27,7 +28,7 @@ class FireScene extends GameBaseScene
 		
 		add(new EmitEntity());
 		add(new MoneyHud());
-		addPlayerAtPosition(new Player());
+		addPlayerAtPosition(new Player(), GameData.instance.lastPassedPortalId);
 		GraphicsFactory.setBackgroundColor(0x343434);
 		
 	}

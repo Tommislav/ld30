@@ -83,10 +83,20 @@
   </object>
   <object type="portal" x="1680" y="1152" width="64" height="80">
    <properties>
-    <property name="id" value="forrest2-hub"/>
+    <property name="id" value="forrest-forrest2"/>
     <property name="info" value="DEEPER INTO FOREST"/>
-    <property name="level" value="1"/>
+    <property name="level" value="7"/>
     <property name="locked" value="moose"/>
+   </properties>
+  </object>
+  <object type="start" x="1552" y="1200" width="32" height="32">
+   <properties>
+    <property name="from" value="hub-forrest2"/>
+   </properties>
+  </object>
+  <object type="start" x="1744" y="1200" width="32" height="32">
+   <properties>
+    <property name="from" value="forrest2-forrest"/>
    </properties>
   </object>
  </objectgroup>
