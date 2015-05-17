@@ -20,7 +20,7 @@ class HubScene extends GameBaseScene
 	override public function begin() 
 	{
 		super.begin();
-		loadTileMap("assets/hub_level.tmx", ["main", "main_fg"]);
+		loadTileMap("assets/hub_level.tmx", ["main", "main_fg"], ["water"]);
 		playBgLoop("8BitDreams");
 		
 		add(new EmitEntity());

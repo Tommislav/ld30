@@ -54,7 +54,7 @@ class Main extends Engine {
 		
 		GraphicsFactory.setBackgroundColor(0xffffff);
 		//HXP.scene = new SplashStartScene();
-		HXP.scene = new ForrestScene2();
+		HXP.scene = new HubScene();
 	}
 	
 	public function changeLevel(name:String) 

@@ -22,6 +22,7 @@ import se.salomonsson.ld30.entities.MooseBoss;
 import se.salomonsson.ld30.entities.PortalEntity;
 import se.salomonsson.ld30.entities.PunchGiant;
 import se.salomonsson.ld30.entities.Punching;
+import se.salomonsson.ld30.entities.SpiderEntity;
 import se.salomonsson.ld30.SoundFactory;
 
 /**
@@ -144,6 +145,10 @@ class GameBaseScene extends Scene
 			
 			case "punch-giant":
 				add(new PunchGiant(x, y, obj.width, obj.height, maxMoney));
+				
+			case "spider":
+				var targetY:Float = y + (Std.parseFloat(obj.custom.resolve("range")) * 16);
+				add(new SpiderEntity(x, y, maxMoney, targetY));
 		}
 	}
 	

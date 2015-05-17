@@ -13,87 +13,68 @@
    </properties>
   </tile>
  </tileset>
+ <layer name="bg" width="270" height="270">
+  <data encoding="base64" compression="zlib">
+   eJzt2DENAAAIA0FE4z8sCIC5d0kt/NAqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACBV7wCudAMAAAAASOMXBb50AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASDW24QOh
+  </data>
+ </layer>
  <layer name="main" width="270" height="270">
   <data encoding="base64" compression="zlib">
-   eJzt3blyHEUABuC1JMc2MdiUD47MXBnkwAtQ5YObgNwmocoFBD64yZySYz+AwRd3AMQyMfAA4Awc0FvWlkej6d2eo2dnVt9X9VetpNnVyuX51T3TM5pMAAAYm30h+zPkgT5/CKBXp0Nud5wzIe/0+UMAvfpyT/evOe0ivZHX8bXJ5ETIyZBTa8t+N+w2emOcroeuuBFyM+SW3qBnemO4Du6dTL7e2J5rG/e+dmh9MjkcciTk6Ppy3ye7j94Yrqsb8a/pDZZp1Xqj6nf0WPPw3vjPeS50xfmQCyEX9QY9W7XemPc7ehVMK2KjInMqBjq3GfLcnu1pu05Db3Sr2BVvz4kOYZmmXTJbh7EoVf0wtN44FrrwiZHkyYrx3y8hv9bIb3n+aSHJrD/Ka7rG1htlB/O/DaCg3CW/V2yjN1h11t11T2+w6qy7657eYNVZP9M9vcGqm9cbb6wtJ2+OfNyjN1h1Q1x397reaExvkMu7A8g8eqM5vUGf2vbA2VJSvk/MkHqjyfUes96YffxNj2s4V3G9KKsrtTdSDKk3muyH5fFGn/uy3mCZ6s4v9MZ907VhxfVgOfbl2Dho3jWkkEOb4xMpvTHG4xtd7PM5esO4gqE6G3kc2zbWG3WPjw6pN651sH8eqHmMJOV4iN5gqMpd0FUW+XGJa0R+2vr6WxVf/2J9MvmsQT6veX47pRNSe+PYgmtNV9GDIQ+FHCg9ZnhSuyFlDtPk3G1dsTFN8fNdXbvzac3eiI1PiuMQ442490LeD/mg9JhupOybqftt097oct1HHSm90eTanZfDdq+EvBry2tZz6vZGzNWK3tiN44lF/gj5M+Sv0mOay7Veq05vdDWfaSM2F/q50A9Nrt35Njz/u5DvQ37Yeq2/O5rHVPUG96TMR8xZutd2v+1zn+9Lk954JGz3aMhjIY8nPqc4Hinfm6s4hijOX5xv3S5lPmLOkt/YeiPHXKbJtTsfhu0+Cvk45JMGvUEzKfMRc5b8yvv+ol5oeh627X6e+rrP1rjfcJv7FDe5p7HeaM88ZRja9kaX18B1ldk9Qas+N+++f5uTtHsU183se+mN9sxThqHuMcsx9EZVYl1R1nV3FL+n3mjPPGWY+uqNqtdt+nHXx1m66o5pZzy9Z3uecQ41O/OU/rU5vjGZxPfnlPXrTT/OcXy2bXdUjW2MN/phntK/nL1RZ05UZ/1HrvM6VX9XJSWx+VBqb/xTY237SxvN1sSvQmLMU/q3rPFG2/c1BMXxcXl+UmeeUmdcYgzDENTtjb7GBGPojUXj49R9XG8wNm3HG8t6X0OwaHy8aB36LHe2umA2follOq6p6o2vOjr2+lSLMRO7i95oL2V/T9lmNn6JZTquqeqNyy3269RzEfPev/MYu4/eaC9lf0/ZZjZ+iWU6rum6N4pzrXlji3nv33mM3UdvtJeyv6dsM3Op1A2zj6fzka57I/VchN6gSG/kU97/qz5Xtc2/6/c+P8vdrW0uZ+iN1HmK3qBIb+TTtDdiX8vRG4vOCc2OleoNivRGPtNxw3+l3F3fuc2lSMrb5ugN8xSa0Bv5zRtT1Nkm9zzFcVFS6Y38htwbqdd26A2K9EZ+Q+6NRfMUxzeoojfyG3JvOJ9CE3ojvyH3hnVfNKE38qs6r7LoPEuVWG9ccT6FnumN8Yj1Rpv7XS16ruMbVNEb4xHrjTb3u3I+hSb0xnjEeqPN/a6Kz3V8g7HTGztdWcI8ZUZvMAZ6Y6fY9bA55ymObzAmemOn3POUefQGY6A3dko5n9Lm8Tx6gzHQGzulnE9p83gqdt9jvQHjlDJPafN43n2J9QZDc3xtMjkRcjLk1Nqy381wxXqjS8YbjMX10BU3Qm6G3NIbUXoD7jsU/q8eDjkSctTfFYrSG3Cf3kgz7Y3Uv+XUNHf0BiNxLvxfPR9yIeSi3ohqc718E8+H7/dCyIuOi8JotblePlWxK4qP5/39F38HHoYrtk+nPO7qdVJeH1gN9nEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVtW+kP0iIwvLdTrkjMjIwnJthtwWGVkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOjW/w1NFy4=
+   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
   </data>
  </layer>
  <layer name="collision" width="270" height="270">
   <data encoding="base64" compression="zlib">
-   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
+   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
+  </data>
+ </layer>
+ <layer name="water" width="270" height="270">
+  <properties>
+   <property name="scrollx" value="0.8"/>
+   <property name="scrolly" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1DEKwEAMA8H8PXl4ehcpwoEsmIEt7yrh6wIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA469Ga7gPv/v6xKfa7pWWxX3oj0oz90huRZuyX3og0Y7/0RqQZ+6U3Is3YL70RaQZJ6f3L3aBPev9yN+iT3r/cDfqk9y93gz7p/cvdoE96/3I36JPev9wN+qT3L3eDPun9y92gT3r/cjfok96/3A36pPcvd4M+6f3L3aBPev9yN+iT3r/cDfqk9y93gz7p/cvdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgC8vEuthXw==
   </data>
  </layer>
  <layer name="main_fg" width="270" height="270">
   <data encoding="base64" compression="zlib">
-   eJzt3Uty00AUBVA7LooJOwAGfPYCLIHPkAWwA8KAzzAb4rMIWAGwBqZ0BkqMsKV+kSy11OdUvaq4ErtU5ejmttyONxsAAAAAOL1bZ3MfAbA0cgOIkhtAlNwAouQGECU3YP12ZzefQ+QGEFVabvzZLmugRqXlBlA+uQFEyQ0gSm4AUXKDWr32u39jcgOIkhtAlNyAPHecK1fkBuR541y5Ijcgj75xTW4cdzfNvTT35z4QiiA3yPE2zXmadzMfB6cTyQLrFHLIjfX7nrLgR+a05f4cp1Xae027csMapj653cR6pm5duaGL1Cd3nSI3xlVan+gjN9iXmwdD1j4sn9xYl/b5HOW66DjW/v+v5Ma6RdcT1h/k6MqGn2l+pfk95QExqnZ/6MsFfYMcOsW6tXOiLxeW0DduL+AY127K3Hienu8XaV6meeW5n0T0esdS+4YsmdaUa5HP6bn9kuZrmm+e51n09YlT9Y3240Zul9yB1n79swQPdpvNwzSP0jzezX00dRp6fePY+Rx93MjtpXagWo29X1RuzG9o3+jKjcg+juj+dpZjjGsfF3v58D59/SHNxzSf5MYshvaNYz1gaCcoeS1ySO2fU9bVKYbkRvO4OeP9L9OJvp6Suyd0aCdYWm7U7lT7vpr75ozXgKdT6v4NuRET+bt8OU+3/86zns92fbL9/z77c765nvb3Ll9naabrMQ7N/n37xr6y6ZS6f0NuxDSvg851ftkTWhd9g0ZN12MYRt8AovQNIErfoIu1C4foG0CUvkFDtyCXvgFE6Rt00UE4RN8AokrtG0xPtyBXqX0DKJdcoIsOAgCMSbcAAOaggwAAY7vw/8EBgBOq/bMcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA8vwFC/7/lw==
+   eJzt1DENgDAAAMEO1YEm8Ar+wAAJPzUkdwp++jEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeLPPMY65ugL4k/N5xuUbAADAB9vqAOB3fAOofAOofAOofAOofAOofAOofAOofAOofAOofAOofAOofAOofAOofAOofAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbmjkD+w==
   </data>
  </layer>
  <objectgroup name="obj" width="270" height="270">
-  <object type="start" x="1392" y="128" width="32" height="32">
+  <object name="start" type="start" x="1904" y="800" width="32" height="32">
    <properties>
     <property name="from" value="start-hub"/>
    </properties>
   </object>
-  <object type="portal" x="1472" y="416" width="64" height="80">
+  <object type="bouncer" x="2825" y="1265" width="15" height="256"/>
+  <object type="info" x="2528" y="1152" width="96" height="80">
    <properties>
-    <property name="info" value="     EXIT      "/>
-    <property name="level" value="6"/>
-    <property name="locked" value="exit"/>
+    <property name="info" value="WELCOME TO WATER VILLAGE"/>
    </properties>
   </object>
-  <object type="portal" x="1680" y="432" width="64" height="64">
+  <object type="portal" x="3920" y="1152" width="64" height="80">
    <properties>
-    <property name="info" value="WELCOME TO MY SHOP!"/>
+    <property name="info" value="WELCOME TO MY SHOP"/>
     <property name="level" value="2"/>
    </properties>
   </object>
-  <object type="start" x="3088" y="112" width="32" height="32">
-   <properties>
-    <property name="from" value="fire1-hub"/>
-   </properties>
-  </object>
-  <object type="portal" x="3120" y="64" width="64" height="80">
-   <properties>
-    <property name="info" value="CONNECTION TO FIRE WORLD"/>
-    <property name="level" value="3"/>
-   </properties>
-  </object>
-  <object type="coin" x="2464" y="1056" width="32" height="32"/>
-  <object type="bouncer" x="2336" y="192" width="16" height="128"/>
-  <object type="portal" x="3264" y="512" width="64" height="80">
-   <properties>
-    <property name="info" value="CONNECTION TO IRON WORLD"/>
-    <property name="level" value="5"/>
-   </properties>
-  </object>
-  <object type="portal" x="336" y="224" width="64" height="80">
-   <properties>
-    <property name="id" value="hub-forrest"/>
-    <property name="info" value="CONNECTION TO FOREST WORLD"/>
-    <property name="level" value="4"/>
-   </properties>
-  </object>
-  <object type="start" x="400" y="272" width="32" height="32">
-   <properties>
-    <property name="from" value="forrest1-hub"/>
-   </properties>
-  </object>
-  <object type="start" x="1648" y="464" width="32" height="32">
+  <object type="start" x="3888" y="1200" width="32" height="32">
    <properties>
     <property name="from" value="shop-hub"/>
    </properties>
   </object>
-  <object type="bouncer" x="640" y="336" width="16" height="720"/>
-  <object type="start" x="992" y="1024" width="32" height="32">
+  <object type="info" x="3232" y="1168" width="64" height="64">
    <properties>
-    <property name="from" value="forrest2-hub"/>
+    <property name="info" value="THIS VILLAGE IS USUALLY VERY CROWDED"/>
    </properties>
   </object>
-  <object type="portal" x="1024" y="976" width="64" height="80">
+  <object type="enemy" x="960" y="464" width="48" height="32">
    <properties>
-    <property name="id" value="hub-forrest2"/>
-    <property name="info" value="CONNECTION TO FOREST WORLD"/>
-    <property name="level" value="4"/>
+    <property name="id" value="spider"/>
+    <property name="money" value="1"/>
+    <property name="range" value="13"/>
    </properties>
   </object>
  </objectgroup>

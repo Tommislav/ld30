@@ -182,6 +182,8 @@ class EnemyBase extends Entity
 	
 	function spawnCoins() 
 	{
+		trace("spawn money: " + _money);
+		
 		if (_money > 0) {
 			for (i in 0..._money) {
 				var rx:Float = centerX + Math.random() * 32 - 16;

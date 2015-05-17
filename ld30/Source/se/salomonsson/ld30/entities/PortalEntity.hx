@@ -58,7 +58,7 @@ class PortalEntity extends InfoEntity
 				showLockText(!unlocked);
 			}
 			
-			if ((Input.pressed(Player.CTRL_ENTER_PORTAL) || Input.joystick(0).pressed(XBOX_GAMEPAD.DPAD_DOWN)) && unlocked) {
+			if ((Input.pressed(Player.CTRL_ENTER_PORTAL) || Input.joystick(0).hat.y == 1) && unlocked) {
 				SoundFactory.getSound("Portal.wav").play();
 				GameData.instance.lastPassedPortalId = _id;
 				GameData.instance.gotoWorld(_nextLevel);

@@ -78,7 +78,7 @@ class GraphicsFactory
 		_rect.set("solid_brown", new Rectangle(2 * 16, 2*16, 16, 16));
 		_rect.set("solid_blue", new Rectangle(3 * 16, 2*16, 16, 16));
 		_rect.set("solid_green1", new Rectangle(0 * 16, 3*16, 16, 16));
-		_rect.set("solid_green2", new Rectangle(1 * 16, 3*16, 16, 16));
+		_rect.set("solid_green2", new Rectangle(1 * 16, 3 * 16, 16, 16));
 		
 		
 		registerImgPart32("large-eyes1", 11, 0);
@@ -103,7 +103,10 @@ class GraphicsFactory
 		_rect.set("p-eyes-atk", new Rectangle(352,32,32,32));
 		_rect.set("p-eyes-dmg", new Rectangle(384,32,32,32));
 		_rect.set("p-fist", new Rectangle(352,64,16,26));
-		_rect.set("p-fist2", new Rectangle(368,64,20,26));
+		_rect.set("p-fist2", new Rectangle(368, 64, 20, 26));
+		
+		_rect.set("spider1", new Rectangle( 320, 112, 64, 32 ));
+		_rect.set("spider2", new Rectangle( 320,144, 64, 32 ));
 	}
 	
 	
@@ -151,6 +154,14 @@ class GraphicsFactory
 		return g;
 	}
 	
+	public static function getSpiderEnemyGraphic() {
+		var g:DynamigGfxList = new DynamigGfxList();
+		g.add2(instance.getImgPart("spider1"), false, "1");
+		g.add2(instance.getImgPart("spider2"), false, "2");
+		g.setGroupVisible("2", false);
+		return g;
+		
+	}
 	
 	static public function getCoinGraphic() 
 	{
