@@ -56,7 +56,7 @@
   </data>
  </layer>
  <objectgroup name="obj" width="270" height="200">
-  <object type="start" x="1648" y="1200" width="32" height="32">
+  <object type="start" x="1520" y="944" width="32" height="32">
    <properties>
     <property name="from" value="hub-forrest"/>
    </properties>

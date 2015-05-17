@@ -560,6 +560,8 @@ class Input
 
 		joy.connected = true;
 		joy.axis = e.axis;
+		
+		//trace("onJoyAxisMove: " + e.axis);
 	}
 
 	private static function onJoyBallMove(e:JoystickEvent)
@@ -569,6 +571,8 @@ class Input
 		joy.connected = true;
 		joy.ball.x = (Math.abs(e.x) < Joystick.deadZone) ? 0 : e.x;
 		joy.ball.y = (Math.abs(e.y) < Joystick.deadZone) ? 0 : e.y;
+		
+		//trace("onJoyBallMove: " + e.x + ", " + e.y);
 	}
 
 	private static function onJoyButtonDown(e:JoystickEvent)
@@ -577,6 +581,8 @@ class Input
 
 		joy.connected = true;
 		joy.buttons.set(e.id, BUTTON_PRESSED);
+		
+		//trace("onJoyButtonDown: " + e.id);
 	}
 
 	private static function onJoyButtonUp(e:JoystickEvent)
@@ -594,6 +600,7 @@ class Input
 		joy.connected = true;
 		joy.hat.x = (Math.abs(e.x) < Joystick.deadZone) ? 0 : e.x;
 		joy.hat.y = (Math.abs(e.y) < Joystick.deadZone) ? 0 : e.y;
+		//trace("onJoyHatMove: " + e.x + ", " + e.y);
 	}
 
 #end
