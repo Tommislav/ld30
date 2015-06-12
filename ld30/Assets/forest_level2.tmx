@@ -56,16 +56,16 @@
   </data>
  </layer>
  <objectgroup name="obj" width="270" height="200">
-  <object type="start" x="1664" y="1200" width="32" height="32">
+  <object type="start" x="1520" y="944" width="32" height="32">
    <properties>
     <property name="from" value="hub-forrest"/>
    </properties>
   </object>
   <object type="portal" x="1600" y="1152" width="64" height="80">
    <properties>
-    <property name="id" value="forrest2-hub"/>
+    <property name="id" value="forrest2-forrest"/>
     <property name="info" value="CONNECT TO HUB"/>
-    <property name="level" value="1"/>
+    <property name="level" value="4"/>
    </properties>
   </object>
   <object type="bouncer" x="3632" y="1520" width="16" height="304"/>

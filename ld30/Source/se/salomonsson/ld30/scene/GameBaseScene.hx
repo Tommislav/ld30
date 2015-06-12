@@ -59,11 +59,14 @@ class GameBaseScene extends Scene
 		
 		add(_bgLayer);
 		
+		var dbg = "";
+		
 		var obj:TmxObjectGroup = _mapData.getObjectGroup("obj");
 		for (o in obj.objects) {
 			if (o.type == "start") {
 				var key:String = o.custom.has("from") ? o.custom.resolve("from") : "";
 				_playerEntryPoints.set(key, new Point(o.x, o.y));
+				dbg += key + "; ";
 			}
 			
 			if (o.type == "portal") {
@@ -91,7 +94,7 @@ class GameBaseScene extends Scene
 				spawnEnemy(enemyType, o.x, o.y, maxMoney, o);
 			}
 		}
-		
+		trace("start keys: " + dbg);
 		
 		if (fgLayers != null) {
 			_fgLayer = new TmxEntity(_mapData);
@@ -103,6 +106,7 @@ class GameBaseScene extends Scene
 	
 	function addPlayerAtPosition(e:Entity, from:String = "") {
 		
+		trace("start at pos (from = " + from + "), exists: " + _playerEntryPoints.exists(from) );
 		
 		var p:Point;
 		

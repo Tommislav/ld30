@@ -214,13 +214,13 @@ class Player extends Entity
 		
 		
 		
-		if (Input.check(CTRL_LEFT) || Input.joystick(0).check(XBOX_GAMEPAD.DPAD_LEFT)) {
+		if (Input.check(CTRL_LEFT) || Input.joystick(0).hat.x == -1) {
 			if (_velocity.x > 0) { _velocity.x *= 0.9; }
 			isMoving = true;
 			_velocity.x -= gd.moveSpeed;
 			_dir.x = -1;
 		}
-		if (Input.check(CTRL_RIGHT) || Input.joystick(0).check(XBOX_GAMEPAD.DPAD_RIGHT)) {
+		if (Input.check(CTRL_RIGHT) || Input.joystick(0).hat.x == 1) {
 			
 			if (_velocity.x < 0) { _velocity.x *= 0.9; }
 			isMoving = true;
