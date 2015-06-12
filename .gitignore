@@ -1,2 +1,5 @@
 code/Export
 ld30/Export/
+.idea/
+*.iml
+out/
