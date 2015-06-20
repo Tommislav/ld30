@@ -50,6 +50,7 @@ class Player extends Entity
 	
 	private var _lastAttackTime:Int;
 	private var _lastDashTime:Int;
+	private var _attackButtonDown:Bool;
 	
 	private var _leftDownTime:Int;
 	private var _rightDownTime:Int;
@@ -236,9 +237,33 @@ class Player extends Entity
 		}
 		
 		if (Input.check(CTRL_ATK) || Input.joystick(0).check(XBOX_GAMEPAD.X_BUTTON)) {
-			if (canAttack()) {
-				attack();
+			
+			if (_attackButtonDown) { return; }
+			_attackButtonDown = true;
+			
+			//if (!_sword.getCanAttack()) { return; }
+			
+			var swordCanAttack = _sword.getCanAttack();
+			var sinceAtk = Lib.getTimer() - _lastAttackTime;
+			
+			if (sinceAtk < 5) {
+				return;
 			}
+			
+			if (Input.check(CTRL_UP) || Input.joystick(0).hat.y == -1) {
+				attack(2); // uppercut
+				_velocity.y = -50;
+				_onGround = false;
+			} else if (Input.check(CTRL_DOWN) || Input.joystick(0).hat.y == 1 && !_onGround) {
+				attack(3); // smackDown
+				_velocity.y = 60;
+				_velocity.x = 0;
+			} else {
+				attack(0);
+			}
+			
+		} else {
+			_attackButtonDown = false;
 		}
 		
 		
@@ -300,9 +325,9 @@ class Player extends Entity
 		return false;
 	}
 	
-	private function attack() {
+	private function attack(type:Int) {
 		_lastAttackTime = Lib.getTimer();
-		_sword.attack(_dir.x);
+		_sword.attack(_dir.x, type);
 		SoundFactory.getSound("Swing.wav").play();
 	}
 	
@@ -403,6 +428,10 @@ class Player extends Entity
 		return true;
 	}
 	
+	
+	public function getAttackedVelocity():Point {
+		return _velocity;
+	}
 	
 	
 	

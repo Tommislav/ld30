@@ -373,6 +373,8 @@ class Console
 			_back.bitmapData.dispose();
 		}
 		_back.bitmapData = HXP.createBitmap(width, height, true, 0xFFFFFFFF);
+		if (_back.bitmapData == null) { return; }
+		
 		HXP.matrix.identity();
 		HXP.matrix.tx = Math.max((_back.bitmapData.width - _bmpLogo.width) / 2, 0);
 		HXP.matrix.ty = Math.max((_back.bitmapData.height - _bmpLogo.height) / 2, 0);

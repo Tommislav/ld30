@@ -8,7 +8,9 @@ import flash.geom.Rectangle;
 import se.salomonsson.ld30.GraphicsFactory;
 
 /**
- * ...
+ * TODO:
+ * Sword should have origo at 0,0 and be displaced by parent entity
+ * Sometimes emit particle trail relative to parent (slash), sometimes in world-space (upercut)
  * @author Tommislav
  */
 class SwordGfx extends Graphiclist
@@ -19,6 +21,7 @@ class SwordGfx extends Graphiclist
 	private var _isAct:Bool;
 	
 	private var _hitbox:Rectangle;
+	private var _shrinkDuringDelay:Bool;
 
 	public function new() 
 	{
@@ -46,8 +49,12 @@ class SwordGfx extends Graphiclist
 		_dir = dir;
 	}
 	
-	public function attack() {
+	
+	
+	
+	public function attackTopToBottom() {
 		var extraSwing:Float = 0;
+		_shrinkDuringDelay = true;
 		
 		var r:Float = -Math.PI/2 - extraSwing;
 		var step:Float = (Math.PI + extraSwing) / 24.0;
@@ -58,11 +65,59 @@ class SwordGfx extends Graphiclist
 			r += step;
 			
 			sx = (_dir > 0) ? sx + 32 : -sx;
-			_gfxParts[i].initAttack(sx, sy + 16, i);
+			_gfxParts[i].initAttack(sx, sy + 16, i, _shrinkDuringDelay);
 		}
 		
 		_isAct = true;
 	}
+	
+	public function attackBottomToTop() {
+		var extraSwing:Float = 0;
+		_shrinkDuringDelay = true;
+		
+		var r:Float = Math.PI/2 - extraSwing;
+		var step:Float = (Math.PI + extraSwing) / 24.0;
+		
+		for (i in 0...24) {
+			var sx = Math.cos(r) * _bladeLength;
+			var sy = Math.sin(r) * 8;
+			r -= step;
+			
+			sx = (_dir > 0) ? sx + 32 : -sx;
+			_gfxParts[i].initAttack(sx, sy + 16, i, _shrinkDuringDelay);
+		}
+		
+		_isAct = true;
+	}
+	
+	public function attackUppercut() {
+		_shrinkDuringDelay = false;
+		
+		var sx:Float = 10;
+		var sy:Float = -10;
+		sx = (_dir > 0) ? sx + 32 : -sx;
+		
+		_gfxParts[0].initAttack(sx, sy, 24, _shrinkDuringDelay);
+		_gfxParts[0].scale = 1;
+		_gfxParts[0].visible = true;
+		_isAct = true;
+	}
+	
+	public function attackSmashDown() {
+		_shrinkDuringDelay = false;
+		
+		var sx:Float = 10;
+		var sy:Float = 32+10;
+		sx = (_dir > 0) ? sx + 32 : -sx;
+		
+		_gfxParts[0].initAttack(sx, sy, 24, _shrinkDuringDelay);
+		_gfxParts[0].scale = 1;
+		_gfxParts[0].visible = true;
+		_isAct = true;
+	}
+	
+	
+	
 	
 	public function isSwinging() {
 		return _isAct;
@@ -94,6 +149,7 @@ private class SwordGfxPart extends Image {
 	public var isActive:Bool;
 	private var _initDelay:Int;
 	private var _delay:Int;
+	private var _shrinkDuringDelay:Bool;
 	
 	public function new(src:BitmapData, x:Float, y:Float) {
 		
@@ -108,16 +164,28 @@ private class SwordGfxPart extends Image {
 		this.visible = false;
 	}
 	
-	public function initAttack(x:Float, y:Float, delay:Int) {
+	public function initAttack(x:Float, y:Float, delay:Int, shrinkDuringDelay:Bool) {
 		this.x = x;
 		this.y = y;
 		_initDelay = delay;
 		_delay = _initDelay;
+		_shrinkDuringDelay = shrinkDuringDelay;
 		isActive = true;
 	}
 	
 	
 	override public function update() {
+		if (isActive) {
+			if ((_delay > 0 && _shrinkDuringDelay) || _delay <= 0) {
+				this.scale *= 0.91;
+				if (scale < 0.2) {
+					this.visible = false;
+					
+					if (_delay <= 0 ) { this.isActive = false; }
+				}
+			}
+		}
+		
 		if (_delay > 0) {
 			_delay -= 1;
 			if (_delay == 0) {
@@ -126,11 +194,6 @@ private class SwordGfxPart extends Image {
 			}
 			return;
 		}
-			
-		this.scale *= 0.91;
-		if (scale < 0.2) {
-			this.visible = false;
-			this.isActive = false;
-		}
+		
 	}
 }

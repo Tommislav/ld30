@@ -77,5 +77,11 @@
     <property name="range" value="13"/>
    </properties>
   </object>
+  <object name="PunchBag" type="enemy" x="1776" y="1088" width="32" height="96">
+   <properties>
+    <property name="id" value="punchBag"/>
+    <property name="money" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

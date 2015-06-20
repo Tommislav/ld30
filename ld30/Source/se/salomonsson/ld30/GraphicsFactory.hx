@@ -82,10 +82,11 @@ class GraphicsFactory
 		
 		
 		registerImgPart32("large-eyes1", 11, 0);
-		registerImgPart32("large-eyes2	", 12, 0);
+		registerImgPart32("large-eyes2", 12, 0);
 		
 		// Free form images registration
 		_rect.set("shade32x96", new Rectangle(13 * 32, 0, 32, 96));
+		_rect.set("shade32x64", new Rectangle(13 * 32, 0, 32, 64));
 		_rect.set("shield96", new Rectangle(14 * 32, 0, 32, 96));
 		
 		_rect.set("shade64x256", new Rectangle(0, 2*32, 64, 256));
@@ -192,6 +193,16 @@ class GraphicsFactory
 		var shield:Image = instance.getImgPart("shield96");
 		shield.x = 10;
 		g.add2(shield, false, "");
+		return g;
+	}
+	
+	public function getPuchBagGfx() 
+	{
+		var g:DynamigGfxList = new DynamigGfxList();
+		g.add2(getColoredRect("solid_orange", 32, 64), true, "");
+		g.add2(getImgPart("shade32x64"), false, "");
+		g.add2(instance.getImgPart("large-eyes1"), true, "eyesOpen");
+		g.add2(instance.getImgPart("large-eyes2"), true, "eyesClosed");
 		return g;
 	}
 	

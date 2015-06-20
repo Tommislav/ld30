@@ -13,6 +13,9 @@ class Sword extends Entity
 	private var _gfx:SwordGfx;
 	private var _lastLen:Int;
 
+	private var _attackCnt:Int;
+	
+	
 	public function new(bladeLen) 
 	{
 		_gfx = new SwordGfx();
@@ -24,9 +27,22 @@ class Sword extends Entity
 		super(0, 0, _gfx);
 	}
 	
-	public function attack(dir:Float) {
+	public function attack(dir:Float, type:Int) {
 		_gfx.setDir(dir);
-		_gfx.attack();
+		
+		trace("attack type " + type);
+		switch(type) {
+			case 0:
+				_gfx.attackTopToBottom();
+			case 1:
+				_gfx.attackBottomToTop();
+			case 2:
+				_gfx.attackUppercut();
+			case 3:
+				_gfx.attackSmashDown();
+			default:
+				return;
+		}
 		
 		var w:Int = _lastLen;
 		var h:Int = 30;

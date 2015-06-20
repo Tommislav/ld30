@@ -20,6 +20,7 @@ import se.salomonsson.ld30.entities.LargeShieldEntity;
 import se.salomonsson.ld30.entities.Lava;
 import se.salomonsson.ld30.entities.MooseBoss;
 import se.salomonsson.ld30.entities.PortalEntity;
+import se.salomonsson.ld30.entities.PunchBag;
 import se.salomonsson.ld30.entities.PunchGiant;
 import se.salomonsson.ld30.entities.Punching;
 import se.salomonsson.ld30.entities.SpiderEntity;
@@ -149,6 +150,9 @@ class GameBaseScene extends Scene
 			case "spider":
 				var targetY:Float = y + (Std.parseFloat(obj.custom.resolve("range")) * 16);
 				add(new SpiderEntity(x, y, maxMoney, targetY));
+				
+			case "punchBag":
+				add(new PunchBag(x, y));
 		}
 	}
 	
