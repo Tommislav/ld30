@@ -16,7 +16,8 @@ class PunchBag extends EnemyBase
 	public var useGravity:Bool = true;
 	
 	private var _gfx:DynamigGfxList;
-	private var _shield:Entity;
+	
+	private var _onGround:Bool;
 	
 	public function new(x:Float, y:Float) 
 	{
@@ -35,6 +36,9 @@ class PunchBag extends EnemyBase
 	
 	override private function updatePhysics() 
 	{
+		_onGround = collideTypes(["solid", "cloud"], this.x, this.y + 1) != null;
+		trace("on ground: " + _onGround);
+		
 		if (useGravity) {
 			_velocity.y += GameData.instance.gravity;
 		}
@@ -45,7 +49,10 @@ class PunchBag extends EnemyBase
 		var mX = _velocity.x;
 		var mY = _velocity.y;
 		
-		//mX *= _resistance;
+		if (_onGround) {
+			mX *= 0.9;
+		}
+		
 		//mY *= _resistance;
 		
 		var shoudSweep = (mX < -16 || mX > 16 || mY < -16 || mY > 16);

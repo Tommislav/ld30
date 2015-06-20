@@ -1,5 +1,6 @@
 package;
 
+import haxe.io.Input;
 import com.haxepunk.Engine;
 import com.haxepunk.HXP;
 import com.haxepunk.utils.Input;
@@ -7,16 +8,8 @@ import flash.ui.Keyboard;
 import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.Player;
 import se.salomonsson.ld30.GraphicsFactory;
-import se.salomonsson.ld30.scene.FireScene;
-import se.salomonsson.ld30.scene.ForrestScene;
 import se.salomonsson.ld30.scene.ForrestScene2;
 import se.salomonsson.ld30.scene.HubScene;
-import se.salomonsson.ld30.scene.IronScene;
-import se.salomonsson.ld30.scene.ShopScene;
-import se.salomonsson.ld30.scene.SplashEndScreen;
-import se.salomonsson.ld30.scene.SplashScreen;
-import se.salomonsson.ld30.scene.SplashStartScene;
-import se.salomonsson.ld30.scene.StartScenee;
 
 
 class Main extends Engine {
