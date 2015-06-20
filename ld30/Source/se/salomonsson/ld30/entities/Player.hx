@@ -51,6 +51,7 @@ class Player extends Entity
 	private var _lastAttackTime:Int;
 	private var _lastDashTime:Int;
 	private var _attackButtonDown:Bool;
+	private var _lastAttackType:Int;
 	
 	private var _leftDownTime:Int;
 	private var _rightDownTime:Int;
@@ -326,6 +327,7 @@ class Player extends Entity
 	}
 	
 	private function attack(type:Int) {
+		_lastAttackType = type;
 		_lastAttackTime = Lib.getTimer();
 		_sword.attack(_dir.x, type);
 		SoundFactory.getSound("Swing.wav").play();
@@ -430,7 +432,15 @@ class Player extends Entity
 	
 	
 	public function getAttackedVelocity():Point {
-		return _velocity;
+		if (!_sword.getCanAttack()) {
+			if (_lastAttackType == 2) {
+				return new Point(0, _velocity.y);
+			} else if (_lastAttackType == 3) {
+				return new Point(0, _velocity.y * 3);
+			}
+		}
+		
+		return new Point(0,0);
 	}
 	
 	

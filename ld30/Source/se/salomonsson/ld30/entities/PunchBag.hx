@@ -87,7 +87,7 @@ class PunchBag extends EnemyBase
 					
 					var player:Player = cast(scene.getInstance(EntityType.PLAYER), Player);
 					var plVel = player.getAttackedVelocity();
-					_velocity = new Point(plVel.x, plVel.y);
+					_velocity.y = plVel.y;
 				}
 			}
 		} else {
