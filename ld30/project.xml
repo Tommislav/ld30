@@ -7,7 +7,7 @@
 	<window width="800" height="600" background="#FFFFFF" fps="60" vsync="true" hardware="true" />
 	
 	<source path="Source" />
-	<source path="../haxepunk-fork" />
+	<source path="haxepunk-fork" />
 	
 	<haxelib name="openfl" />
 	
@@ -15,8 +15,8 @@
 	<assets path="Assets" rename="assets" exclude="openfl.svg" />
 	<assets path="Assets/audio" rename="audio" type="audio" include="*" />
 	
-	<assets path="../haxepunk-fork/assets/graphics" rename="gfx" include="*.png" embed="true" />
-	<assets path="../haxepunk-fork/assets/font" rename="font" include="*.ttf" embed="true" />
+	<assets path="haxepunk-fork/assets/graphics" rename="gfx" include="*.png" embed="true" />
+	<assets path="haxepunk-fork/assets/font" rename="font" include="*.ttf" embed="true" />
 	<icon path="Assets/openfl.svg" />
 	
 </project>
