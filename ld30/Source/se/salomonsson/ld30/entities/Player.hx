@@ -47,6 +47,7 @@ class Player extends Entity
 	private var _isJumping:Bool;
 	private var _onGround:Bool;
 	private var _sword:Sword;
+	private var _punch:Punch;
 	
 	private var _lastAttackTime:Int;
 	private var _lastDashTime:Int;
@@ -117,7 +118,13 @@ class Player extends Entity
 		_sword = new Sword(GameData.instance.swordLength);
 		_sword.layer = HXP.BASELAYER - 1;
 		_sword.type = EntityType.ATK;
+		
+		_punch = new Punch();
+		_punch.layer = HXP.BASELAYER - 1;
+		
+		
 		HXP.scene.add(_sword);
+		HXP.scene.add(_punch);
 	}
 	
 	override public function update():Void 
@@ -170,6 +177,7 @@ class Player extends Entity
 		HXP.camera.setTo(this.x - HXP.halfWidth, this.y - HXP.halfHeight);
 		_sword.x = this.x;
 		_sword.y = this.y;
+		_punch.setJointPosition(x, y);
 	}
 	
 	function updateGfx() {

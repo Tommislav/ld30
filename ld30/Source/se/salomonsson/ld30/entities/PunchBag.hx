@@ -37,7 +37,7 @@ class PunchBag extends EnemyBase
 	override private function updatePhysics() 
 	{
 		_onGround = collideTypes(["solid", "cloud"], this.x, this.y + 1) != null;
-		trace("on ground: " + _onGround);
+		//trace("on ground: " + _onGround);
 		
 		if (useGravity) {
 			_velocity.y += GameData.instance.gravity;
