@@ -9,6 +9,7 @@ import se.salomonsson.ld30.data.GameData;
 import se.salomonsson.ld30.entities.Player;
 import se.salomonsson.ld30.GraphicsFactory;
 import se.salomonsson.ld30.scene.ForrestScene2;
+import se.salomonsson.ld30.scene.HubScene;
 
 
 class Main extends Engine {
