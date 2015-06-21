@@ -5,6 +5,8 @@ import com.haxepunk.graphics.Image;
 import com.haxepunk.HXP;
 import flash.display.BitmapData;
 import flash.geom.Rectangle;
+import motion.Actuate;
+import motion.easing.Cubic;
 import se.salomonsson.ld30.GraphicsFactory;
 
 /**
@@ -94,12 +96,16 @@ class SwordGfx extends Graphiclist
 		_shrinkDuringDelay = false;
 		
 		var sx:Float = 10;
-		var sy:Float = -10;
+		var sy:Float = 32;
 		sx = (_dir > 0) ? sx + 32 : -sx;
 		
 		_gfxParts[0].initAttack(sx, sy, 24, _shrinkDuringDelay);
 		_gfxParts[0].scale = 1;
 		_gfxParts[0].visible = true;
+		
+		Actuate.tween(_gfxParts[0], 0.1, { y: -10 } ).ease( Cubic.easeOut );
+		
+		
 		_isAct = true;
 	}
 	
@@ -107,13 +113,15 @@ class SwordGfx extends Graphiclist
 		_shrinkDuringDelay = false;
 		
 		var sx:Float = 10;
-		var sy:Float = 32+10;
+		var sy:Float = -10;
 		sx = (_dir > 0) ? sx + 32 : -sx;
 		
 		_gfxParts[0].initAttack(sx, sy, 24, _shrinkDuringDelay);
 		_gfxParts[0].scale = 1;
 		_gfxParts[0].visible = true;
 		_isAct = true;
+		
+		Actuate.tween(_gfxParts[0], 0.1, { y: 42 } ).ease( Cubic.easeOut );
 	}
 	
 	

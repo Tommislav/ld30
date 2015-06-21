@@ -27,11 +27,13 @@ class Punch extends Entity
 		
 		_joint = new Point();
 		
-		var g = Image.createRect(20, 20, 0xFFFFFFFF, 1);
-		g.centerOrigin();
-		g.color = 0x0000ff;
+		//var g = Image.createRect(20, 20, 0xFFFFFFFF, 1);
+		//g.centerOrigin();
+		//g.color = 0x0000ff;
 		
-		super(0, 0, g, mask);
+		
+		
+		super(0, 0, null, mask);
 		
 	}
 	

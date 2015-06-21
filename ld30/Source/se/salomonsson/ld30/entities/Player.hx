@@ -8,6 +8,7 @@ import com.haxepunk.utils.Ease;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Joystick;
 import flash.geom.Point;
+import flash.geom.Rectangle;
 import flash.Lib;
 import se.salomonsson.ld30.behaviours.IBehaviour;
 import se.salomonsson.ld30.behaviours.UpdatePosBehaviour;
@@ -23,8 +24,12 @@ import se.salomonsson.ld30.SoundFactory;
  * ...
  * @author Tommislav
  */
+
+typedef Bounds = { minX:Float, maxX:Float, minY:Float, maxY:Float };
 class Player extends Entity
 {
+	
+	
 	public static var CTRL_LEFT:String = "left";
 	public static var CTRL_RIGHT:String = "right";
 	public static var CTRL_UP:String = "up";
@@ -38,7 +43,11 @@ class Player extends Entity
 	private var _gfx:DynamigGfxList;
 	
 	private var _velocity:Point;
-	private var _maxVelocity:Point;
+	private var _maxVelocity:Bounds;
+	
+	private var _normalMaxVelocity:Bounds = {minX: -6, maxX: 6, minY: -14, maxY: 14};
+	private var _uppercutMaxVelocity:Bounds = {minX: -6, maxX: 6, minY: -24, maxY: 28};
+	
 	private var _dashVelocity:Point;
 	private var _behaviours:Array<IBehaviour>;
 	
@@ -66,6 +75,7 @@ class Player extends Entity
 	
 	
 	private var _joystick:Joystick;
+	var _floatInAir:Bool;
 	
 	
 	public function new() 
@@ -84,14 +94,12 @@ class Player extends Entity
 		this.setHitbox(32, 32);
 		
 		_velocity = new Point();
-		_maxVelocity = new Point();
 		_dashVelocity = new Point();
-		_maxVelocity.x = GameData.instance.maxSpeed;
-		_maxVelocity.y = GameData.instance.maxFall;
+		_maxVelocity = _normalMaxVelocity;
+		
 		_dir = new Point(1, 0);
 		
 		_behaviours = new Array<IBehaviour>();
-		//_behaviours.push(new UpdatePosBehaviour(_velocity, _maxVelocity));
 		
 		
 		_hud = new Hud(10, 10, 160, "playerHud");
@@ -119,6 +127,8 @@ class Player extends Entity
 		_sword.layer = HXP.BASELAYER - 1;
 		_sword.type = EntityType.ATK;
 		
+		
+		// TODO: Punch is currently not used (invisible)
 		_punch = new Punch();
 		_punch.layer = HXP.BASELAYER - 1;
 		
@@ -192,15 +202,24 @@ class Player extends Entity
 	
 	function updatePosition() {
 		
-		if (!isDashing()) {
-			_velocity.y += GameData.instance.gravity;
+		if (_floatInAir) {
+			
+			_velocity.y *= 0.85;
+			if (_velocity.y > -0.1) { 
+				_floatInAir = false; 
+			}
+			
+		} else {
+			if (!isDashing()) {
+				_velocity.y += GameData.instance.gravity;
+			}
 		}
 		
-		_velocity.x = HXP.clamp(_velocity.x, -_maxVelocity.x, _maxVelocity.x);
-		_velocity.y = HXP.clamp(_velocity.y, -_maxVelocity.y, _maxVelocity.y);
+		_velocity.x = HXP.clamp(_velocity.x, _maxVelocity.minX, _maxVelocity.maxX);
+		_velocity.y = HXP.clamp(_velocity.y, _maxVelocity.minY, _maxVelocity.maxY);
 		
 		var mX = _velocity.x + _dashVelocity.x;
-		var mY = _velocity.y + _dashVelocity.y;
+		var mY = _velocity.y;// + _dashVelocity.y;
 		
 		mX *= _resistance;
 		mY *= _resistance;
@@ -222,6 +241,9 @@ class Player extends Entity
 		_onGround = collideTypes(["solid", "cloud"], this.x, this.y + 1) != null;
 		var staggering:Bool = (Lib.getTimer() - _lastAttackTime < gd.moveStaggering);
 		
+		if (_onGround) {
+			_maxVelocity = _normalMaxVelocity;
+		}
 		
 		
 		if (Input.check(CTRL_LEFT) || Input.joystick(0).hat.x == -1) {
@@ -261,12 +283,16 @@ class Player extends Entity
 			
 			if (Input.check(CTRL_UP) || Input.joystick(0).hat.y == -1) {
 				attack(2); // uppercut
-				_velocity.y = -50;
+				_velocity.y = -100;
+				_floatInAir = true;
 				_onGround = false;
+				_isJumping = true;
+				_maxVelocity = _uppercutMaxVelocity;
 			} else if (Input.check(CTRL_DOWN) || Input.joystick(0).hat.y == 1 && !_onGround) {
 				attack(3); // smackDown
 				_velocity.y = 60;
 				_velocity.x = 0;
+				_floatInAir = false;
 			} else {
 				attack(0);
 			}
@@ -318,7 +344,6 @@ class Player extends Entity
 				}			
 			}
 		}
-		
 	}
 	
 	

@@ -30,7 +30,8 @@ class GameData
 	}
 	
 	public var maxSpeed:Float = 6;
-	public var maxFall:Float = 14;
+	public var maxFall:Float = 60;
+	public var maxJump:Float = -20;
 	public var moveSpeed:Float = 0.2;
 	public var moveStaggering:Int = 400;
 	public var gravity:Float = 1;

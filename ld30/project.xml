@@ -9,7 +9,9 @@
 	<source path="Source" />
 	<source path="haxepunk-fork" />
 	
-	<haxelib name="openfl" />
+	<haxelib name="openfl" version="2.2.4" />
+	<haxelib name="actuate" version="1.8.1" />
+	<!-- lime version 2.0.6, but seems to break if added here -->
 	
 	
 	<assets path="Assets" rename="assets" exclude="openfl.svg" />
@@ -18,5 +20,6 @@
 	<assets path="haxepunk-fork/assets/graphics" rename="gfx" include="*.png" embed="true" />
 	<assets path="haxepunk-fork/assets/font" rename="font" include="*.ttf" embed="true" />
 	<icon path="Assets/openfl.svg" />
+	
 	
 </project>
