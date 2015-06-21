@@ -288,7 +288,7 @@ class Player extends Entity
 		
 		
 		if (Input.pressed(CTRL_JUMP) || Input.joystick(0).pressed(XBOX_GAMEPAD.A_BUTTON)) {
-			if (_onGround) {
+			if (_onGround && !isDashing()) {
 				_velocity.y -= gd.jumpStr;
 				_isJumping = true;
 			}
@@ -393,6 +393,7 @@ class Player extends Entity
 	private function dash(dir:Int) {
 		_lastDashTime = Lib.getTimer();
 		_dashVelocity.x += dir * GameData.instance.dashSpeed; // DASH LENGTH
+		_velocity.y = 0;
 		
 		var name:String = (dir < 0) ? "dashL" : "dashR";
 		_emitter.emit(name, 10, centerX, centerY, 16, 16);
